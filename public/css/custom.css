@@ -1,0 +1,152 @@
+.navtop{
+  position: fixed;
+  top: 0px;
+  width:100%;
+  z-index: 99999;
+}
+
+.top-menu li a {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.top-menu li:hover {
+  font-size: 14px;
+  font-weight: bold;
+
+}
+
+.logo{
+  /*display: inline-block;*/
+  height:100px;
+  width:275px;
+  position:absolute;
+  background-color: black;
+  top:-10px;
+  opacity: 0.9;
+  filter: alpha(opacity=90);
+  /*box-shadow: 2px 2px 5px black;*/
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  border:1px solid #ccc;
+  padding:0px 10px;
+}
+
+.logo-img {
+  position: relative;
+  top:0px;
+  opacity: 100;
+  filter: alpha(opacity=100);
+  z-index: 999;
+  margin:3px;
+}
+
+.main_image {
+  margin-top:25px;
+  background-image: url('/images/slides/s1.jpg');
+  background-size:cover;
+  height: 320px;
+  width:100%;
+}
+
+.phrase {
+  display: none;
+  left: 0px;
+  top: 45px;
+  height: 230px;
+  position: relative;
+  width: 600px;
+  background-color: #555;
+  padding: 1px 15px 10px;
+  opacity: 0.9;
+  filter: alpha(opacity=90);
+}
+
+.phrase h1 {
+  display:none;
+  font-weight: bold;
+  color:white;
+}
+
+.phrase p {
+  display:none;
+  color:white;
+}
+
+.call-to-action {
+  position: relative;
+  height: 50px;
+  width:  100%;
+  background-color: #840;
+  bottom: 0px;
+}
+
+.call-to-action button {
+  position:relative;
+  top:7px;
+  color:white;
+  background-color: #091;
+  font-weight:bold;
+}
+
+.call-to-action .btn-backend {
+  border:1px solid white;
+}
+
+.title h1{
+  color: #840;
+  font-weight: bold;
+}
+
+.wrapper{
+  border: 1px solid #ccc;
+  margin-bottom:40px;
+  padding:10px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.wrapper-left{
+  height: 100%;
+  background-color: grey;
+}
+
+.ad small{
+  vertical-align: bottom;
+}
+
+.ad img{
+  height:200px;
+  width:250px;
+  position: relative;
+  float: left;
+  margin-right:15px;
+  margin-bottom: 10px;
+}
+
+.ad-created{
+  margin-right: 10px;
+  position: relative;
+  top:-30px;
+}
+
+.ad .footer{
+  background-color: #ddd;
+  width:100%;
+  height:50px;
+
+  /*line-height: 50px;*/
+}
+
+.ad .footer button{
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: 5px;
+  margin-top:7px;
+  background-color: #840;
+  color: white;
+}
