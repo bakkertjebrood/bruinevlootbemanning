@@ -10,11 +10,17 @@ $('.datepicker').datepicker({
   $('.phrase p').delay(1000).fadeIn();
   $('.phrase h1').delay(1000).fadeIn();
 
+// Header image background
+function slider(){
+  i = Math.floor(Math.random() * 4) + 1
+  $('.main_image').css('background-image','url("/images/slides/s'+i+'.jpg")');
+}
+
+slider();
+
 // logo on scroll remove
   $(window).scroll(function(){
-    console.log($(window).scrollTop());
-
-    if($(window).scrollTop() > 342){
+    if($(window).scrollTop() > 253){
     $('.logo').slideUp(500);
   }
     else{

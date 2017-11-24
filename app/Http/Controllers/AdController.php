@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use App\ad;
 use Illuminate\Http\Request;
+use View;
 
 class AdController extends Controller
 {
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
     /**
      * Display a listing of the resource.
      *
@@ -44,9 +49,12 @@ class AdController extends Controller
      * @param  \App\ad  $ad
      * @return \Illuminate\Http\Response
      */
-    public function show(ad $ad)
+    public function show($ad)
     {
-        //
+        $show = Ad::find($ad);
+
+        return View::make('ad')
+          ->with('ad',$show);
     }
 
     /**

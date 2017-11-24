@@ -27,7 +27,12 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function skills(){
-      return $this->hasMany('App\Skill');
+    public function skills()
+    {
+        return $this->morphMany('App\skill', 'skillable');
+    }
+
+    public function ad(){
+      return $this->belongsTo('App\ad');
     }
 }

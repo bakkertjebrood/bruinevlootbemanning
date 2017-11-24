@@ -5,6 +5,13 @@
   z-index: 99999;
 }
 
+.employer-btn{
+  position: absolute;
+  right:7px;
+  top:7px;
+  z-index: 999;
+}
+
 .top-menu li a {
   font-size: 14px;
   font-weight: normal;
@@ -21,10 +28,10 @@
   height:100px;
   width:275px;
   position:absolute;
-  background-color: black;
+  background-color: #333;
   top:-10px;
-  opacity: 0.9;
-  filter: alpha(opacity=90);
+  /*opacity: 0.9;
+  filter: alpha(opacity=90);*/
   /*box-shadow: 2px 2px 5px black;*/
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -81,72 +88,122 @@
   width:  100%;
   background-color: #840;
   bottom: 0px;
+  vertical-align: middle;
+  padding-top: 14px;
 }
 
-.call-to-action button {
-  position:relative;
-  top:7px;
+.call-to-action a {
   color:white;
-  background-color: #091;
   font-weight:bold;
 }
 
-.call-to-action .btn-backend {
-  border:1px solid white;
-}
-
-.title h1{
-  color: #840;
-  font-weight: bold;
-}
-
-.wrapper{
-  border: 1px solid #ccc;
-  margin-bottom:40px;
-  padding:10px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -khtml-border-radius: 5px;
-  border-radius: 5px;
-}
-
-.wrapper-left{
-  height: 100%;
-  background-color: grey;
-}
-
-.ad small{
-  vertical-align: bottom;
-}
-
-.ad img{
-  height:200px;
-  width:250px;
+.call-to-action .btn-login{
   position: relative;
-  float: left;
-  margin-right:15px;
-  margin-bottom: 10px;
+  top:-7px;
+  color:black;
+  font-weight:bold;
 }
 
-.ad-created{
-  margin-right: 10px;
+.ads-image{
+  width:200px;
+  height: 175px;
+}
+
+.login{
+  margin-top:60px;
+}
+
+.panel > .panel {
+  border: 1px solid #eee;
+}
+
+.profile-small img{
   position: relative;
-  top:-30px;
+  float: right;
+  height: 80px;
+  width: 80px;
+  margin-left:15px;
 }
 
-.ad .footer{
-  background-color: #ddd;
-  width:100%;
-  height:50px;
-
-  /*line-height: 50px;*/
+.modal {
+text-align: center;
 }
 
-.ad .footer button{
-  vertical-align: middle;
+@media screen and (min-width: 768px) {
+.modal:before {
   display: inline-block;
-  margin-right: 5px;
-  margin-top:7px;
-  background-color: #840;
-  color: white;
+  vertical-align: middle;
+  content: " ";
+  height: 100%;
+}
+}
+
+.modal-dialog {
+display: inline-block;
+text-align: left;
+vertical-align: middle;
+}
+
+.footer .divider{
+  height:50px;
+  background-color: #222;
+  margin-bottom: 60px;
+}
+
+.footer-wrapper{
+  background-color: #3c3d41;
+  height:400px;
+  margin-top:60px;
+}
+
+.footer-bs {
+  background-color: #3c3d41;
+	padding: 60px 40px;
+	color: rgba(255,255,255,1.00);
+	margin-bottom: 20px;
+	border-bottom-right-radius: 6px;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 6px;
+}
+.footer-bs .footer-brand, .footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { padding:10px 25px; }
+.footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { border-color: transparent; }
+.footer-bs .footer-brand h2 { margin:0px 0px 10px; }
+.footer-bs .footer-brand p { font-size:12px; color:rgba(255,255,255,0.70); }
+
+.footer-bs .footer-nav ul.pages { list-style:none; padding:0px; }
+.footer-bs .footer-nav ul.pages li { padding:5px 0px;}
+.footer-bs .footer-nav ul.pages a { color:rgba(255,255,255,1.00); font-weight:bold; text-transform:uppercase; }
+.footer-bs .footer-nav ul.pages a:hover { color:rgba(255,255,255,0.80); text-decoration:none; }
+.footer-bs .footer-nav h4 {
+	font-size: 11px;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	margin-bottom:10px;
+}
+
+.footer-bs .footer-nav ul.list { list-style:none; padding:0px; }
+.footer-bs .footer-nav ul.list li { padding:5px 0px;}
+.footer-bs .footer-nav ul.list a { color:rgba(255,255,255,0.80); }
+.footer-bs .footer-nav ul.list a:hover { color:rgba(255,255,255,0.60); text-decoration:none; }
+
+.footer-bs .footer-social ul { list-style:none; padding:0px; }
+.footer-bs .footer-social h4 {
+	font-size: 11px;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+}
+.footer-bs .footer-social li { padding:5px 4px;}
+.footer-bs .footer-social a { color:rgba(255,255,255,1.00);}
+.footer-bs .footer-social a:hover { color:rgba(255,255,255,0.80); text-decoration:none; }
+
+.footer-bs .footer-ns h4 {
+	font-size: 11px;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	margin-bottom:10px;
+}
+.footer-bs .footer-ns p { font-size:12px; color:rgba(255,255,255,0.70); }
+
+@media (min-width: 768px) {
+	.footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { border-left:solid 1px rgba(255,255,255,0.10); }
 }

@@ -21,6 +21,7 @@ class CreateAdsTable extends Migration
             $table->datetime('enddate');
             $table->string('photo')->nullable();
             $table->text('description');
+            $table->string('homeport');
             $table->timestamps();
         });
     }

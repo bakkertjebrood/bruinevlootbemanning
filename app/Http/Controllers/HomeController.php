@@ -19,14 +19,12 @@ class HomeController extends Controller
     {
       $categories = Category::all();
       $skills = Skill::all();
-      $ad_skills = Ad::find(1)->skills()->get();
 
       $ads = Ad::paginate(5);
         return View::make('welcome')
         ->with('ads', $ads)
         ->with('categories',$categories)
-        ->with('skills',$skills)
-        ->with('add_skills',$add_skills);
+        ->with('skills',$skills);
     }
 
     public function search($key){

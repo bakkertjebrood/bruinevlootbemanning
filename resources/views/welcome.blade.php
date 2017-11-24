@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('title')
 Bruinevlootbemanning
@@ -8,78 +8,80 @@ Bruinevlootbemanning
 
 @stop
 @section('content')
-<div class="container-fluid main_image">
-  <div class="container">
-    <div class="phrase pull-right">
-      <h1>Schippers, matrozen, horeca personeel en klussers gevraagd</h1>
-      <p>Van student tot pensionado, van starter tot ervaren bemanningslid, iedereen is welkom! Er is werk te doen aan boord van prachtige historische schepen binnen of buiten het vaar seizoen. Schrijf je dus in of ben je scheepseigenaar, plaats jouw vacature en kom in contact met mede enthousiastelingen.</p>
-    </div>
-  </div>
-</div>
-<div class="container-fluid call-to-action">
-  <div class="container">
-    <div class="pull-right">
-        @if (Auth::guest())
-        <button type="button" class="btn btn-l btn-login" name="button">Inloggen</button>
-        @else
-        @endif
-      <button type="button" class="btn btn-l btn-backend" name="button">Werkgever</button>
-</div>
-</div>
-</div>
-
 <div class="container">
 
   <ol class="breadcrumb">
-    <li class="breadcrumb-item active"><small>Home</small></li>
+    <li class="breadcrumb-item active"><small>Welkom</small></li>
   </ol>
-
-  <div class="row">
 
     <!-- Main ads grid -->
     <div class="col-lg-9">
-      <div class="title">
+      <div>
         <h1>Vacatures</h1>
+        <hr>
       </div>
 
-      <hr>
+      @foreach($ads as $ad)
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">{{$ad->name}}</h3>
+        </div>
+        <div class="panel-body">
+          <div class="media">
+            <div class="media-left">
+              <a href="#">
+                <img class="media-object ads-image " src="{{$ad->photo}}" alt="Photo">
+              </a>
+            </div>
+            <div class="media-body">
 
-      <div class="ads">
-        @foreach($ads as $ad)
-        <div class="ad">
-          <div>
-            <h3>{{$ad->name}}</h3>
-          </div>
-          <div class="pull-right">
-            <small class="ad-created">Aangemaakt op: {{date_format($ad->created_at,'d-m-Y')}}</small>
-          </div>
+              <h4 class="media-heading">Omschrijving</h4>
+              <p>{{str_limit($ad->description,250)}}</p>
 
+              <span><strong>Vaardigheden: </strong>
+                @foreach($ad->skills as $skill)
+                {{strToLower($skill->name)}}
+                @endforeach
+              </span><br>
 
-          <div class="wrapper clearfix">
-            <img class="img-thumbnail" src="{{$ad->photo}}" alt="">
-            <strong>Omschrijving</strong>
-            <p>{{str_limit($ad->description,250)}}</p>
+              <span><strong>Periode:</strong> {{date_format(new DateTime($ad->startdate),'d-m-Y')}} tot {{date_format(new DateTime($ad->enddate),'d-m-Y')}}</span><br>
 
-            <strong>Vaardigheden:</strong>
-            <p>[[skills]]</p>
-
-            <strong>Periode:</strong>
-            <p>{{date_format(new DateTime($ad->startdate),'d-m-Y')}} tot {{date_format(new DateTime($ad->enddate),'d-m-Y')}}</p>
-
-            <div class="footer">
-              <button type="button" class="btn btn-m pull-right" name="respond">Reageer</button>
+              <span><strong>Geplaatst op:</strong> {{date_format($ad->created_at,'d-m-Y')}}</span>
             </div>
           </div>
-
         </div>
-
-        @endforeach
+        <div class="panel-footer clearfix">
+          <span class="pull-right ">
+                       <a type="button" class="btn btn-m btn-default" href="{{route('ad',$ad->id)}}" name="button">Meer informatie</a>
+                       <a type="button" class="btn btn-m btn-primary" data-toggle="modal" data-target="#ad_respond" name="respond">Reageer</a>
+                       </span>
+        </div>
       </div>
-
+@endforeach
       <div class="pagination">
         {{$ads->links()}}
       </div>
     </div>
+
+<!-- Respond to ad -->
+    <div class="modal fade" id="ad_respond" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="ad_respond"></h4>
+          </div>
+          <div class="modal-body">
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
+            <button type="button" class="btn btn-primary">Versturen</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <div class="col-lg-3">
       <!-- Search -->
@@ -129,7 +131,6 @@ Bruinevlootbemanning
       </div>
 
     </div>
-  </div>
 </div>
 @stop
 
