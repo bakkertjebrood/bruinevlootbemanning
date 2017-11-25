@@ -16,84 +16,14 @@
   <link rel="stylesheet" href="/css/custom.css">
   <link rel="stylesheet" href="/css/bootstrap-datepicker3.standalone.min.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-  @yield('header')
+
 
 </head>
 <body>
-    <nav class="navbar navbar-inverse navtop">
-      <div class="container">
-        <div class="navbar-header">
-
-          <!-- Collapsed Hamburger -->
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-            <span class="sr-only">Toggle Navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-
-          <!-- Branding Image -->
-          <div class="logo">
-          <a class="" href="#">
-            <img class="logo-img" alt="Brand" src="/images/logo.png">
-          </a>
-        </div>
-      </div>
-
-        <div class="collapse navbar-collapse" id="app-navbar-collapse">
-          <!-- Left Side Of Navbar -->
-          <ul class="nav navbar-nav">
-            &nbsp;
-          </ul>
-
-          <!-- Right Side Of Navbar -->
-          <ul class="nav navbar-nav navbar-right top-menu">
-            <li><a href="{{route('home')}}">Home</a></li>
-            <li><a href="{{route('responses')}}">Advertenties</a></li>
-            <li><a href="{{route('faq')}}">Hoe het werkt</a></li>
-            <li><a href="{{route('contact')}}">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-
-    <div class="employer-btn">
-      <a type="button" class="btn btn-m btn-default btn-employer" name="button">Werkgever</a>
-    </div>
-
-  </nav>
-
-  <div class="container-fluid main_image">
-    <div class="container">
-      <div class="phrase pull-right">
-        <h1>Schippers, matrozen, horeca personeel en klussers gevraagd</h1>
-        <p>Van student tot pensionado, van starter tot ervaren bemanningslid, iedereen is welkom! Er is werk te doen aan boord van prachtige historische schepen binnen of buiten het vaar seizoen. Schrijf je dus in of ben je scheepseigenaar, plaats jouw vacature en kom in contact met mede enthousiastelingen.</p>
-      </div>
-    </div>
-  </div>
-  <div class="container-fluid call-to-action">
-    <div class="container">
-      <div class="pull-right">
-
-          <div class="dropdown call-to-action-dropdown">
-            @if (Auth::guest())
-              <a href="/login" class="btn btn-default btn-login" name="button">Inloggen</a>
-              @else
-                <a class="" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Welkom, {{Auth::user()->name}}
-                  <span class="caret"></span>
-                </a>
-              @endif
-            <ul class="dropdown-menu" role="menu" aria-labelledby="">
-              <li><a href="/employee/profile/{{Isset(Auth::user()->id)}}">Mijn profiel</a></li>
-              <li><a href="#">Mijn instellingen</a></li>
-              <li><a href="#">Uitloggen</a></li>
-            </ul>
-          </div>
 
 
-      </div>
-    </div>
-  </div>
+  @yield('header')
+  
 
   @yield('content')
 

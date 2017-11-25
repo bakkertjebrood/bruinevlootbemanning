@@ -20,4 +20,6 @@ Route::get('/faq', 'FaqController@index')->name('faq');
 Route::get('/contact', 'ContactController@index')->name('contact');
 Route::get('/search/{key}','HomeController@search');
 Route::get('/ad/{id}','AdController@show')->name('ad');
-Route::resource('/employee/profile','EmployeeController');
+Route::resource('/user/profile','ProfileController');
+Route::post('/user/profile/photo','ProfileController@photo')->name('profilephoto');
+Route::get('/logout', 'ProfileController@logout')->name('logout');

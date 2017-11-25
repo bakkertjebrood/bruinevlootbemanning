@@ -5,8 +5,10 @@ Bruinevlootbemanning
 @stop
 
 @section('header')
-
+@include('inc.navbar')
+@include('inc.cta')
 @stop
+
 @section('content')
 <div class="container">
   <ol class="breadcrumb">
@@ -86,7 +88,7 @@ Bruinevlootbemanning
         <h3 class="panel-title">{{$ad->user->name}}</h3>
       </div>
       <div class="panel-body profile-small">
-        <img class="thumbnail" src="{{$ad->user->photo}}" alt="">
+        <img class="thumbnail" src="{{url('/uploads/photo')}}/{{$ad->user->photo}}" alt="">
         <p>{{str_limit($ad->user->description,200)}}</p>
       </div>
     </div>

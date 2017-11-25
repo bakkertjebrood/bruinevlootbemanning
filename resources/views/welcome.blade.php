@@ -5,7 +5,9 @@ Bruinevlootbemanning
 @stop
 
 @section('header')
-
+@include('inc.navbar')
+@include('inc.poster')
+@include('inc.cta')
 @stop
 @section('content')
 <div class="container">
