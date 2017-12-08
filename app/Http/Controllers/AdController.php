@@ -5,6 +5,15 @@ namespace App\Http\Controllers;
 use App\ad;
 use Illuminate\Http\Request;
 use View;
+use Calendar;
+use Auth;
+use DateTime;
+use Image;
+use App\Skill;
+use App\Category;
+use App\skill_definition;
+use App\category_definition;
+use Carbon;
 
 class AdController extends Controller
 {
@@ -12,35 +21,77 @@ class AdController extends Controller
   {
       $this->middleware('auth');
   }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+     public function index()
+     {
+       $category_definitions = Category_definition::all();
+       $skill_definitions = Skill_definition::all();
+
+       $ads = Ad::where('user_id',Auth::user()->id)->paginate(15);
+         return View::make('joblist')
+         ->with('ads', $ads)
+         ->with('category_definitions',$category_definitions)
+         ->with('skill_definitions', $skill_definitions);
+     }
+
     public function store(Request $request)
     {
-        //
+      $ad = new Ad;
+      $ad->name = $request->name;
+      $ad->user_id = Auth::user()->id;
+      $ad->startdate = new DateTime($request->startdate);
+      $ad->enddate = new DateTime($request->enddate);
+      $ad->description = $request->description;
+      $ad->experience = $request->experience;
+      $ad->homeport = $request->homeport;
+      $ad->type = $request->type;
+
+      if($request->file('photo')){
+      $photo = $request->file('photo');
+      $filename = time() . '.' . $photo->getClientOriginalExtension();
+      Image::make($photo)->fit(400,300)->save( public_path('/uploads/photo/' . $filename));
+      $ad->photo = $filename;
+    }else{
+      if($request->type == 2){
+        $ad->photo = Auth::user()->photo;
+      }
+    }
+      $ad->save();
+
+      $id = $ad->id;
+
+      if($request->skills){
+        Skill::where('skillable_id',$id)->delete();
+        $skills = $request->skills;
+        foreach($skills as $skill){
+
+          $skill = new Skill(['skill_definition_id' => $skill]);
+          $ad = Ad::find($id);
+          $skill = $ad->skills()->save($skill);
+        }
+      }
+
+      if($request->categories){
+        Category::where('categorizable_id',$id)->delete();
+        $categories = $request->categories;
+        foreach($categories as $category){
+
+          $category = new Category(['category_definition_id' => $category]);
+          $ad = Ad::find($id);
+          $category = $ad->categories()->save($category);
+        }
+      }
+
+      if($request->type == 1){
+        flash('Uw vacature is geplaatst')->success();
+        return redirect('/job/openings');
+      }elseif($request->type == 2){
+        flash('Uw oproep is geplaatst')->success();
+        return redirect('/job/requests');
+      }
+
+
     }
 
     /**
@@ -52,9 +103,13 @@ class AdController extends Controller
     public function show($ad)
     {
         $show = Ad::find($ad);
+        $skill_definitions = Skill_definition::all();
+        $category_definitions = Category_definition::all();
 
-        return View::make('ad')
-          ->with('ad',$show);
+        return View::make('jobupdate')
+          ->with('ad',$show)
+          ->with('skill_definitions',$skill_definitions)
+          ->with('category_definitions',$category_definitions);
     }
 
     /**
@@ -75,9 +130,59 @@ class AdController extends Controller
      * @param  \App\ad  $ad
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ad $ad)
+    public function update(Request $request, $id)
     {
-        //
+      $ad = Ad::find($id);
+      $ad->name = $request->name;
+      $ad->startdate = new DateTime($request->startdate);
+      $ad->enddate = new DateTime($request->enddate);
+      $ad->description = $request->description;
+      if($ad->type == 2){
+        $ad->experience = $request->experience;
+      }
+      $ad->homeport = $request->homeport;
+
+      if($request->file('photo')){
+      $photo = $request->file('photo');
+      $filename = time() . '.' . $photo->getClientOriginalExtension();
+      Image::make($photo)->fit(400,301)->save( public_path('/uploads/photo/' . $filename));
+      $ad->photo = $filename;
+    }else{
+      // $ad->photo = 'default-photo.jpg';
+    }
+      $ad->save();
+
+      $id = $ad->id;
+
+      if($request->skills){
+        Skill::where('skillable_id',$id)->delete();
+        $skills = $request->skills;
+        foreach($skills as $skill){
+
+          $skill = new Skill(['skill_definition_id' => $skill]);
+          $ad = Ad::find($id);
+          $skill = $ad->skills()->save($skill);
+        }
+      }
+
+      if($request->categories){
+        Category::where('categorizable_id',$id)->delete();
+        $categories = $request->categories;
+        foreach($categories as $category){
+
+          $category = new Category(['category_definition_id' => $category]);
+          $ad = Ad::find($id);
+          $category = $ad->categories()->save($category);
+        }
+      }
+
+      if ($ad->type == 1) {
+        flash('Uw vacature is gewijzigd')->success();
+      }else{
+        flash('Uw oproep is gewijzigd')->success();
+      }
+
+      return redirect('/user/ad/'.$ad->id);
     }
 
     /**
@@ -86,8 +191,12 @@ class AdController extends Controller
      * @param  \App\ad  $ad
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ad $ad)
+    public function destroy($ad)
     {
-        //
+        $destroy = Ad::find($ad)->delete();
+
+        flash('Jouw advertentie is verwijderd')->success();
+
+        return redirect('/user/ad');
     }
 }

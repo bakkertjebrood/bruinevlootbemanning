@@ -35,4 +35,8 @@ class User extends Authenticatable
     public function ad(){
       return $this->belongsTo('App\ad');
     }
+
+    public function categories(){
+      return $this->morphMany('App\category','categorizable');
+    }
 }

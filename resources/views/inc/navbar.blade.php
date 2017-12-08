@@ -14,12 +14,21 @@
       </button>
 
       <!-- Branding Image -->
-      <div class="logo">
-      <a class="" href="#">
-        <img class="logo-img" alt="Brand" src="/images/logo.png">
-      </a>
+      <div class="logo hidden-xs">
+        <a class="" href="#">
+
+          <div class="logo-icon">
+            <h2 class=""><a href="{{route('home')}}"> <strong>Bruine</strong>Vloot<small> bemanning</small><small>.nl</small></a></h2>
+          </div>
+
+        </a>
+      </div>
+      <div class="logo-small">
+
+        <a class="h3" href="{{route('home')}}"> <strong>Bruine</strong>Vloot<small> bemanning.nl</small></a>
+      </div>
+
     </div>
-  </div>
 
     <div class="collapse navbar-collapse" id="app-navbar-collapse">
       <!-- Left Side Of Navbar -->
@@ -30,15 +39,38 @@
       <!-- Right Side Of Navbar -->
       <ul class="nav navbar-nav navbar-right top-menu">
         <li><a href="{{route('home')}}">Home</a></li>
-        <li><a href="{{route('responses')}}">Advertenties</a></li>
+        <li><a href="{{route('jobrequests')}}">Bemanning aanbod</a></li>
+        <li><a href="{{route('jobopenings')}}">Vacatures</a></li>
         <li><a href="{{route('faq')}}">Hoe het werkt</a></li>
+        <li>
+          @if (Auth::guest())
+          <a href="{{route('login')}}" class="">Inloggen</a>
+          @else
+          <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Welkom, {{Auth::user()->firstname}}
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="{{url('user/profile')}}">Mijn profiel</i></a></li>
+            <li><a href="#">Mijn instellingen</i></a></li>
+            <li><a href="{{url('user/ad')}}">Mijn advertenties</i></a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="{{route('logout')}}">Uitloggen</a></li>
+          </ul>
+          @endif
+        </li>
+        <li>
+          @if (Auth::guest())
+          <a href="{{route('register')}}" class="">Inschrijven</a>
+          @endif
+        </li>
         <li><a href="{{route('contact')}}">Contact</a></li>
       </ul>
     </div>
   </div>
 
-<div class="employer-btn">
-  <a type="button" class="btn btn-m btn-default btn-employer" name="button">Werkgever</a>
-</div>
+  <!-- <div class="employer-btn">
+    <a type="button" class="btn btn-m btn-default btn-employer hidden-xs" name="button">Werkgever</a>
+  </div> -->
 
 </nav>

@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use View;
 use App\Ad;
-use App\Category;
-use App\Skill;
+use App\category_definition;
+use App\skill_definition;
 
 class HomeController extends Controller
 {
@@ -17,21 +17,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-      $categories = Category::all();
-      $skills = Skill::all();
+      $category_definitions = Category_definition::all();
+      $skills_definitions = skill_definition::all();
 
-      $ads = Ad::paginate(5);
+      $jobs = Ad::where('type','1')->paginate(4);
+      $offers = Ad::where('type','2')->paginate(4);
         return View::make('welcome')
-        ->with('ads', $ads)
-        ->with('categories',$categories)
-        ->with('skills',$skills);
-    }
-
-    public function search($key){
-      $ads = Ad::where('name','like','%'.$key.'%')->paginate(5);
-        return View::make('welcome')
-        ->with('ads', $ads);
-
+        ->with('jobs', $jobs)
+        ->with('offers', $offers)
+        ->with('category_definitions',$category_definitions)
+        ->with('skill_definitions',$skills_definitions);
     }
 
     /**

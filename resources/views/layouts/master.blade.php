@@ -12,90 +12,77 @@
 
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
-  <link rel="stylesheet" href="/css/custom.css">
+  <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
   <link rel="stylesheet" href="/css/bootstrap-datepicker3.standalone.min.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
 
 </head>
 <body>
 
-
   @yield('header')
-  
-
   @yield('content')
 
-
-<div class="container-fluid footer-wrapper">
-
-    <div class="container">
-    <footer class="footer-bs">
-
-      <div class="divider">
+  <footer id="myFooter">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-3">
+                  <h5>Van start</h5>
+                  <ul>
+                      <li><a href="{{route('home')}}">Home</a></li>
+                      <li><a href="{{route('register')}}">Inschrijven</a></li>
+                      <li><a href="{{route('login')}}">Inloggen</a></li>
+                  </ul>
+              </div>
+              <div class="col-sm-3">
+                  <h5>Over ons</h5>
+                  <ul>
+                      <li><a href="{{route('about')}}">Het initiatief</a></li>
+                      <li><a href="{{route('contact')}}">Neem contact op</a></li>
+                      <li><a href="{{route('creator')}}">Wie is de maker</a></li>
+                  </ul>
+              </div>
+              <div class="col-sm-3">
+                  <h5>Ondersteuning</h5>
+                  <ul>
+                      <li><a href="{{route('faq')}}">Veelgestelde vragen</a></li>
+                      <li><a href="{{route('contact')}}">Probleem melden</a></li>
+                      <li><a href="{{route('suggestions')}}">Jouw suggestie indienen</a></li>
+                  </ul>
+              </div>
+              <div class="col-sm-3 info">
+                  <h5>Informatie</h5>
+                  <p> Deze website is een gratis initiatief en brengt scheepseigenaren, bemanning, horeca personeel, klussers en andere enthousiaste mensen met elkaar in contact. </p>
+              </div>
+          </div>
       </div>
-        <div class="row">
-        	<div class="col-md-3 footer-brand animated fadeInLeft">
-            	<h2>Logo</h2>
-                <p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam porttitor vitae orci nec ultricies. Curabitur vehicula, libero eget faucibus faucibus, purus erat eleifend enim, porta pellentesque ex mi ut sem.</p>
-                <p>© 2014 BS3 UI Kit, All rights reserved</p>
-            </div>
-        	<div class="col-md-4 footer-nav animated fadeInUp">
-            	<h4>Menu —</h4>
-            	<div class="col-md-6">
-                    <ul class="pages">
-                        <li><a href="#">Travel</a></li>
-                        <li><a href="#">Nature</a></li>
-                        <li><a href="#">Explores</a></li>
-                        <li><a href="#">Science</a></li>
-                        <li><a href="#">Advice</a></li>
-                    </ul>
-                </div>
-            	<div class="col-md-6">
-                    <ul class="list">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contacts</a></li>
-                        <li><a href="#">Terms & Condition</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-        	<div class="col-md-2 footer-social animated fadeInDown">
-            	<h4>Follow Us</h4>
-            	<ul>
-                	<li><a href="#">Facebook</a></li>
-                	<li><a href="#">Twitter</a></li>
-                	<li><a href="#">Instagram</a></li>
-                	<li><a href="#">RSS</a></li>
-                </ul>
-            </div>
-        	<div class="col-md-3 footer-ns animated fadeInRight">
-            	<h4>Newsletter</h4>
-                <p>A rover wearing a fuzzy suit doesn’t alarm the real penguins</p>
-                <p>
-                    <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Search for...">
-                      <span class="input-group-btn">
-                        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
-                      </span>
-                    </div><!-- /input-group -->
-                 </p>
-            </div>
-        </div>
-    </footer>
-  </div>
-</div>
+      <div class="second-bar">
+         <div class="container">
+              <h2 class="logo-footer"><a href="#"> <strong>Bruine</strong>Vloot<small> bemanning</small><small>.nl</small></a></h2>
+              <div class="social-icons">
+                  <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                  <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                  <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+              </div>
+          </div>
+      </div>
+  </footer>
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
 <script type="text/javascript" src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
-<script type="text/javascript" src="/js/bootstrap-datepicker.min.js" charset="utf-8"></script>
-<script type="text/javascript" src="/js/bootstrap-datepicker.nl.min.js" charset="utf-8"></script>
+<script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap-datepicker.nl.min.js') }}"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-<script type="text/javascript" src="/js/custom.js" charset="utf-8"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
+<script type="text/javascript" src="{{ asset('js/custom.js') }}" charset="utf-8"></script>
+
 @yield('scripts')
 </body>
 </html>

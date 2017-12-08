@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\category_definition;
 
-class EmployerController extends Controller
+class CategoryDefinitionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,6 +15,12 @@ class EmployerController extends Controller
     public function index()
     {
         //
+    }
+
+    public function list(){
+      $results = category_definition::select(['id', 'name as text'])->orderby('text')->get();
+
+      return response()->json($results);
     }
 
     /**

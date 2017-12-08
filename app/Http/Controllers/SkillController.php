@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\skill;
+use App\skill_definition;
 use Illuminate\Http\Request;
 
 class SkillController extends Controller
@@ -14,7 +15,9 @@ class SkillController extends Controller
      */
     public function index()
     {
-        //
+        $skills = Skill_definition::all();
+
+        return response()->json($skills);
     }
 
     /**

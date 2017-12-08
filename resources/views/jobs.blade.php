@@ -1,0 +1,245 @@
+@extends('layouts.master')
+
+@section('title')
+Bruinevlootbemanning
+@stop
+
+@section('header')
+@include('inc.navbar')
+@include('inc.cta')
+@stop
+
+@section('content')
+<div  id="jobs" class="container">
+
+  <!-- Main ads grid -->
+  <div class="col-lg-9">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><small><a href="{{url('/')}}">Welkom</a></small></li>
+      <li class="breadcrumb-item active" aria-current="page">
+        @if($ad_type == 1)
+        Vacature overzicht
+        @else
+        Oproepen overzicht
+        @endif
+      </li>
+    </ol>
+
+    <div class="">
+      <h2>
+        @if($ad_type == 1)
+        Vacatures
+        @else
+        Oproepen
+        @endif
+        <small> het volledige aanbod</small></h2><hr>
+      </div>
+      @include('flash::message')
+
+      <div>
+          <transition-group name="list" tag="p">
+        <div :key="job.id" v-for="job in jobs" class="panel panel-default list-item">
+          <div class="panel-heading">
+            <h3 class="panel-title">@{{job.name}}</h3>
+          </div>
+          <div class="panel-body">
+            <div class="media">
+              <div class="media-left">
+                <a href="">
+                  <img class="media-object ads-image-m" :src="'{{url('uploads/photo')}}/' + job.photo" alt="Photo">
+                </a>
+              </div>
+              <div class="media-body">
+                <div class="col-sm-6 col-md-4 col-lg-12">
+                  <p>@{{job.description | truncate(300) }}</p>
+                </div>
+
+                <div class="col-sm-3 col-md-6 col-lg-12">
+                  <strong>Periode: </strong><span>@{{job.startdate | moment("D-M-Y")}} tot @{{job.enddate | moment("D-M-Y")}} </span><br>
+                  <strong>Geplaatst op: </strong><span>@{{job.created_at | moment("D-M-Y")}} </span><br>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel-footer clearfix">
+            <span class="pull-right ">
+              <a type="button" class="btn btn-m btn-default" :href="'/job/'+job.id" name="button">Meer informatie</a>
+              <a type="button" class="btn btn-m btn-primary" href="" name="respond">Reageer</a>
+            </span>
+          </div>
+        </div>
+      </transition-group>
+      </div>
+      <div class="pagination">
+
+      </div>
+    </div>
+
+
+    <div class="col-lg-3">
+      <div class="search">
+
+        <div class="list-group notice">
+          <a href="{{route('jobrequest')}}" class="list-group-item">Plaats oproep</a>
+          <a href="{{route('jobopening')}}" class="list-group-item">Plaats vacature</a>
+        </div>
+
+        <div class="list-group">
+          <label for="search">Alles tonen</label>
+          @if($ad_type == 1)
+          <a href="{{route('jobrequests')}}" class="list-group-item ">Bemanning aanbod</a>
+          <a href="{{route('jobopenings')}}" class="list-group-item active">Vacatures</a>
+          @elseif($ad_type == 2)
+          <a href="{{route('jobrequests')}}" class="list-group-item active">Bemanning aanbod</a>
+          <a href="{{route('jobopenings')}}" class="list-group-item ">Vacatures</a>
+          @endif
+        </div>
+
+        <!-- Start / end -->
+        <div class="daterange">
+          @if($ad_type == 1)
+          <label for="daterange">Periode</label>
+          @elseif($ad_type == 2)
+          <label for="daterange">Beschikbaar tussen</label>
+          @endif
+
+          <div class="input-group input-daterange" id="daterange">
+            <input type="text" data-date-format='dd-mm-yyyy' class="form-control " id="startdate" v-model="startdate" value="" placeholder="20-5-2018">
+            <div class="input-group-addon"><small>tot</small></div>
+            <input type="text" data-date-format='dd-mm-yyyy' class="form-control" id="enddate" v-model="enddate" value="" placeholder="20-5-2019">
+            <span class="input-group-btn">
+              <button class="btn btn-primary" @click="addDates()" type="button"><span class="glyphicon glyphicon-search"></span></button>
+            </span>
+          </div><br>
+        </div><br>
+
+        <!-- Search categories -->
+        <div class="categories">
+          <label for="categories">Zoek op categorie</label>
+          <div class="list-group checked-list-box" id="categories">
+            <a v-for="category in categories" @click="addCategory(categories,category)" :class="['list-group-item',{active:category.isActive}]">
+              @{{category.name}}
+            </a>
+          </div>
+        </div>
+
+        <!-- Search skills -->
+        <div class="">
+          <label for="categories">Zoek op vaardigheden</label>
+          <div class="list-group checked-list-box">
+            <a v-for="skill in skills" @click="addSkill(skills,skill)" :class="['list-group-item',{active:skill.isActive}]" >@{{skill.name}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  @stop
+
+  @section('scripts')
+  <script type="text/javascript">
+  // Render jobopenings
+  var jobs = new Vue({
+    el: '#jobs',
+
+    data:{
+      jobs: [],
+      skills: '',
+      categories: '',
+      selected_skills: [],
+      selected_categories: [],
+      ad_type: '',
+      startdate: '',
+      enddate: ''
+    },
+
+    filters: {
+      truncate: function(string, value) {
+        return string.substring(0, value) + '...';
+      }
+
+    },
+
+    mounted(){
+      // jobs
+      axios.post('/jobs/data', {
+        ad_type:{{$ad_type}}
+
+      }).then(response => {
+        this.jobs = response.data;
+
+      });
+
+      // skills
+      axios.get('/skills/data').then(response =>{
+        this.skills = response.data;
+
+      });
+      axios.get('/categories/data').then(response => this.categories = response.data);
+
+      $("#startdate").datepicker({
+        format:'d-m-yyyy',
+        language:'nl'}).on("changeDate", () => {this.startdate = $('#startdate').val()}
+      );
+
+      $("#enddate").datepicker({
+        format:'d-m-yyyy',
+        language:'nl'}).on("changeDate", () => {this.enddate = $('#enddate').val()}
+      );
+
+    },
+
+    computed:{
+      dateInit(){
+        console.log(this.startdate);
+      }
+
+    },
+
+    methods:{
+      addDates(){
+        this.data();
+      },
+      addSkill(skills, skill){
+        skill.isActive = !skill.isActive;
+        var _this = this;
+        this.selected_skills = [];
+        skills.forEach(function(skill,index){
+          if(skill.isActive){
+            _this.selected_skills.push(skill.id);
+          }
+        });
+        this.data();
+      },
+      addCategory(categories,category){
+        category.isActive = !category.isActive;
+        var _this = this;
+        this.selected_categories = [];
+        categories.forEach(function(category,index){
+          if(category.isActive){
+            _this.selected_categories.push(category.id);
+          }
+        });
+        this.data();
+      },
+      data(){
+        axios.post('/jobs/data', {
+          startdate: this.startdate,
+          enddate: this.enddate,
+          categories: this.selected_categories,
+          skills: this.selected_skills,
+          ad_type:{{$ad_type}}
+
+        }).then(response => {
+          this.jobs = response.data;
+        })
+        .catch(function (error) {
+          // console.log(error);
+        });
+      }
+    }
+    // end methods
+  });
+</script>
+@stop

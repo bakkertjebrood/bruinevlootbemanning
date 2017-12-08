@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\category;
+use App\category_definition;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -12,10 +13,12 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
+     public function index()
+     {
+         $categories = Category_definition::all();
+
+         return response()->json($categories);
+     }
 
     /**
      * Show the form for creating a new resource.
