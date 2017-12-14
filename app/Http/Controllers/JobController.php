@@ -17,8 +17,6 @@ use App\category_definition;
 
 class JobController extends Controller
 {
-
-
     /**
      * Display a listing of the resource.
      *
@@ -26,6 +24,7 @@ class JobController extends Controller
      */
     public function jobopenings(Request $request)
     {
+
       $category_definitions = Category_definition::all();
       $skill_definitions = Skill_definition::all();
       $skill_active = '';
@@ -108,11 +107,20 @@ class JobController extends Controller
     }
 
     public function jobopening(){
+      if(Auth::user()->active == 0){
+        flash('Uw gegevens zijn nog niet compleet. Wilt u deze eerst aanvullen?')->error();
+        return redirect('user/profile');
+      }
       return view('jobnew')
         ->with('ad_type','1');
     }
 
     public function jobrequest(){
+      if(Auth::user()->active == 0){
+        flash('Uw gegevens zijn nog niet compleet. Wilt u deze eerst aanvullen?')->error();
+        return redirect('user/profile');
+      }
+
       return view('jobnew')
         ->with('ad_type','2');
     }

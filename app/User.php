@@ -39,4 +39,8 @@ class User extends Authenticatable
     public function categories(){
       return $this->morphMany('App\category','categorizable');
     }
+
+    public function responses(){
+      return $this->hasMany('App\Response');
+    }
 }

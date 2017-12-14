@@ -39,8 +39,19 @@ Bruinevlootbemanning
       {{ csrf_field() }}
       <input type="hidden" name="type" value="{{$ad_type}}">
       <div class="form-group">
-        <label for="name">Titel</label>
-        <input type="text" class="form-control" id="name" name="name" value="" placeholder="Titel" required="true">
+        @if($ad_type == 1)
+        <label for="name">Vacature titel</label>
+        <input type="text" class="form-control" id="name" name="name" value="" placeholder="Matroos gezocht" required="true">
+        @else
+        <label for="name">Vacature oproep</label>
+        <input type="text" class="form-control" id="name" name="name" value="" placeholder="Matroos gezocht" required="true">
+        @endif
+      </div>
+
+      <div class="form-group">
+        <label class="control-label" for="title">Afbeelding</label>
+        <div class="validation-errors"></div>
+        <input id="newad_file" type="file" name="photo" class="form-control"/>
       </div>
 
       <div class="form-group">
@@ -75,9 +86,9 @@ Bruinevlootbemanning
       <div class="form-group">
         <label for="daterange">
           @if($ad_type == 1)
-          Van wanneer tot wanneer zoek je iemand?
+          Van wanneer tot wanneer zoekt u iemand?
           @else
-          Van wanneer tot wanneer ben je beschikbaar?
+          Van wanneer tot wanneer bent u beschikbaar?
           @endif
         </label>
         <div class="input-group input-daterange" id="daterange">
@@ -88,14 +99,19 @@ Bruinevlootbemanning
       </div>
 
       <div class="form-group">
+        @if($ad_type == 1)
         <label for="name">Beschrijving</label>
-        <textarea type="text" rows="7" class="form-control" name="description" value="" placeholder="Beschrijving" required="true"></textarea>
+        <textarea type="text" rows="7" class="form-control" name="description" value="" placeholder="Omschrijf wat u zoekt" required="true"></textarea>
+        @else
+        <label for="name">Beschrijving</label>
+        <textarea type="text" rows="7" class="form-control" name="description" value="" placeholder="Beschrijf uzelf & uw motivatie" required="true"></textarea>
+        @endif
       </div>
 
       @if($ad_type == 2)
       <div class="form-group">
         <label for="name">Ervaring</label>
-        <textarea type="text" rows="7" class="form-control" name="experience" value="" placeholder="Welke ervaring heb je?" required="true"></textarea>
+        <textarea type="text" rows="7" class="form-control" name="experience" value="" placeholder="Welke ervaring heeft u?" required="true"></textarea>
       </div>
       @endif
 
@@ -111,11 +127,6 @@ Bruinevlootbemanning
       @else
       <img id="newad_image" class="img img-thumbnail" src="{{url('/uploads/photo',Auth::user()->photo)}}" alt="">
       @endif
-      <div class="form-group"><br>
-        <label class="control-label" for="title">Afbeelding</label>
-        <div class="validation-errors"></div>
-        <input id="newad_file" type="file" name="photo" class="form-control"/>
-      </div>
     </div>
 
   </div>

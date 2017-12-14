@@ -21,11 +21,12 @@ Bruinevlootbemanning
 
   <!-- Main ads grid -->
   <div class="col-lg-9">
-    <h2>Jouw <small>vacatures</small></h2>
+    @if(!$jobopenings->isEmpty())
+    <p class="h2">Uw <small>vacatures</small></p>
     <hr>
+    @endif
 
-    @foreach($ads as $ad)
-    @if($ad->type == 1)
+    @foreach($jobopenings as $ad)
 
     <div class="panel panel-default">
       <div class="panel-body">
@@ -46,8 +47,9 @@ Bruinevlootbemanning
                   <form class="" action="{{url('user/ad',$ad->id)}}" method="post">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
-                    <a type="button" class="btn btn-m btn-warning" href="{{url('user/ad',$ad->id)}}" name="button">Wijzigen</a>
-                    <button type="submit" class="btn btn-m btn-danger" name="delete">Verwijderen</button>
+                    <a type="button" class="btn btn-sm btn-warning" href="{{url('user/ad',$ad->id)}}" name="button">Wijzigen</a>
+                    <a type="button" class="btn btn-sm btn-info" href="{{url('user/ad',$ad->id)}}" name="button">Reacties</a>
+                    <button type="submit" class="btn btn-sm btn-danger" name="delete">Verwijderen</button>
                   </form>
 
               </div>
@@ -57,53 +59,58 @@ Bruinevlootbemanning
       </div>
 
     </div>
-    @endif
     @endforeach
-
-
-      <h2>Jouw <small>oproepen</small></h2>
-      <hr>
-
-    @foreach($ads as $ad)
-    @if($ad->type == 2)
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="media">
-          <div class="media-left">
-            <a href="#">
-              <img class="media-object ads-image-s " src="{{url('/uploads/photo')}}/{{$ad->photo}}" alt="Photo">
-            </a>
-          </div>
-          <div class="media-body">
-            <div class="col-lg-8">
-              <strong>{{$ad->name}}</strong><br>
-              <p>{{str_limit($ad->description,100)}}</p>
-            </div>
-            <div class="col-lg-4 v-center">
-              <div class="pull-right">
-
-                  <form class="" action="{{url('user/ad',$ad->id)}}" method="post">
-                    {{ csrf_field() }}
-                    {{ method_field('DELETE') }}
-                    <a type="button" class="btn btn-m btn-warning" href="{{url('user/ad',$ad->id)}}" name="button">Wijzigen</a>
-                    <button type="submit" class="btn btn-m btn-danger" name="delete">Verwijderen</button>
-                  </form>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    @endif
-    @endforeach
-
-
+    @if(!$jobopenings->isEmpty())
     <div class="pagination">
-      {{$ads->links()}}
+      {{$jobopenings->links()}}
     </div>
+    @endif
+
+
+      @if(!$jobrequests->isEmpty())
+      <p class="h2">Uw <small>oproepen</small></p>
+      <hr>
+      @endif
+
+    @foreach($jobrequests as $ad)
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="media">
+          <div class="media-left">
+            <a href="#">
+              <img class="media-object ads-image-s " src="{{url('/uploads/photo')}}/{{$ad->photo}}" alt="Photo">
+            </a>
+          </div>
+          <div class="media-body">
+            <div class="col-lg-8">
+              <strong>{{$ad->name}}</strong><br>
+              <p>{{str_limit($ad->description,100)}}</p>
+            </div>
+            <div class="col-lg-4 v-center">
+              <div class="pull-right">
+
+                  <form class="" action="{{url('user/ad',$ad->id)}}" method="post">
+                    {{ csrf_field() }}
+                    {{ method_field('DELETE') }}
+                    <a type="button" class="btn btn-m btn-warning" href="{{url('user/ad',$ad->id)}}" name="button"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a type="button" class="btn btn-m btn-info" href="{{route('responses')}}" name="button"><span class="glyphicon glyphicon-comment"></span></a>
+                    <button type="submit" class="btn btn-m btn-danger" name="delete"><span class="glyphicon glyphicon-trash"></span></button>
+                  </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    @endforeach
+
+    @if(!$jobrequests->isEmpty())
+    <div class="pagination">
+      {{$jobrequests->links()}}
+    </div>
+    @endif
   </div>
 
   <div class="col-lg-3">

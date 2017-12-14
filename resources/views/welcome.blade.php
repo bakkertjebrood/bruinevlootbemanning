@@ -17,12 +17,43 @@ BruineVlootBemanning
 
     @include('flash::message')
 
-    <a class="stretch-link white" href="{{route('jobrequests')}}"><small>Bekijk alle oproepen</small></a>
-    <h2>Oproepen <small>een greep</small></h2>
-    <hr>
+    <div class="header">
+      <a class="pull-right" href="{{route('jobrequests')}}"><small>Bekijk alle oproepen</small></a>
+      <h2>Oproepen <small>een greep</small></h2>
+    </div>
 
-
+    <div class="row">
       @foreach($offers as $ad)
+      <div class="col-sm-6 col-md-4 col-lg-3">
+
+        <div class="thumbnail">
+          <a href="{{route('job',$ad->id)}}">
+            <img class="img img-responsive" src="{{url('/uploads/photo')}}/{{$ad->photo}}" alt="Photo">
+          </a>
+          <div class="caption clearfix">
+            <div class="lineup">
+              <h5><strong>{{str_limit($ad->name,25)}}</strong></h5>
+              <small>{{str_limit($ad->description,75)}}</small>
+            </div>
+
+            <span class="ad_block_footer">
+              <a type="button" class="btn btn-sm btn-default" href="{{url('/job',$ad->id)}}" name="button">Bekijken</a>
+              <a type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#ad_respond" name="respond">Reageer</a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+      @endforeach
+    </div>
+
+    <div class="header">
+      <a class="pull-right" href="{{route('jobopenings')}}"><small>Bekijk alle vacatures</small></a>
+      <h2>Vacatures <small>een greep</small></h2>
+    </div>
+
+    <div class="row">
+      @foreach($jobs as $ad)
       <div class="col-sm-6 col-md-4 col-lg-3">
 
         <div class="thumbnail">
@@ -35,16 +66,18 @@ BruineVlootBemanning
               <small>{{str_limit($ad->description,100)}}</small>
             </div>
 
-            <span class="center">
+            <span class="ad_block_footer">
               <a type="button" class="btn btn-sm btn-default" href="{{url('/job',$ad->id)}}" name="button">Bekijken</a>
               <a type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#ad_respond" name="respond">Reageer</a>
             </span>
+
           </div>
         </div>
 
       </div>
+      @include('inc.respond')
       @endforeach
-
+    </div>
 
 
   </div>
@@ -61,12 +94,12 @@ BruineVlootBemanning
       <a href="{{route('jobopenings')}}" class="list-group-item">Alle vacatures</a>
     </div>
 
-@if(Auth::guest())
-    <div class="list-group notice-inverse">
+    @if(Auth::guest())
+    <div class="list-group">
       <label for="search">Direct doen</label>
 
-      <a href="{{route('register')}}" class="list-group-item list-group-item-notice"><i class="glyphicon glyphicon-pencil pre-icon"></i> Schrijf je gratis in!</a>
-      <a href="{{route('login')}}" class="list-group-item"><i class="glyphicon glyphicon-user pre-icon"> </i> Log hier in</a>
+      <a href="{{route('register')}}" class="list-group-item">Inschrijven</a>
+      <a href="{{route('login')}}" class="list-group-item">Log hier in</a>
 
 
     </div>
@@ -93,44 +126,6 @@ BruineVlootBemanning
 </div>
 </div>
 
-
-<div class="container-fluid stretch">
-  <div class="container">
-    <div class="col-lg-12">
-    <a class="stretch-link white" href="{{route('jobopenings')}}"><small>Bekijk alle vacatures</small></a>
-    <h2>Vacatures <small>een greep</small></h2>
-
-    <hr>
-
-    <div class="row">
-      @foreach($jobs as $ad)
-      <div class="col-sm-6 col-md-4 col-lg-3">
-
-        <div class="thumbnail">
-          <a href="{{route('job',$ad->id)}}">
-          <img class="img img-responsive" src="{{url('/uploads/photo')}}/{{$ad->photo}}" alt="Photo">
-          </a>
-          <div class="caption clearfix">
-            <div class="lineup">
-              <h5><strong>{{str_limit($ad->name,25)}}</strong></h5>
-              <small>{{str_limit($ad->description,100)}}</small>
-            </div>
-
-              <span class="pull-right">
-                <a type="button" class="btn btn-sm btn-default" href="{{url('/job',$ad->id)}}" name="button">Bekijken</a>
-                <a type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#ad_respond" name="respond">Reageer</a>
-              </span>
-
-          </div>
-        </div>
-
-      </div>
-      @endforeach
-    </div>
-
-  </div>
-</div>
-</div>
 @stop
 
 @section('scripts')

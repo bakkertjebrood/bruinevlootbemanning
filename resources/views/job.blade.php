@@ -29,7 +29,7 @@ Bruinevlootbemanning
   </ol>
 
   <div class="col-lg-8">
-
+    @include('flash::message')
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4>{{$ad->name}}</h4>
@@ -40,12 +40,12 @@ Bruinevlootbemanning
 
     </div>
     <div class="list-group">
+      @if($ad->type == 2)
       <div class="list-group-item">
-        @if($ad->type == 2)
         <h4>Ervaring</h4>
         <p class="retainlinebreaks">{{$ad->experience}}</p>
-        @endif
       </div>
+      @endif
       <div class="list-group-item">
         <h4>Thuishaven</h4>
         <p>{{$ad->homeport}}</p>
@@ -58,7 +58,7 @@ Bruinevlootbemanning
             @foreach($ad->skills as $skill)
             @foreach($skill_definitions as $skill_definition)
             @if($skill_definition->id == $skill->skill_definition_id)
-            {{strToLower($skill_definition->name)}}
+            {{strToLower($skill_definition->name)}} |
             @endif
             @endforeach
             @endforeach
@@ -107,8 +107,8 @@ Bruinevlootbemanning
   </div>
 
   <div class="list-group notice">
-    @if(Auth::guest())
-    <a class="list-group-item list-group-item-primary" href="#">Reageren</a>
+    @if($ad->user->id != Auth::user()->id)
+    <a class="list-group-item list-group-item-primary" data-toggle="modal" data-target="#ad_respond" href="#">Reageren</a>
     @elseif($ad->user->id == Auth::user()->id)
     <a class="list-group-item list-group-item-primary" href="{{url('user/ad',$ad->id)}}">Wijzigen</a>
 
@@ -116,7 +116,7 @@ Bruinevlootbemanning
 
   </div>
 
-
+@include('inc.respond')
 </div>
 </div>
 @stop

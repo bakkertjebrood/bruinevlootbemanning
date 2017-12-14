@@ -23,12 +23,16 @@ Route::get('test',function(){
 Route::get('/', 'HomeController@index')->name('home');
 
 // Jobs requests
+Route::group(['middleware' => ['auth']], function () {
 Route::get('/job/request','JobController@jobrequest')->name('jobrequest');
+});
 Route::get('/job/requests','JobController@jobrequests')->name('jobrequests');
 Route::post('/jobs/requests/data','JobController@jobrequests_data');
 
 // Job openings
+Route::group(['middleware' => ['auth']], function () {
 Route::get('/job/opening','JobController@jobopening')->name('jobopening');
+});
 Route::get('/job/openings','JobController@jobopenings')->name('jobopenings');
 Route::post('/jobs/openings','JobController@jobopenings')->name('searchopenings');
 Route::get('/job/{id}','JobController@show')->name('job');
@@ -46,9 +50,14 @@ Route::get('categories/data','CategoryController@index');
 Route::resource('/user/ad','AdController');
 
 // users
-Route::resource('/user/profile','ProfileController');
-Route::post('/user/profile/photo','ProfileController@photo')->name('profilephoto');
-Route::get('/logout', 'ProfileController@logout')->name('logout');
+Route::group(['middleware' => ['auth']], function () {
+  Route::post('job/respond','ResponseController@store')->name('respond');
+  Route::get('user/responses','ResponseController@index')->name('responses');
+  Route::resource('/user/profile','ProfileController');
+  Route::post('/user/profile/photo','ProfileController@photo')->name('profilephoto');
+  Route::get('/logout', 'ProfileController@logout')->name('logout');
+});
+
 
 
 // Related data

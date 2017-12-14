@@ -11,6 +11,15 @@ textarea{
   background-color: rgb(66, 139, 202);
 }
 
+.ad_block_footer{
+  width:100%;
+}
+
+.ad_block_footer a{
+  display: inline-block;
+  width: 48%;
+}
+
 .img-sm{
   width:25px;
   height:25px;
@@ -62,7 +71,7 @@ textarea{
   position: fixed;
   top: 0px;
   width:100%;
-  z-index: 99999;
+  z-index: 999;
 }
 
 .navmargin{
@@ -77,11 +86,6 @@ textarea{
 
 .login{
   margin-top:80px;
-}
-
-.a-centered{
-  width:250px;
-  margin:auto;
 }
 
 .a-centered{
@@ -116,7 +120,6 @@ textarea{
   color:white;
   font-weight: bold;
 }
-
 
 .employer-btn{
   position: absolute;
@@ -232,33 +235,8 @@ textarea{
   width:50%;
 }
 
-.stretch{
-  /*background-color: #840;*/
-  padding: 15px;
-}
-
-/*.stretch h2{
-color:white;
-}
-
-.stretch h2 small{
-color:white;
-}*/
-
-.stretch-link{
-  position: relative;
-  float: right;
-  top: 35px;
-  text-decoration: none;
-}
-
-.stretch-link:hover{
-  text-decoration: none;
-}
-
-
-.brown{
-  color:white;
+.header{
+  margin:25px 0;
 }
 
 .center{

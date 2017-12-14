@@ -20,6 +20,7 @@ class AdController extends Controller
   public function __construct()
   {
       $this->middleware('auth');
+
   }
 
 
@@ -28,15 +29,19 @@ class AdController extends Controller
        $category_definitions = Category_definition::all();
        $skill_definitions = Skill_definition::all();
 
-       $ads = Ad::where('user_id',Auth::user()->id)->paginate(15);
+       $jobopenings = Ad::where('type','1')->where('user_id',Auth::user()->id)->paginate(15);
+       $jobrequests = Ad::where('type','2')->where('user_id',Auth::user()->id)->paginate(15);
+
          return View::make('joblist')
-         ->with('ads', $ads)
+         ->with('jobopenings', $jobopenings)
+         ->with('jobrequests', $jobrequests)
          ->with('category_definitions',$category_definitions)
          ->with('skill_definitions', $skill_definitions);
      }
 
     public function store(Request $request)
     {
+
       $ad = new Ad;
       $ad->name = $request->name;
       $ad->user_id = Auth::user()->id;

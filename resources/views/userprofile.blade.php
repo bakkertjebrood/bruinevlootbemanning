@@ -34,6 +34,12 @@ Bruinevlootbemanning
     </div>
 
     <div class="form-group">
+      <label class="control-label" for="title">Afbeelding</label>
+      <div class="validation-errors"></div>
+      <input id="newad_file" type="file" name="photo" class="form-control"/>
+    </div>
+
+    <div class="form-group">
       <label for="firstname">Voornaam</label>
       <input type="text" class="form-control" id="firstname" name="firstname" value="{{$user->firstname}}" placeholder="Voornaam" required="true">
     </div>
@@ -68,15 +74,23 @@ Bruinevlootbemanning
       <input type="text" class="form-control" id="city" name="city" value="{{$user->city}}" placeholder="Woonplaats">
     </div>
 
-    <div class="form-group">
-      <label class="control-label" for="title">Afbeelding</label>
-      <div class="validation-errors"></div>
-      <input id="newad_file" type="file" name="photo" class="form-control"/>
+    @if(Auth::user()->active == 0)
+
+    <div class="form-footer pull-right">
+      <button type="submit" class="btn btn-primary btn-l" id="jobrequest" name="button">Opslaan en plaats uw oproep</button>
+      <button type="submit" class="btn btn-primary btn-l" id="jobopening" name="button">Opslaan en plaats uw vacature</button>
     </div>
 
+    @else
     <div class="form-footer pull-right">
       <button type="submit" class="btn btn-primary btn-l" name="button">Opslaan</button>
     </div>
+
+    @endif
+
+
+
+    <input type="hidden" id="option" name="option" value="">
 
 
 
@@ -85,7 +99,7 @@ Bruinevlootbemanning
 
   <div class="col-lg-3">
     <div class="profile">
-      <img class="img img-thumbnail" src="{{url('uploads/photo',$user->photo)}}" alt="">
+      <img class="img img-thumbnail" id="newad_image" src="{{url('uploads/photo',$user->photo)}}" alt="">
     </div><br>
     @include('inc.usermenu')
   </div>
@@ -111,6 +125,19 @@ function readURL(input) {
 
 $("#newad_file").change(function() {
   readURL(this);
+});
+
+$('#jobopening').click(function(){
+  $('#option').val('1');
+});
+
+$('#jobrequest').click(function(){
+  $('#option').val('2');
+});
+
+$("#newad_image").css( 'cursor', 'pointer' );
+$("#newad_image").click(function() {
+$("#newad_file").click();
 });
 </script>
 @stop

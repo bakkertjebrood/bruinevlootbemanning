@@ -108,13 +108,15 @@ class ProfileController extends Controller
 
     $ad->save();
 
-    flash('Welkom, '.Auth::user()->firstname.' '.Auth::user()->lastname.'. Klik <a href="'.route('home').'">hier</a> om naar de startpagina te gaan')->success();
 
-    if($request->jobrequest){
+    if($request->option == 2){
+      flash('<strong>Welkom, '.Auth::user()->firstname.'.</strong> Plaats hieronder jouw oproep')->success();
       return redirect()->route('jobrequest');
-    }else if($request->jobopening){
+    }else if($request->option == 1){
+      flash('<strong>Welkom, '.Auth::user()->firstname.'.</strong> Vul svp onderstaande gegevens in en plaats uw vacature')->success();
       return redirect()->route('jobopening');
     }else{
+      flash('Jouw gegevens zijn opgeslagen')->success();
       return redirect('/user/profile');
     }
   }
