@@ -18,7 +18,7 @@ BruineVlootBemanning
     @include('flash::message')
 
     <div class="header">
-      <a class="pull-right" href="{{route('jobrequests')}}"><small>Bekijk alle oproepen</small></a>
+      <a class="pull-right hidden-xs" href="{{route('jobrequests')}}"><small>Bekijk alle oproepen</small></a>
       <h2>Oproepen <small>een greep</small></h2>
     </div>
 
@@ -48,7 +48,7 @@ BruineVlootBemanning
     </div>
 
     <div class="header">
-      <a class="pull-right" href="{{route('jobopenings')}}"><small>Bekijk alle vacatures</small></a>
+      <a class="pull-right hidden-xs" href="{{route('jobopenings')}}"><small>Bekijk alle vacatures</small></a>
       <h2>Vacatures <small>een greep</small></h2>
     </div>
 
