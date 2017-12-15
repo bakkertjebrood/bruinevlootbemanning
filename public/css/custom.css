@@ -188,21 +188,22 @@ textarea{
   background-image: url('/images/slides/s1.jpg');
   background-size:cover;
   /*height: 310px;*/
-  height: 378px;
+  /*height: 378px;*/
+  height: 600px;
   width:100%;
 }
 
 .phrase {
   display: none;
   left: 0px;
-  top: 40px;
+  top: 150px;
   height: 230px;
   position: relative;
   width: 600px;
   background-color: #555;
   padding: 1px 15px 10px;
-  opacity: 0.9;
-  filter: alpha(opacity=90);
+  opacity: 0.8;
+  filter: alpha(opacity=80);
 }
 
 .phrase h1 {
@@ -218,7 +219,7 @@ textarea{
 
 .todo {
   left: 0px;
-  top: 40px;
+  top: 150px;
   position: relative;
   width: 600px;
   background-color: white;
@@ -243,6 +244,13 @@ textarea{
   margin:0 auto;
 }
 
+.fullwidth .list-group-item{
+  width: 100%;
+}
+
+.panel, .btn, .list-group-item, .list-group{
+  border-radius: 0px;
+}
 
 .call-to-action {
   position: relative;
@@ -317,11 +325,7 @@ textarea{
   height:auto;
 }
 
-.select-skills{
-  width: 100%;
-}
-
-.select-categories{
+.select-skills, .select-places, .select-categories{
   width: 100%;
 }
 

@@ -71,7 +71,9 @@ Bruinevlootbemanning
 
     <div class="form-group">
       <label for="city">Woonplaats</label>
-      <input type="text" class="form-control" id="city" name="city" value="{{$user->city}}" placeholder="Woonplaats">
+      <select class="select-places" id="selectPlace" name="city">
+
+      </select>
     </div>
 
     @if(Auth::user()->active == 0)
@@ -88,11 +90,7 @@ Bruinevlootbemanning
 
     @endif
 
-
-
     <input type="hidden" id="option" name="option" value="">
-
-
 
   </div>
 
@@ -139,5 +137,9 @@ $("#newad_image").css( 'cursor', 'pointer' );
 $("#newad_image").click(function() {
 $("#newad_file").click();
 });
+
+var place_id = {{$user->city}};
+var type = 'select';
+selectPlace(type);
 </script>
 @stop

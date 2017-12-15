@@ -63,7 +63,7 @@ Bruinevlootbemanning
           @endif
         </label>
         <!-- <input type="text" class="form-control" id="homeport" name="homeport" value="" placeholder="Enkhuizen" required="true"> -->
-        <select class="select-places" id="homeport" name="homeport" required="true">
+        <select class="select-places" id="selectPlace" name="homeport" required="true">
 
         </select>
       </div>
@@ -156,7 +156,5 @@ $("#newad_file").change(function() {
   readURL(this);
 });
 
-var place_id = {{$ad->homeport}};
-homeport();
 </script>
 @stop

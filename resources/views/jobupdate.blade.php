@@ -16,20 +16,20 @@ Bruinevlootbemanning
   <div class="container">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><small><a href="{{url('/')}}">Welkom</a></small></li>
-      <li class="breadcrumb-item"><small><a href="{{url('user/ad')}}">Jouw advertenties</a></small></li>
+      <li class="breadcrumb-item"><small><a href="{{url('user/ad')}}">Uw advertenties</a></small></li>
       @if($ad->type == 2)
-      <li class="breadcrumb-item active" aria-current="page">Jouw oproep wijzigen</li>
+      <li class="breadcrumb-item active" aria-current="page">Uw oproep wijzigen</li>
       @else
-      <li class="breadcrumb-item active" aria-current="page">Jouw vacature wijzigen</li>
+      <li class="breadcrumb-item active" aria-current="page">Uw vacature wijzigen</li>
       @endif
 
     </ol>
 
     <div class="page-header">
       @if($ad->type == 2)
-      <h1>Jouw <small>oproep wijzigen</small></h1>
+      <h1>Uw <small>oproep wijzigen</small></h1>
       @else
-      <h1>Jouw <small>vacature wijzigen</small></h1>
+      <h1>Uw <small>vacature wijzigen</small></h1>
       @endif
 
     </div>
@@ -51,7 +51,8 @@ Bruinevlootbemanning
           Thuishaven
           @endif
         </label>
-        <input type="text" class="form-control" id="homeport" name="homeport" value="{{$ad->homeport}}" placeholder="Enkhuizen" required="true">
+        <select class="select-places" id="selectPlace" name="homeport" required="true">
+        </select>
       </div>
 
       <div class="form-group">
@@ -153,5 +154,9 @@ function readURL(input) {
 $("#newad_file").change(function() {
   readURL(this);
 });
+
+var place_id = {{$ad->homeport}};
+var type = 'select';
+selectPlace(type);
 </script>
 @stop

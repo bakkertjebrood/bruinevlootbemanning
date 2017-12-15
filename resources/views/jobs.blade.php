@@ -11,7 +11,62 @@ Bruinevlootbemanning
 
 @section('content')
 <div  id="jobs" class="container">
+  <div class="col-lg-3">
+    <div class="search">
 
+      <div class="list-group notice">
+        <a href="{{route('jobrequest')}}" class="list-group-item">Plaats oproep</a>
+        <a href="{{route('jobopening')}}" class="list-group-item">Plaats vacature</a>
+      </div>
+
+      <div class="list-group">
+        <label for="search">Alles tonen</label>
+        @if($ad_type == 1)
+        <a href="{{route('jobrequests')}}" class="list-group-item ">Bemanning aanbod</a>
+        <a href="{{route('jobopenings')}}" class="list-group-item active">Vacatures</a>
+        @elseif($ad_type == 2)
+        <a href="{{route('jobrequests')}}" class="list-group-item active">Bemanning aanbod</a>
+        <a href="{{route('jobopenings')}}" class="list-group-item ">Vacatures</a>
+        @endif
+      </div>
+
+      <!-- Start / end -->
+      <div class="daterange">
+        @if($ad_type == 1)
+        <label for="daterange">Periode</label>
+        @elseif($ad_type == 2)
+        <label for="daterange">Beschikbaar tussen</label>
+        @endif
+
+        <div class="input-group input-daterange" id="daterange">
+          <input type="text" data-date-format='dd-mm-yyyy' class="form-control " id="startdate" v-model="startdate" value="" placeholder="20-5-2018">
+          <div class="input-group-addon"><small>tot</small></div>
+          <input type="text" data-date-format='dd-mm-yyyy' class="form-control" id="enddate" v-model="enddate" value="" placeholder="20-5-2019">
+          <span class="input-group-btn">
+            <button class="btn btn-primary" @click="addDates()" type="button"><span class="glyphicon glyphicon-search"></span></button>
+          </span>
+        </div><br>
+      </div>
+
+      <!-- Search categories -->
+      <div class="categories">
+        <label for="categories">Zoek op categorie</label>
+        <div class="list-group checked-list-box" id="categories">
+          <a v-for="category in categories" @click="addCategory(categories,category)" :class="['list-group-item',{active:category.isActive}]">
+            @{{category.name}}
+          </a>
+        </div>
+      </div>
+
+      <!-- Search skills -->
+      <div class="">
+        <label for="categories">Zoek op vaardigheden</label>
+        <div class="list-group checked-list-box">
+          <a v-for="skill in skills" @click="addSkill(skills,skill)" :class="['list-group-item',{active:skill.isActive}]" >@{{skill.name}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Main ads grid -->
   <div class="col-lg-9">
     <ol class="breadcrumb">
@@ -125,63 +180,8 @@ Bruinevlootbemanning
       </div>
     </div>
 
+<!-- col3 -->
 
-    <div class="col-lg-3">
-      <div class="search">
-
-        <div class="list-group notice">
-          <a href="{{route('jobrequest')}}" class="list-group-item">Plaats oproep</a>
-          <a href="{{route('jobopening')}}" class="list-group-item">Plaats vacature</a>
-        </div>
-
-        <div class="list-group">
-          <label for="search">Alles tonen</label>
-          @if($ad_type == 1)
-          <a href="{{route('jobrequests')}}" class="list-group-item ">Bemanning aanbod</a>
-          <a href="{{route('jobopenings')}}" class="list-group-item active">Vacatures</a>
-          @elseif($ad_type == 2)
-          <a href="{{route('jobrequests')}}" class="list-group-item active">Bemanning aanbod</a>
-          <a href="{{route('jobopenings')}}" class="list-group-item ">Vacatures</a>
-          @endif
-        </div>
-
-        <!-- Start / end -->
-        <div class="daterange">
-          @if($ad_type == 1)
-          <label for="daterange">Periode</label>
-          @elseif($ad_type == 2)
-          <label for="daterange">Beschikbaar tussen</label>
-          @endif
-
-          <div class="input-group input-daterange" id="daterange">
-            <input type="text" data-date-format='dd-mm-yyyy' class="form-control " id="startdate" v-model="startdate" value="" placeholder="20-5-2018">
-            <div class="input-group-addon"><small>tot</small></div>
-            <input type="text" data-date-format='dd-mm-yyyy' class="form-control" id="enddate" v-model="enddate" value="" placeholder="20-5-2019">
-            <span class="input-group-btn">
-              <button class="btn btn-primary" @click="addDates()" type="button"><span class="glyphicon glyphicon-search"></span></button>
-            </span>
-          </div><br>
-        </div><br>
-
-        <!-- Search categories -->
-        <div class="categories">
-          <label for="categories">Zoek op categorie</label>
-          <div class="list-group checked-list-box" id="categories">
-            <a v-for="category in categories" @click="addCategory(categories,category)" :class="['list-group-item',{active:category.isActive}]">
-              @{{category.name}}
-            </a>
-          </div>
-        </div>
-
-        <!-- Search skills -->
-        <div class="">
-          <label for="categories">Zoek op vaardigheden</label>
-          <div class="list-group checked-list-box">
-            <a v-for="skill in skills" @click="addSkill(skills,skill)" :class="['list-group-item',{active:skill.isActive}]" >@{{skill.name}}</a>
-          </div>
-        </div>
-      </div>
-    </div>
 
   </div>
   @stop

@@ -45,10 +45,13 @@ Bruinevlootbemanning
         <h4>Ervaring</h4>
         <p class="retainlinebreaks">{{$ad->experience}}</p>
       </div>
+      <div class="list-group-item">
+        <h4>Leeftijd</h4> {{$age}}
+      </div>
       @endif
       <div class="list-group-item">
         <h4>Thuishaven</h4>
-        <p>{{$ad->homeport}}</p>
+        <p id="selectPlace"></p>
       </div>
 
       <div class="list-group-item">
@@ -83,18 +86,15 @@ Bruinevlootbemanning
     <img class="img img-thumbnail" src="{{url('/uploads/photo')}}/{{$ad->photo}}" alt="">
   </div><br>
 
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title">{{$ad->user->firstname.' '.$ad->user->lastname}}</h3>
+  <div class="list-group">
+    <div class="list-group-item">
+    <strong>Geplaatst door:</strong>  <p class="panel-title">{{$ad->user->firstname.' '.$ad->user->lastname}}</p>
     </div>
-    <div class="panel-body profile-small">
-      @if($ad->type == 1)
-      <img class="thumbnail" src="{{url('/uploads/photo')}}/{{$ad->user->photo}}" alt="">
+    @if($ad->type == 1)
+    <div class="list-group-item">
       <p>{{str_limit($ad->user->description,200)}}</p>
-      @else
-      <strong>Leeftijd:</strong> {{$age}}
-      @endif
     </div>
+      @endif
   </div>
 
   <div class="list-group">
@@ -106,9 +106,9 @@ Bruinevlootbemanning
     </div>
   </div>
 
-  <div class="list-group notice">
-    @if($ad->user->id != Auth::user()->id)
-    <a class="list-group-item list-group-item-primary" data-toggle="modal" data-target="#ad_respond" href="#">Reageren</a>
+  <div class="list-group notice-inverse">
+    @if($ad->user->id != isset(Auth::user()->id))
+    <a class="list-group-item list-group-item-primary" data-toggle="modal" data-target="#ad_respond{{$ad->id}}" href="#">Reageren</a>
     @elseif($ad->user->id == Auth::user()->id)
     <a class="list-group-item list-group-item-primary" href="{{url('user/ad',$ad->id)}}">Wijzigen</a>
 
@@ -123,6 +123,8 @@ Bruinevlootbemanning
 
 @section('scripts')
 <script type="text/javascript">
-
+var place_id = {{$ad->homeport}};
+var type = 'p';
+selectPlace(type);
 </script>
 @stop

@@ -14,7 +14,7 @@ Bruinevlootbemanning
 
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><small><a href="{{url('/')}}">Welkom</a></small></li>
-    <li class="breadcrumb-item active" aria-current="page">Jouw advertenties</li>
+    <li class="breadcrumb-item active" aria-current="page">Uw advertenties</li>
   </ol>
 
   @include('flash::message')
@@ -47,9 +47,9 @@ Bruinevlootbemanning
                   <form class="" action="{{url('user/ad',$ad->id)}}" method="post">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
-                    <a type="button" class="btn btn-sm btn-warning" href="{{url('user/ad',$ad->id)}}" name="button">Wijzigen</a>
-                    <a type="button" class="btn btn-sm btn-info" href="{{url('user/ad',$ad->id)}}" name="button">Reacties</a>
-                    <button type="submit" class="btn btn-sm btn-danger" name="delete">Verwijderen</button>
+                    <a type="button" class="btn btn-m btn-warning" href="{{url('user/ad',$ad->id)}}" name="button"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a type="button" class="btn btn-m btn-info" href="{{route('responses')}}" name="button"><span class="glyphicon glyphicon-comment"></span></a>
+                    <button type="submit" class="btn btn-m btn-danger" name="delete"><span class="glyphicon glyphicon-trash"></span></button>
                   </form>
 
               </div>

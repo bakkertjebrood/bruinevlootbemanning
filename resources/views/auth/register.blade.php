@@ -7,9 +7,12 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2 login">
+      <div class="login hidden-xs">
+
+      </div>
+        <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Registreer</div>
+                <div class="panel-heading">Inschrijven</div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">

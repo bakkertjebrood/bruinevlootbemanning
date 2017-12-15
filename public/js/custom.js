@@ -77,6 +77,32 @@ $('body').find('.select-categories').select2({
   }
 });
 
+selectData();
+
+
+
+$('body').find('.select-places').select2({
+  placeholder: ' Selecteer plaatsen',
+  data: places
+});
+
     $('#flash-overlay-modal').modal();
 
 });
+
+var type;
+function selectPlace(type){
+  selectData();
+  var obj;
+  var data = $.map(places, function (obj) {
+    if(obj.id == place_id){
+      console.log(obj);
+      if(type == 'p'){
+        $('#selectPlace').html(obj.text);
+      }else if(type == 'select'){
+        $('#selectPlace').html('<option selected="selected" value="'+place_id+'">'+obj.text+'</option>');
+      }
+
+    }
+  });
+}

@@ -182,9 +182,9 @@ class AdController extends Controller
       }
 
       if ($ad->type == 1) {
-        flash('Uw vacature is gewijzigd')->success();
+        flash('Uw vacature is gewijzigd. Klik <a href="'.route('jobopenings').'">hier</a> om te bekijken.')->success();
       }else{
-        flash('Uw oproep is gewijzigd')->success();
+        flash('Uw oproep is gewijzigd. Klik <a href="'.route('jobrequests').'">hier</a> om te bekijken.')->success();
       }
 
       return redirect('/user/ad/'.$ad->id);
@@ -200,7 +200,7 @@ class AdController extends Controller
     {
         $destroy = Ad::find($ad)->delete();
 
-        flash('Jouw advertentie is verwijderd')->success();
+        flash('Uw advertentie is verwijderd')->success();
 
         return redirect('/user/ad');
     }

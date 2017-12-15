@@ -11,6 +11,24 @@ BruineVlootBemanning
 @stop
 @section('content')
 <div class="container">
+  <div class="col-lg-3">
+    <div class="list-group notice">
+      <a href="{{route('jobrequest')}}" class="list-group-item">Plaats mijn oproep</a>
+      <a href="{{route('jobopening')}}" class="list-group-item">Plaats een vacature</a>
+    </div>
+
+
+    <div class="list-group">
+      <label for="search">Ga naar</label>
+      <a href="{{route('jobrequests')}}" class="list-group-item">Alle oproepen</a>
+      <a href="{{route('jobopenings')}}" class="list-group-item">Alle vacatures</a>
+    </div>
+
+    @if(Auth::guest())
+    @include('inc.login_inline')
+    @endif
+
+  </div>
 
   <!-- Main ads grid -->
   <div class="col-lg-9">
@@ -38,12 +56,13 @@ BruineVlootBemanning
 
             <span class="ad_block_footer">
               <a type="button" class="btn btn-sm btn-default" href="{{url('/job',$ad->id)}}" name="button">Bekijken</a>
-              <a type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#ad_respond" name="respond">Reageer</a>
+              <a type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#ad_respond{{$ad->id}}" name="respond">Reageer</a>
             </span>
           </div>
         </div>
 
       </div>
+      @include('inc.respond')
       @endforeach
     </div>
 
@@ -68,7 +87,7 @@ BruineVlootBemanning
 
             <span class="ad_block_footer">
               <a type="button" class="btn btn-sm btn-default" href="{{url('/job',$ad->id)}}" name="button">Bekijken</a>
-              <a type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#ad_respond" name="respond">Reageer</a>
+              <a type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#ad_respond{{$ad->id}}" name="respond">Reageer</a>
             </span>
 
           </div>
@@ -81,48 +100,8 @@ BruineVlootBemanning
 
 
   </div>
-  <div class="col-lg-3">
-    <div class="list-group notice">
-      <a href="{{route('jobrequest')}}" class="list-group-item">Plaats mijn oproep</a>
-      <a href="{{route('jobopening')}}" class="list-group-item">Plaats een vacature</a>
-    </div>
+  <!-- col3  -->
 
-
-    <div class="list-group">
-      <label for="search">Ga naar</label>
-      <a href="{{route('jobrequests')}}" class="list-group-item">Alle oproepen</a>
-      <a href="{{route('jobopenings')}}" class="list-group-item">Alle vacatures</a>
-    </div>
-
-    @if(Auth::guest())
-    <div class="list-group">
-      <label for="search">Direct doen</label>
-
-      <a href="{{route('register')}}" class="list-group-item">Inschrijven</a>
-      <a href="{{route('login')}}" class="list-group-item">Log hier in</a>
-
-
-    </div>
-    @else
-
-    <div class="panel notice">
-      <div class="panel-heading">
-        <img class="img img-circle img-responsive img-sm" src="{{url('uploads/photo',Auth::user()->photo)}}" alt="">
-        <h5 class="panel-title ">Welkom, {{Auth::user()->firstname}}</h5>
-      </div>
-      <div class="panel-body">
-
-        <div class="list-group">
-          <div><a class="list-group-item" href="{{url('user/profile')}}">Jouw profiel</a></div>
-          <div><a class="list-group-item" href="#">Jouw advertenties</a></div>
-        </div>
-
-      </div>
-    </div>
-
-    @endif
-
-  </div>
 </div>
 </div>
 

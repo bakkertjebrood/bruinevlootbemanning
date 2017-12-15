@@ -110,13 +110,13 @@ class ProfileController extends Controller
 
 
     if($request->option == 2){
-      flash('<strong>Welkom, '.Auth::user()->firstname.'.</strong> Plaats hieronder jouw oproep')->success();
+      flash('<strong>Welkom, '.Auth::user()->firstname.'.</strong> Plaats hieronder uw oproep')->success();
       return redirect()->route('jobrequest');
     }else if($request->option == 1){
       flash('<strong>Welkom, '.Auth::user()->firstname.'.</strong> Vul svp onderstaande gegevens in en plaats uw vacature')->success();
       return redirect()->route('jobopening');
     }else{
-      flash('Jouw gegevens zijn opgeslagen')->success();
+      flash('Uw gegevens zijn opgeslagen')->success();
       return redirect('/user/profile');
     }
   }

@@ -81,6 +81,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
+<script src="{{ asset('js/places.js') }}" charset="utf-8"></script>
 <script type="text/javascript" src="{{ asset('js/custom.js') }}" charset="utf-8"></script>
 
 @yield('scripts')
