@@ -86,7 +86,7 @@ return [
 
     'username' => env('mail@timeo.nl'),
 
-    'password' => env('Vierkant20'),
+    'password' => env(''),
 
     /*
     |--------------------------------------------------------------------------
