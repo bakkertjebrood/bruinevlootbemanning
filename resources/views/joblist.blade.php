@@ -48,7 +48,7 @@ Bruinevlootbemanning
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
                     <a type="button" class="btn btn-m btn-warning" href="{{url('user/ad',$ad->id)}}" name="button"><span class="glyphicon glyphicon-pencil"></span></a>
-                    <a type="button" class="btn btn-m btn-info" href="{{route('responses')}}" name="button"><span class="glyphicon glyphicon-comment"></span></a>
+
                     <button type="submit" class="btn btn-m btn-danger" name="delete"><span class="glyphicon glyphicon-trash"></span></button>
                   </form>
 
@@ -93,7 +93,6 @@ Bruinevlootbemanning
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
                     <a type="button" class="btn btn-m btn-warning" href="{{url('user/ad',$ad->id)}}" name="button"><span class="glyphicon glyphicon-pencil"></span></a>
-                    <a type="button" class="btn btn-m btn-info" href="{{route('responses')}}" name="button"><span class="glyphicon glyphicon-comment"></span></a>
                     <button type="submit" class="btn btn-m btn-danger" name="delete"><span class="glyphicon glyphicon-trash"></span></button>
                   </form>
 

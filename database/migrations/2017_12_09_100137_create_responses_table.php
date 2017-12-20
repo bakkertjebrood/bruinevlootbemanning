@@ -18,6 +18,7 @@ class CreateResponsesTable extends Migration
             $table->text('body');
             $table->integer('ad_id');
             $table->integer('user_id');
+            $table->integer('conversation_id');
             $table->timestamps();
         });
     }

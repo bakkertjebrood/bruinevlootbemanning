@@ -52,7 +52,7 @@
           </a>
           <ul class="dropdown-menu">
             <li><a href="{{url('user/profile')}}">Mijn profiel</i></a></li>
-            <li><a href="#">Mijn instellingen</i></a></li>
+            <li><a href="{{route('responses')}}">Mijn reacties</i></a></li>
             <li><a href="{{url('user/ad')}}">Mijn advertenties</i></a></li>
             <li role="separator" class="divider"></li>
             <li><a href="{{route('logout')}}">Uitloggen</a></li>

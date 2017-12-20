@@ -91,6 +91,9 @@ Bruinevlootbemanning
       </div>
       @include('flash::message')
 
+      <div v-if="jobs.length == 0" class="well">
+        <i class="v-center">Geen gegevens gevonden</i>
+      </div>
       <div>
           <transition-group name="list" tag="p">
         <div :key="job.id" v-for="job in jobs" class="panel panel-default list-item">

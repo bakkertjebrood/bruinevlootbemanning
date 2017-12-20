@@ -53,6 +53,12 @@ Route::resource('/user/ad','AdController');
 Route::group(['middleware' => ['auth']], function () {
   Route::post('job/respond','ResponseController@store')->name('respond');
   Route::get('user/responses','ResponseController@index')->name('responses');
+  // Responses json
+  Route::get('user/responses/conversations/data','ResponseController@get_conversations')->name('get_conversations');
+  Route::post('user/responses/data','ResponseController@get_responses')->name('get_responses');
+  Route::post('user/respond/store','ResponseController@store_response')->name('store_response');
+  Route::delete('user/respond/delete','ResponseController@delete_response')->name('delete_response');
+
   Route::resource('/user/profile','ProfileController');
   Route::post('/user/profile/photo','ProfileController@photo')->name('profilephoto');
   Route::get('/logout', 'ProfileController@logout')->name('logout');

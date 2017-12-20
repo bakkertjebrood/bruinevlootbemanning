@@ -28,6 +28,14 @@ textarea{
   float:right;
 }
 
+.img-md{
+  width:50px;
+  height:50px;
+  position: relative;
+  top:-3px;
+  float:right;
+}
+
 .list-group-item:hover{
   cursor:pointer;
 }
@@ -154,6 +162,7 @@ textarea{
   z-index: 999;
 }
 
+
 .logo-icon{
   background-image: url('/images/icon.png');
   height:48px;
@@ -174,6 +183,7 @@ textarea{
   color:white;
 }
 
+
 .logo-small{
   width: 250px;
   margin-left:5px;
@@ -181,6 +191,11 @@ textarea{
   position: relative;
   margin-top:12px;
   margin-left: 5px;
+}
+
+.logo *:hover, .logo-small *:hover{
+  color:white;
+  text-decoration: none;
 }
 
 .main_image {
@@ -385,6 +400,66 @@ textarea{
   transform: rotate(90deg);
   color: #454444;
 }
+
+.chat
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.chat li
+{
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #B3A9A9;
+}
+
+.chat li.left .chat-body
+{
+    margin-left: 60px;
+}
+
+.chat li.right .chat-body
+{
+    margin-right: 60px;
+}
+
+
+.chat li .chat-body p
+{
+    margin: 0;
+    color: #777777;
+}
+
+.panel .slidedown .glyphicon, .chat .glyphicon
+{
+    margin-right: 5px;
+}
+
+.panel-body
+{
+    /* overflow-y: scroll; */
+    /* height: 250px; */
+}
+
+/* ::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+} */
 
 .footer-bs {
   background-color: #3c3d41;

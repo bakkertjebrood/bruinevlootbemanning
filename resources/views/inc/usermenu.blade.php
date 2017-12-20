@@ -10,10 +10,10 @@
   <a class="list-group-item" href="{{url('user/profile')}}">Mijn profiel</a>
   @endif
 
-  @if(Request()->path() == 'user/settings')
-  <a class="list-group-item active" href="#">Mijn instellingen</a>
+  @if(Request()->path() == 'user/responses')
+  <a class="list-group-item active" href="{{route('responses')}}">Mijn reacties</a>
   @else
-  <a class="list-group-item" href="#">Mijn instellingen</a>
+  <a class="list-group-item" href="{{route('responses')}}">Mijn reacties</a>
   @endif
 
   @if(Request()->path() == 'user/ad')

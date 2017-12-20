@@ -25,4 +25,5 @@ class ad extends Model
   public function responses(){
     return $this->hasMany('App\Response');
   }
+
 }
