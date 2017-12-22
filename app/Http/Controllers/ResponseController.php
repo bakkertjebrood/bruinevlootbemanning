@@ -7,6 +7,9 @@ use App\ad;
 use DB;
 use Illuminate\Http\Request;
 use Auth;
+use App\user;
+use Mail;
+use App\Mail\responseCreated;
 
 class ResponseController extends Controller
 {
@@ -65,6 +68,7 @@ class ResponseController extends Controller
     public function store(Request $request)
     {
       $ad_user_id = Ad::find($request->ad_id);
+      $addOwner = User::find($ad_user_id);
 
       if(Auth::user()->id != $ad_user_id->user_id){
         $store = Response::create([
@@ -74,6 +78,19 @@ class ResponseController extends Controller
           'body' => $request->body
         ]
         );
+
+        $data = array(
+          'email' => 'elmerbakker@gmail.com',
+          'subject' => 'Je hebt een bericht ontvangen',
+          'bodyMessage' => 'Beste Elmer, Je hebt een bericht ontvangen op BruineVlootBemanning.nl'
+        );
+
+        Mail::send('responses', $data, function($message){
+          $message->from('mail@timeo.nl');
+          $message->to('elmerbakker@gmail.com');
+          $message->subject('Je hebt een bericht ontvangen');
+
+        });
 
         flash('Uw reactie is verstuurd!')->success();
       }else{
@@ -91,6 +108,8 @@ class ResponseController extends Controller
         'body' => $request->body
       ]
       );
+
+      Mail::to('elmerbakker@gmail.com')->send(new responseCreated());
 
         return response()->json();
     }
