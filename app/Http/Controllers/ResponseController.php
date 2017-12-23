@@ -79,18 +79,9 @@ class ResponseController extends Controller
         ]
         );
 
-        $data = array(
-          'email' => 'elmerbakker@gmail.com',
-          'subject' => 'Je hebt een bericht ontvangen',
-          'bodyMessage' => 'Beste Elmer, Je hebt een bericht ontvangen op BruineVlootBemanning.nl'
-        );
+        $user = User::find(Ad::find($request->ad_id));
 
-        Mail::send('responses', $data, function($message){
-          $message->from('mail@timeo.nl');
-          $message->to('elmerbakker@gmail.com');
-          $message->subject('Je hebt een bericht ontvangen');
-
-        });
+        Mail::to($user)->send(new responseCreated());
 
         flash('Uw reactie is verstuurd!')->success();
       }else{
@@ -109,9 +100,11 @@ class ResponseController extends Controller
       ]
       );
 
-      Mail::to('elmerbakker@gmail.com')->send(new responseCreated());
+      $user = User::find(Response::where('conversation_id',$request->conversation_id)->where('user_id','!=',$request->user_id)->select('user_id')->first());
 
-        return response()->json();
+      Mail::to($user)->send(new responseCreated());
+
+        return response()->json($user);
     }
 
     public function delete_response(Request $request){

@@ -63,7 +63,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-      flash('Stap 1 is gelukt! Wil je deze aanvullende gegevens nog even invullen?')->success();
+      flash('Stap 1 is gelukt! Wilt u deze aanvullende gegevens nog even invullen?')->success();
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],

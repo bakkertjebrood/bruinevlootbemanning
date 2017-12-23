@@ -102,7 +102,7 @@ class ProfileController extends Controller
     if($request->file('photo')){
     $photo = $request->file('photo');
     $filename = time() . '.' . $photo->getClientOriginalExtension();
-    Image::make($photo)->fit(400,301)->save( public_path('/uploads/photo/' . $filename));
+    Image::make($photo)->fit(400,400)->save( public_path('/uploads/photo/' . $filename));
     $ad->photo = $filename;
   }
 
