@@ -59,17 +59,12 @@ Bruinevlootbemanning
         <div>
           <span>
             @foreach($ad->skills as $skill)
-            @foreach($skill_definitions as $skill_definition)
-            @if($skill_definition->id == $skill->skill_definition_id)
-            {{strToLower($skill_definition->name)}} |
-            @endif
-            @endforeach
+            <span class="label label-default">{{strtolower($skill->skill_definition->name)}}</span>
             @endforeach
             @if($ad->skills->isEmpty())
             <i>Geen gegevens</i>
             @endif
           </span>
-        </p>
       </div>
     </div>
     <div class="list-group-item">
@@ -91,9 +86,6 @@ Bruinevlootbemanning
     <strong>Geplaatst door:</strong>  <p class="panel-title">{{$ad->user->firstname.' '.$ad->user->lastname}}</p>
     </div>
     @if($ad->type == 1)
-    <div class="list-group-item">
-      <p>{{str_limit($ad->user->description,200)}}</p>
-    </div>
       @endif
   </div>
 
@@ -109,7 +101,7 @@ Bruinevlootbemanning
   <div class="list-group notice-inverse">
     @if(Auth::user())
     <a class="list-group-item list-group-item-primary" data-toggle="modal" data-target="#ad_respond{{$ad->id}}" href="#">Reageren</a>
-    @elseif($ad->user->id == Auth::user()->id)
+    @elseif($ad->user->id == isset(Auth::user()->id))
     <a class="list-group-item list-group-item-primary" href="{{url('user/ad',$ad->id)}}">Wijzigen</a>
 
     @endif

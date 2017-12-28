@@ -50,7 +50,7 @@ Route::get('categories/data','CategoryController@index');
 Route::resource('/user/ad','AdController');
 
 // users
-Route::get('register/verify/{token}', 'Auth\RegisterController@verify'); 
+Route::get('register/verify/{token}', 'Auth\RegisterController@verify');
 Route::group(['middleware' => ['auth']], function () {
   Route::post('job/respond','ResponseController@store')->name('respond');
   Route::get('user/responses','ResponseController@index')->name('responses');
@@ -64,8 +64,6 @@ Route::group(['middleware' => ['auth']], function () {
   Route::post('/user/profile/photo','ProfileController@photo')->name('profilephoto');
   Route::get('/logout', 'ProfileController@logout')->name('logout');
 });
-
-
 
 // Related data
 Route::get('/skillsdata','SkillDefinitionController@list');

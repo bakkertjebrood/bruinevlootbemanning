@@ -29,11 +29,6 @@ Bruinevlootbemanning
     {{ csrf_field() }}
     {{ method_field('PATCH') }}
     <div class="form-group">
-      <label for="name">Gebruikersnaam</label>
-      <input type="text" class="form-control" id="name" name="name" value="{{$user->name}}" placeholder="Naam" required="true">
-    </div>
-
-    <div class="form-group">
       <label class="control-label" for="title">Afbeelding</label>
       <div class="validation-errors"></div>
       <input id="newad_file" type="file" name="photo" class="form-control"/>
@@ -52,11 +47,6 @@ Bruinevlootbemanning
     <div class="form-group">
       <label for="email">E-mail</label>
       <input type="text" class="form-control" id="email" name="email" value="{{$user->email}}" placeholder="E-mail" required="true">
-    </div>
-
-    <div class="form-group">
-      <label for="description">Omschrijving</label>
-      <textarea type="text" class="form-control" id="description" name="description" value="" placeholder="Omschrijving">{{$user->description}}</textarea>
     </div>
 
     <div class="form-group">

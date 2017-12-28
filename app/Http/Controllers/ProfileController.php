@@ -87,26 +87,25 @@ class ProfileController extends Controller
   */
   public function update(Request $request, $id)
   {
-    $ad = User::find($id);
-    $ad->name = $request->name;
-    $ad->firstname = $request->firstname;
-    $ad->lastname = $request->lastname;
-    $ad->email = $request->email;
-    $ad->description = $request->description;
-    $ad->phone = $request->phone;
-    $ad->city = $request->city;
-    $ad->role_id = 1;
-    $ad->birthday = new DateTime($request->birthday);
-    $ad->active = 1;
+    $user = User::find($id);
+    $user->name = $request->name;
+    $user->firstname = $request->firstname;
+    $user->lastname = $request->lastname;
+    $user->email = $request->email;
+    $user->description = $request->description;
+    $user->phone = $request->phone;
+    $user->city = $request->city;
+    $user->role_id = 1;
+    $user->birthday = new DateTime($request->birthday);
 
     if($request->file('photo')){
     $photo = $request->file('photo');
     $filename = time() . '.' . $photo->getClientOriginalExtension();
     Image::make($photo)->fit(400,400)->save( public_path('/uploads/photo/' . $filename));
-    $ad->photo = $filename;
+    $user->photo = $filename;
   }
 
-    $ad->save();
+    $user->save();
 
 
     if($request->option == 2){

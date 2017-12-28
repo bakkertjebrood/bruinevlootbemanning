@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('title')
+BruineVlootBemanning
+@stop
 @section('header')
 @include('inc.navbar')
 @include('inc.cta')
@@ -16,6 +19,7 @@
         <div class="panel-heading">Inloggen</div>
 
         <div class="panel-body">
+          @include('flash::message')
           @if ($message = Session::get('success'))
           <div class="alert alert-success">
             <p>{{ $message }}</p>

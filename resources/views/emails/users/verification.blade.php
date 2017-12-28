@@ -1,10 +1,10 @@
 @component('mail::message')
-# Introduction
+# Hallo,
 
-The body of your message.
+Klik op de onderstaande knop om uw account op BruineVlootBemanning.nl te registreren.
 
-@component('mail::button', ['url' => ''])
-Button Text
+@component('mail::button', ['url' => url('register/verify/').'/'.$user->email_token])
+Activeer account
 @endcomponent
 
 Thanks,<br>

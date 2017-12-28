@@ -26,6 +26,8 @@
   @yield('header')
   @yield('content')
 
+  @include('inc.login_modal')
+
   <footer id="myFooter">
       <div class="container">
           <div class="row">

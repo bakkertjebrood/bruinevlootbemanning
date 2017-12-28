@@ -44,7 +44,7 @@
         <li><a href="{{route('faq')}}">Hoe het werkt</a></li>
         <li>
           @if (Auth::guest())
-          <a href="{{route('login')}}" class="">Inloggen</a>
+          <a href="#" data-toggle="modal" data-target="#login_modal" class="">Inloggen</a>
           @else
           <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Welkom, {{Auth::user()->firstname}}
