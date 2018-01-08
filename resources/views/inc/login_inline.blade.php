@@ -7,7 +7,7 @@
   <div class="panel-body">
     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
         <div class="col-md-12">
-            <input id="email" placeholder="E-mail" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+            <input id="" placeholder="E-mail" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
 
             @if ($errors->has('email'))
                 <span class="help-block">
@@ -19,7 +19,7 @@
 
     <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
         <div class="col-md-12">
-            <input id="password" placeholder="Wachtwoord" type="password" class="form-control" name="password" required>
+            <input id="" placeholder="Wachtwoord" type="password" class="form-control" name="password" required>
 
             @if ($errors->has('password'))
                 <span class="help-block">

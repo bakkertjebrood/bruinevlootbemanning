@@ -1,4 +1,8 @@
 $(function(){
+
+  var d = $('.chatscroll');
+d.scrollTop(d.prop("scrollHeight"));
+
   $.ajaxSetup({
     headers: {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

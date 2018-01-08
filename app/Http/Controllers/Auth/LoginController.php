@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -49,5 +50,27 @@ class LoginController extends Controller
         'password' => $request->password,
         'verified' => 1,
     ];
+}
+
+public function logincheck(Request $request){
+
+
+    $email = $request->email;
+    $password = $request->password;
+
+    $credentials = [
+    'email' => $request->email,
+    'password' => $password = $request->password,
+    'verified' => 1,
+];
+$valid = Auth::validate($credentials);
+if ( ! $valid)
+{
+    return response()->json($valid);
+}
+
+
+  //Validation as needed or form request
+ return response()->json($valid);
 }
 }

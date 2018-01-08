@@ -11,24 +11,6 @@ BruineVlootBemanning
 @stop
 @section('content')
 <div class="container">
-  <div class="col-lg-3">
-    <div class="list-group notice">
-      <a href="{{route('jobrequest')}}" class="list-group-item">Plaats mijn oproep</a>
-      <a href="{{route('jobopening')}}" class="list-group-item">Plaats een vacature</a>
-    </div>
-
-
-    <div class="list-group">
-      <label for="search">Ga naar</label>
-      <a href="{{route('jobrequests')}}" class="list-group-item">Alle oproepen</a>
-      <a href="{{route('jobopenings')}}" class="list-group-item">Alle vacatures</a>
-    </div>
-
-    @if(Auth::guest())
-    @include('inc.login_inline')
-    @endif
-
-  </div>
 
   <!-- Main ads grid -->
   <div class="col-lg-9">
@@ -51,12 +33,16 @@ BruineVlootBemanning
           <div class="caption clearfix">
             <div class="lineup">
               <h5><strong>{{str_limit($ad->name,25)}}</strong></h5>
-              <small>{{str_limit($ad->description,75)}}</small>
+
             </div>
 
             <span class="ad_block_footer">
               <a type="button" class="btn btn-sm btn-default" href="{{url('/job',$ad->id)}}" name="button">Bekijken</a>
+              @if(Auth::user())
               <a type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#ad_respond{{$ad->id}}" name="respond">Reageer</a>
+              @else
+              <a type="button" class="btn btn-sm btn-primary" href="#" data-toggle="modal" data-target="#login_modal" class="">Reageer</a>
+              @endif
             </span>
           </div>
         </div>
@@ -82,7 +68,7 @@ BruineVlootBemanning
           <div class="caption clearfix">
             <div class="lineup">
               <h5><strong>{{str_limit($ad->name,25)}}</strong></h5>
-              <small>{{str_limit($ad->description,100)}}</small>
+
             </div>
 
             <span class="ad_block_footer">
@@ -101,7 +87,32 @@ BruineVlootBemanning
 
   </div>
   <!-- col3  -->
+  <div class="col-lg-3">
+    <div class="list-group notice profile-menu">
+      <a href="{{route('jobrequest')}}" class="list-group-item">
+        <span class="glyphicon glyphicon-bullhorn"></span>
+        Plaats mijn oproep</a>
+      <a href="{{route('jobopening')}}" class="list-group-item">
+        <span class="glyphicon glyphicon-ok-circle"></span>
+        Plaats een vacature</a>
+    </div>
 
+
+    <div class="list-group profile-menu">
+      <label for="search">Ga naar</label>
+      <a href="{{route('jobrequests')}}" class="list-group-item">
+        <span class="glyphicon glyphicon-bullhorn"></span>
+        Alle oproepen</a>
+      <a href="{{route('jobopenings')}}" class="list-group-item">
+        <span class="glyphicon glyphicon-ok-circle"></span>
+        Alle vacatures</a>
+    </div>
+
+    @if(Auth::guest())
+    @include('inc.login_inline')
+    @endif
+
+  </div>
 </div>
 </div>
 

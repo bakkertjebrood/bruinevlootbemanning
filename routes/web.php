@@ -51,6 +51,10 @@ Route::resource('/user/ad','AdController');
 
 // users
 Route::get('register/verify/{token}', 'Auth\RegisterController@verify');
+Route::get('register/resendverification', 'Auth\RegisterController@verifysend')->name('verifysend');
+Route::post('register/sendverification', 'Auth\RegisterController@sendverification')->name('sendverification');
+Route::post('register/emailcheck/','Auth\RegisterController@emailcheck')->name('emailcheck');
+Route::post('login/check','Auth\LoginController@logincheck')->name('logincheck');
 Route::group(['middleware' => ['auth']], function () {
   Route::post('job/respond','ResponseController@store')->name('respond');
   Route::get('user/responses','ResponseController@index')->name('responses');
@@ -72,6 +76,7 @@ Route::get('/categoriesdata','CategoryDefinitionController@list');
 // Menu items
 Route::get('/faq', 'GeneralController@faq')->name('faq');
 Route::get('/contact', 'GeneralController@contact')->name('contact');
-Route::get('/about', 'GeneralController@about')->name('about');
+Route::post('/contact', 'GeneralController@postcontact')->name('postcontact');
+Route::get('/about', 'GeneralController@creator')->name('about');
 Route::get('/creator', 'GeneralController@creator')->name('creator');
-Route::get('/suggestions', 'GeneralController@suggestions')->name('suggestions');
+Route::get('/suggestions', 'GeneralController@contact')->name('suggestions');

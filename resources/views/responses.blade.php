@@ -40,35 +40,58 @@ Bruinevlootbemanning
     <div v-if="responses.length > 0" class="panel panel-default">
       <div class="panel-heading">
         <a v-if="conversation_id" @click="deleteResponse()" class="pull-right btn" href="#"><span class="glyphicon glyphicon-trash"></span></a>
-        <h4>Bericht</h4>
-        <hr>
-        <div class="panel-body">
-          <ul class="chat">
-            <li v-for="response in responses" class="clearfix left"><span class="chat-img pull-left">
-              <img :src="'{{url("uploads/photo")}}/'+response.photo" alt="User Avatar" class="img-circle img-md" />
-            </span>
-            <div class="chat-body clearfix">
-              <div class="header">
-                <strong class="primary-font">@{{response.firstname}}</strong> <small class="pull-right text-muted">
-                  <span class="glyphicon glyphicon-time"></span>@{{response.created_at}}</small>
-                </div>
-                <p>
-                  @{{response.body}}
-                </p>
-              </div>
-            </li>
+        <h4>Gesprek</h4>
+        <div id="chatscroll" v-chat-scroll class="panel-body chatscroll">
 
-      </ul>
-    </div>
-    <div class="panel-footer clearfix">
-        <div class="form-group">
-          <textarea rows="7" id="btn-input" type="text"  v-model="body" class="form-control input-sm" placeholder="Schrijf uw bericht hier..." />
+          <ul class="chat">
+            <transition-group name="fade">
+
+              <li :key="response.id" v-for="response in responses">
+
+                <div v-if="{{Auth::user()->id}} != response.user_id" class="chat-body clearfix left">
+                  <div class="clearfix">
+                    <small class="pull-right text-muted">
+                      <span class="glyphicon glyphicon-time"></span>
+                      @{{ response.created_at | moment("from", "now", true) }}
+                    </small>
+                    <strong class="primary-font pull-left">@{{response.firstname}}</strong>
+
+                    <div class="well body">
+                      <small>@{{response.body}}</small>
+                    </div>
+                  </div>
+                </div>
+
+                <div v-else class="chat-body clearfix right">
+                  <div class="clearfix">
+                    <small class="pull-left text-muted">
+                      <span class="glyphicon glyphicon-time"></span>
+                      @{{ response.created_at | moment("from", "now", true) }}
+                    </small>
+                    <strong class="primary-font pull-right">@{{response.firstname}}</strong>
+
+                    <div class="well body">
+                      <small>@{{response.body}}</small>
+                    </div>
+                  </div>
+                </div>
+
+              </li>
+
+            </transition-group>
+          </ul>
+
+        </div>
+        <div class="panel-footer clearfix">
+          <div class="form-group">
+            <textarea rows="7" id="btn-input" type="text"  v-model="body" class="form-control input-sm" placeholder="Schrijf uw bericht hier..." />
           </textarea>
         </div>
-          <button  class="btn btn-primary btn-sm  pull-right" @click="addResponse()" id="btn-chat">Versturen</button>
+        <button  class="btn btn-primary btn-sm  pull-right" @click="addResponse()" id="btn-chat">Versturen</button>
 
       </div>
     </div>
+
   </div>
   <!-- End chat -->
 </div>
@@ -84,18 +107,22 @@ Bruinevlootbemanning
 @section('scripts')
 <script type="text/javascript">
 
+
 var responses = new Vue({
   el: '#responses',
   data:{
     responses: [],
     body: '',
     ad_id: '',
+    ad_name: '',
     user_id: '',
     conversation_id: '',
     conversations: [],
-    isActive: false
+    isActive: false,
+    current_user_id: '{{Auth::user()->id}}'
   },
   mounted(){
+    this.$moment.locale('nl')
     // get initial responses
     axios.get('{{route("get_conversations")}}', {
     }).then(response => {
@@ -108,6 +135,7 @@ var responses = new Vue({
         conversation_id: conversation_id
       }).then(response => {
         this.responses = response.data;
+        this.ad_name = response.ad_name;
       });
       this.ad_id = ad_id;
       this.user_id = user_id;
@@ -140,13 +168,24 @@ var responses = new Vue({
     deleteResponse(){
       axios.delete('{{route("delete_response")}}', {
         params:{
-          conversation_id: this.conversation_id
+          conversation_id: this.conversation_id,
+          user_id: this.user_id
         }
       }).then(response => {
         this.getResponses(this.ad_id,this.user_id,this.conversation_id);
         this.getConversations();
+        this.getResponses();
       });
     },
+
+    classSide(id){
+      if(id == this.current_user_id){
+        return 'pull-left';
+      }else{
+        return 'pull-right';
+      }
+    }
+
   }
 
 });

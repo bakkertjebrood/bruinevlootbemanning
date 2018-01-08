@@ -107,8 +107,8 @@ class JobController extends Controller
     }
 
     public function jobopening(){
-      if(Auth::user()->active == 0){
-        flash('Uw gegevens zijn nog niet compleet. Wilt u deze eerst aanvullen?')->error();
+      if(Auth::user()->verified == 0){
+        flash('Uw account is nog niet geactiveerd. Check uw e-mail voor de activeringslink.')->error();
         return redirect('user/profile');
       }
       return view('jobnew')
@@ -116,8 +116,8 @@ class JobController extends Controller
     }
 
     public function jobrequest(){
-      if(Auth::user()->active == 0){
-        flash('Uw gegevens zijn nog niet compleet. Wilt u deze eerst aanvullen?')->error();
+      if(Auth::user()->verified == 0){
+        flash('Uw account is nog niet geactiveerd. Check uw e-mail voor de activeringslink.')->error();
         return redirect('user/profile');
       }
 

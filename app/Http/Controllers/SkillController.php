@@ -15,7 +15,7 @@ class SkillController extends Controller
      */
     public function index()
     {
-        $skills = Skill_definition::all();
+        $skills = Skill_definition::select('id','name')->get();
 
         return response()->json($skills);
     }
