@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://Bruinevlootbemanning.devs'),
 
     /*
     |--------------------------------------------------------------------------
@@ -168,7 +168,7 @@ return [
         /*
          * Package Service Providers...
          */
-         
+
         /*
          * Application Service Providers...
          */

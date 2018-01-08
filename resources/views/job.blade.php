@@ -100,10 +100,15 @@ Bruinevlootbemanning
 
   <div class="list-group notice-inverse">
     @if(Auth::user())
+    @if($ad->user->id != Auth::user()->id && Auth::user())
     <a class="list-group-item list-group-item-primary" data-toggle="modal" data-target="#ad_respond{{$ad->id}}" href="#">Reageren</a>
-    @elseif($ad->user->id == isset(Auth::user()->id))
+    @else
     <a class="list-group-item list-group-item-primary" href="{{url('user/ad',$ad->id)}}">Wijzigen</a>
+    @endif
+    @endif
 
+    @if(Auth::guest())
+    <a class="list-group-item list-group-item-primary" href="#" data-toggle="modal" data-target="#login_modal" class="">Reageren</a>
     @endif
 
   </div>

@@ -97,7 +97,7 @@ class RegisterController extends Controller
     try
     {
       $user = $this->create($request->all());
-      $email = new EmailVerification(new User(['email_token' => $user->email_token, 'name' => $user->name]));
+      $email = new EmailVerification(new User(['email_token' => $user->email_token, 'name' => $user->firstname]));
       Mail::to($user->email)->send($email);
       DB::commit();
       flash()->overlay('U heeft een e-mail ontvangen. Activeer uw account via de link in de e-mail', 'Activeer uw account');
@@ -113,7 +113,32 @@ class RegisterController extends Controller
   public function verify($token)
   {
     User::where('email_token',$token)->firstOrFail()->verified();
-      flash('Uw account is geactiveerd. Log in met uw gegevens.')->success();
+    flash('Uw account is geactiveerd. Log in met uw gegevens.')->success();
     return redirect()->route('login');
   }
-}
+
+  public function verifysend(){
+
+    return view('auth.passwords.verify');
+
+  }
+
+  protected function sendverification(Request $request){
+    $user = User::where('email',$request->email)->get();
+    $email = new EmailVerification(new User(['email_token' => $user[0]->email_token, 'name' =>  $user[0]->firstname]));
+      Mail::to($request->email)->send($email);
+      flash('Als uw account aanwezig is in ons bestand, is uw activatiecode verstuurd.')->success();
+    return back();
+    }
+
+    public function emailcheck(Request $request){
+      $emailcheck = User::where('email',$request->email)->select('email')->first();
+
+      if($emailcheck){
+        return response()->json(true);
+      }else{
+        return response()->json(false);
+      }
+
+    }
+  }

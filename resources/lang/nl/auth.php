@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'Deze gegevens zijn niet gevonden in ons bestand.',
+    'failed' => 'Account niet aanwezig of niet geactiveerd.',
     'throttle' => 'Te vaak ingelogd. Probeer opnieuw na :seconds seconden.',
 
 ];

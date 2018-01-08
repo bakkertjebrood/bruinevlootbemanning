@@ -14,19 +14,31 @@ Bruinevlootbemanning
   <div class="col-lg-3">
     <div class="search">
 
-      <div class="list-group notice">
-        <a href="{{route('jobrequest')}}" class="list-group-item">Plaats oproep</a>
-        <a href="{{route('jobopening')}}" class="list-group-item">Plaats vacature</a>
+      <div class="list-group notice profile-menu">
+        <a href="{{route('jobrequest')}}" class="list-group-item">
+          <span class="glyphicon glyphicon-bullhorn"></span>
+          Plaats oproep</a>
+        <a href="{{route('jobopening')}}" class="list-group-item">
+          <span class="glyphicon glyphicon-ok-circle"></span>
+          Plaats vacature</a>
       </div>
 
-      <div class="list-group">
+      <div class="list-group profile-menu">
         <label for="search">Alles tonen</label>
         @if($ad_type == 1)
-        <a href="{{route('jobrequests')}}" class="list-group-item ">Bemanning aanbod</a>
-        <a href="{{route('jobopenings')}}" class="list-group-item active">Vacatures</a>
+        <a href="{{route('jobrequests')}}" class="list-group-item ">
+          <span class="glyphicon glyphicon-bullhorn"></span>
+          Bemanning aanbod</a>
+        <a href="{{route('jobopenings')}}" class="list-group-item active">
+          <span class="glyphicon glyphicon-ok-circle"></span>
+          Vacatures</a>
         @elseif($ad_type == 2)
-        <a href="{{route('jobrequests')}}" class="list-group-item active">Bemanning aanbod</a>
-        <a href="{{route('jobopenings')}}" class="list-group-item ">Vacatures</a>
+        <a href="{{route('jobrequests')}}" class="list-group-item active">
+          <span class="glyphicon glyphicon-bullhorn"></span>
+          Bemanning aanbod</a>
+        <a href="{{route('jobopenings')}}" class="list-group-item ">
+          <span class="glyphicon glyphicon-ok-circle"></span>
+          Vacatures</a>
         @endif
       </div>
 
@@ -54,6 +66,7 @@ Bruinevlootbemanning
         <div class="list-group checked-list-box" id="categories">
           <a v-for="category in categories" @click="addCategory(categories,category)" :class="['list-group-item',{active:category.isActive}]">
             @{{category.name}}
+            <!-- <span class="badge">1</span> -->
           </a>
         </div>
       </div>
@@ -172,9 +185,6 @@ Bruinevlootbemanning
           </div>
           @endif
         </div>
-
-
-
       </transition-group>
       </div>
 
@@ -182,10 +192,6 @@ Bruinevlootbemanning
 
       </div>
     </div>
-
-<!-- col3 -->
-
-
   </div>
   @stop
 
@@ -228,7 +234,11 @@ Bruinevlootbemanning
         this.skills = response.data;
 
       });
-      axios.get('/categories/data').then(response => this.categories = response.data);
+
+      // categories
+      axios.get('/categories/data').then(response =>
+        this.categories = response.data
+      );
 
       $("#startdate").datepicker({
         format:'d-m-yyyy',
@@ -239,13 +249,6 @@ Bruinevlootbemanning
         format:'d-m-yyyy',
         language:'nl'}).on("changeDate", () => {this.enddate = $('#enddate').val()}
       );
-
-    },
-
-    computed:{
-      dateInit(){
-        console.log(this.startdate);
-      }
 
     },
 

@@ -10,9 +10,7 @@ Bruinevlootbemanning
 @stop
 
 @section('content')
-<form  enctype="multipart/form-data" action="{{url('/user/ad',$ad->id)}}" method="post">
-  {{ csrf_field() }}
-  {{ method_field('PATCH') }}
+
   <div class="container">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><small><a href="{{url('/')}}">Welkom</a></small></li>
@@ -33,14 +31,16 @@ Bruinevlootbemanning
       @endif
 
     </div>
-
+    <form  enctype="multipart/form-data" id="jobupdate" action="{{url('/user/ad',$ad->id)}}" method="post">
+      {{ csrf_field() }}
+      {{ method_field('PATCH') }}
     <div class="col-lg-9">
 
       @include('flash::message')
 
       <div class="form-group">
         <label for="name">Titel</label>
-        <input type="text" class="form-control" id="name" name="name" value="{{$ad->name}}" placeholder="Bijvoorbeeld: Matroos gezocht" required="true">
+        <input type="text" class="form-control" id="name" autofocus name="name" value="{{$ad->name}}" placeholder="Bijvoorbeeld: Matroos gezocht" required="true">
       </div>
 
       <div class="form-group">
@@ -106,19 +106,15 @@ Bruinevlootbemanning
 
       <div class="form-group">
         <label for="name">Beschrijving</label>
-        <textarea type="text" rows="7" class="form-control" name="description" value="" placeholder="Omschrijf wat u zoekt" required="true">{{ $ad->description }}</textarea>
+        <textarea type="text" rows="7" class="form-control" name="description" placeholder="Omschrijf wat u zoekt" required="true">{{ $ad->description }}</textarea>
       </div>
 
       @if($ad->type == 2)
       <div class="form-group">
         <label for="name">Ervaring</label>
-        <textarea type="text" rows="7" class="form-control" name="experience" value="" placeholder="Omschrijf jouw relevante werkervaring" required="true">{{$ad->experience}}</textarea>
+        <textarea type="text" rows="7" class="form-control" name="experience" placeholder="Omschrijf uw relevante werkervaring" required="true">{{$ad->experience}}</textarea>
       </div>
       @endif
-
-      <div class="pull-right">
-        <button type="submit" class="btn btn-primary btn-l" name="button">Opslaan</button>
-      </div>
 
     </div>
 
@@ -129,15 +125,30 @@ Bruinevlootbemanning
         <div class="validation-errors"></div>
         <input id="newad_file" type="file" name="photo" class="form-control" />
       </div>
-    </div>
 
-  </div>
+      <div class="list-group notice-inverse">
+        <a class="list-group-item list-group-item-primary" id="save" href="#">Opslaan</a>
+
+      </div>
+      <div class="list-group">
+        <a class="list-group-item list-group-item-default" href="{{route('job',$ad->id)}}">Advertentie bekijken</a>
+      </div>
+
+
+    </div>
 </form>
+  </div>
+
 
 @stop
 
 @section('scripts')
 <script type="text/javascript">
+
+$('#save').click(function(){
+  $('#jobupdate').submit();
+});
+
 function readURL(input) {
 
   if (input.files && input.files[0]) {

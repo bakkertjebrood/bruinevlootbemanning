@@ -108,6 +108,11 @@ class AdController extends Controller
     public function show($ad)
     {
         $show = Ad::find($ad);
+
+        if($show->user_id != Auth::user()->id){
+          flash('Geen toegang')->error();
+          return redirect()->back();
+        }
         $skill_definitions = Skill_definition::all();
         $category_definitions = Category_definition::all();
 

@@ -65,20 +65,11 @@ Bruinevlootbemanning
 
       </select>
     </div>
-
-    @if(Auth::user()->active == 0)
-
-    <div class="form-footer pull-right">
-      <button type="submit" class="btn btn-primary btn-l" id="jobrequest" name="button">Opslaan en plaats uw oproep</button>
-      <button type="submit" class="btn btn-primary btn-l" id="jobopening" name="button">Opslaan en plaats uw vacature</button>
-    </div>
-
-    @else
+    
     <div class="form-footer pull-right">
       <button type="submit" class="btn btn-primary btn-l" name="button">Opslaan</button>
     </div>
 
-    @endif
 
     <input type="hidden" id="option" name="option" value="">
 

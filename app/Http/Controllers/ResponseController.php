@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\response;
 use App\ad;
+use App\conversation_user;
 use DB;
 use Illuminate\Http\Request;
 use Auth;
@@ -28,8 +29,14 @@ class ResponseController extends Controller
       $responses = $responses->leftJoin('ads','ads.id','=','responses.ad_id');
       $responses = $responses->leftJoin('users as response_user','response_user.id','=','responses.user_id');
       $responses = $responses->select('responses.conversation_id as conversation_id','responses.user_id as user_id','ads.id as ad_id','ads.name as ad_name','response_user.firstname as firstname');
-      $responses = $responses->where('ads.user_id',Auth::user()->id);
-      $responses = $responses->orWhere('responses.user_id','=',Auth::user()->id);
+      // $responses = $responses->where('ads.user_id',Auth::user()->id);
+      // $responses = $responses->orWhere('responses.user_id','=',Auth::user()->id);
+      $responses = $responses->whereExists(function ($query) {
+          $query->select(DB::raw(1))
+                ->from('conversation_users')
+                ->whereRaw('conversation_users.user_id ='.Auth::user()->id)
+                ->whereRaw('conversation_users.conversation_id = responses.conversation_id');
+      });
       $responses = $responses->groupBy('conversation_id');
       $responses = $responses->get();
 
@@ -42,8 +49,9 @@ class ResponseController extends Controller
         $responses = $responses->leftJoin('ads','ads.id','=','responses.ad_id');
         $responses = $responses->leftJoin('users as response_user','response_user.id','=','responses.user_id');
         $responses = $responses->leftJoin('users as ad_user','ad_user.id','=','ads.user_id');
-        $responses = $responses->select('responses.conversation_id as conversation_id','response_user.firstname as firstname','response_user.photo as photo','responses.body as body','responses.created_at as created_at');
+        $responses = $responses->select('ads.name as ad_name','responses.conversation_id as conversation_id','response_user.firstname as firstname','response_user.photo as photo','responses.body as body','responses.created_at as created_at','responses.user_id as user_id','responses.id as id');
         $responses = $responses->where('responses.conversation_id',$request->conversation_id);
+        $responses = $responses->orderBy('responses.created_at');
         $responses = $responses->get();
 
       return response()->json($responses);
@@ -79,6 +87,16 @@ class ResponseController extends Controller
         ]
         );
 
+        $conversation_loggedInUser = Conversation_user::create([
+          'conversation_id' => DB::table('responses')->max('conversation_id'),
+          'user_id' => Auth::user()->id
+        ]);
+
+        $conversation_AdUser = Conversation_user::create([
+          'conversation_id' => DB::table('responses')->max('conversation_id'),
+          'user_id' => $ad_user_id->user_id
+        ]);
+
         $user = User::find(Ad::find($request->ad_id));
 
         Mail::to($user)->send(new responseCreated());
@@ -102,13 +120,15 @@ class ResponseController extends Controller
 
       $user = User::find(Response::where('conversation_id',$request->conversation_id)->where('user_id','!=',$request->user_id)->select('user_id')->first());
 
-      Mail::to($user)->send(new responseCreated());
+      if($user){
+      Mail::to($user)->queue(new responseCreated());
+      }
 
         return response()->json($user);
     }
 
     public function delete_response(Request $request){
-      $delete = Response::where('conversation_id',$request->conversation_id)->delete();
+      $delete = Conversation_user::where('conversation_id',$request->conversation_id)->where('user_id',Auth::user()->id)->delete();
     }
 
     /**
