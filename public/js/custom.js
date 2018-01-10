@@ -1,7 +1,6 @@
 $(function(){
 
-  var d = $('.chatscroll');
-d.scrollTop(d.prop("scrollHeight"));
+$('[data-toggle="confirmation"]').confirmation();
 
   $.ajaxSetup({
     headers: {

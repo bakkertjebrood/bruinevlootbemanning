@@ -29,8 +29,6 @@ class ResponseController extends Controller
       $responses = $responses->leftJoin('ads','ads.id','=','responses.ad_id');
       $responses = $responses->leftJoin('users as response_user','response_user.id','=','responses.user_id');
       $responses = $responses->select('responses.conversation_id as conversation_id','responses.user_id as user_id','ads.id as ad_id','ads.name as ad_name','response_user.firstname as firstname');
-      // $responses = $responses->where('ads.user_id',Auth::user()->id);
-      // $responses = $responses->orWhere('responses.user_id','=',Auth::user()->id);
       $responses = $responses->whereExists(function ($query) {
           $query->select(DB::raw(1))
                 ->from('conversation_users')
@@ -77,8 +75,11 @@ class ResponseController extends Controller
     {
       $ad_user_id = Ad::find($request->ad_id);
       $addOwner = User::find($ad_user_id);
+      $conversation_exists = Response::where('user_id',Auth::user()->id)->where('ad_id',$request->ad_id)->first();
 
       if(Auth::user()->id != $ad_user_id->user_id){
+
+        if(!$conversation_exists){
         $store = Response::create([
           'ad_id' => $request->ad_id,
           'user_id' => Auth::user()->id,
@@ -86,7 +87,6 @@ class ResponseController extends Controller
           'body' => $request->body
         ]
         );
-
         $conversation_loggedInUser = Conversation_user::create([
           'conversation_id' => DB::table('responses')->max('conversation_id'),
           'user_id' => Auth::user()->id
@@ -96,6 +96,18 @@ class ResponseController extends Controller
           'conversation_id' => DB::table('responses')->max('conversation_id'),
           'user_id' => $ad_user_id->user_id
         ]);
+      }else{
+        $store = Response::create([
+          'ad_id' => $request->ad_id,
+          'user_id' => Auth::user()->id,
+          'conversation_id' => $conversation_exists->conversation_id,
+          'body' => $request->body
+        ]
+        );
+
+
+      }
+
 
         $user = User::find(Ad::find($request->ad_id));
 

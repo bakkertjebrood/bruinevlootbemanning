@@ -12,6 +12,8 @@ Bruinevlootbemanning
 @section('content')
 
   <div class="container">
+
+
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><small><a href="{{url('/')}}">Welkom</a></small></li>
       <li class="breadcrumb-item"><small><a href="{{url('user/ad')}}">Uw advertenties</a></small></li>
@@ -46,7 +48,7 @@ Bruinevlootbemanning
       <div class="form-group">
         <label for="name">
           @if($ad->type == 2)
-          Gewenste afvaarthaven
+          Voorkeur plaats of haven
           @else
           Thuishaven
           @endif
@@ -92,9 +94,9 @@ Bruinevlootbemanning
 
       <div class="form-group">
         @if($ad->type == 2)
-        <label for="daterange">Van wanneer tot wanneer ben je beschikbaar?</label>
+        <label for="daterange">Van wanneer tot wanneer bent u beschikbaar?</label>
         @else
-        <label for="daterange">Van wanneer tot wanneer zoek je iemand?</label>
+        <label for="daterange">Van wanneer tot wanneer zoekt u iemand?</label>
         @endif
 
         <div class="input-group input-daterange" id="daterange">
@@ -125,14 +127,18 @@ Bruinevlootbemanning
         <div class="validation-errors"></div>
         <input id="newad_file" type="file" name="photo" class="form-control" />
       </div>
+<div class="list-group">
+  <a class="list-group-item list-group-item-default" href="{{route('job',$ad->id)}}">Advertentie bekijken</a>
+</div>
 
       <div class="list-group notice-inverse">
+
         <a class="list-group-item list-group-item-primary" id="save" href="#">Opslaan</a>
 
       </div>
-      <div class="list-group">
-        <a class="list-group-item list-group-item-default" href="{{route('job',$ad->id)}}">Advertentie bekijken</a>
-      </div>
+
+
+
 
 
     </div>

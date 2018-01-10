@@ -42,4 +42,11 @@
     Plaats een vacature</a>
 </div>
 
+
+  <div class="list-group">
+    <a href="#" class="list-group-item clearfix">
+      <span class="glyphicon glyphicon-file"></span>
+      Lorem ips
+    </a>
+  </div>
 </div>

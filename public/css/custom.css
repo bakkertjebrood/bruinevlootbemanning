@@ -10,8 +10,13 @@ textarea{
   white-space: pre-line;
 }
 
+.to-bottom{
+  bottom: 0px;
+  position: relative;
+}
+
 .fade-enter-active, .fade-leave-active {
-  transition: all 1s;
+  transition: all 0.5s;
 }
 .fade-enter, .fade-leave-to /* .list-leave-active below version 2.1.8 */ {
   opacity: 0;
@@ -115,7 +120,8 @@ textarea{
 
 .v-center {
   position: relative;
-  margin-top: 20px;
+  top: 120px;
+  right:10px;
 }
 
 .login{
@@ -434,13 +440,6 @@ textarea{
   padding: 0;
 }
 
-.chat li
-{
-  /* margin-bottom: 10px; */
-  /* padding-bottom: 5px; */
-  /* border-bottom: 1px dotted #B3A9A9; */
-}
-
 .chat-body .body{
   margin-top: 25px;
 }
@@ -462,7 +461,7 @@ textarea{
 
 .chatscroll{
   overflow: auto;
-  max-height: 500px;
+  max-height: 450px;
 }
 
 .chat-body .well{

@@ -143,20 +143,19 @@
   <!-- Scripts -->
 
   <script src="{{ asset('js/app.js') }}"></script>
-  <script type="text/javascript" src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+  <!-- <script type="text/javascript" src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script> -->
+  <script src="{{ asset('js/bootstrap-confirmation.min.js') }}" charset="utf-8"></script>
   <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
   <script src="{{ asset('js/bootstrap-datepicker.nl.min.js') }}"></script>
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-  <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
   <script src="{{ asset('js/places.js') }}" charset="utf-8"></script>
   <script type="text/javascript" src="{{ asset('js/custom.js') }}" charset="utf-8"></script>
 
   @yield('scripts')
 
   <script type="text/javascript">
+
   new Vue({
     el: '#login_modal',
     data:{

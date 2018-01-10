@@ -33,24 +33,23 @@ Bruinevlootbemanning
         <div class="media">
           <div class="media-left">
             <a href="#">
-              <img class="media-object ads-image-s " src="{{url('/uploads/photo')}}/{{$ad->photo}}" alt="Photo">
+              <img class="media-object ads-image-l " src="{{url('/uploads/photo')}}/{{$ad->photo}}" alt="Photo">
             </a>
           </div>
           <div class="media-body">
             <div class="col-lg-8">
-              <strong>{{$ad->name}}</strong><br>
+              <a href="{{url('user/ad',$ad->id)}}"><strong>{{$ad->name}}</strong></a><br>
               <p>{{str_limit($ad->description,100)}}</p>
             </div>
             <div class="col-lg-4 v-center">
               <div class="pull-right">
 
-                  <form class="" action="{{url('user/ad',$ad->id)}}" method="post">
-                    {{ csrf_field() }}
-                    {{ method_field('DELETE') }}
-                    <a type="button" class="btn btn-m btn-warning" href="{{url('user/ad',$ad->id)}}" name="button"><span class="glyphicon glyphicon-pencil"></span></a>
-
-                    <button type="submit" class="btn btn-m btn-danger" name="delete"><span class="glyphicon glyphicon-trash"></span></button>
-                  </form>
+                <form class="" action="{{url('user/ad',$ad->id)}}" method="post">
+                  {{ csrf_field() }}
+                  {{ method_field('DELETE') }}
+                  <a type="button" class="btn btn-m btn-warning" href="{{url('user/ad',$ad->id)}}" name="button"><span class="glyphicon glyphicon-pencil"></span></a>
+                  <button type="submit" class="btn btn-m btn-danger" data-toggle="confirmation" name="delete"><span class="glyphicon glyphicon-trash"></span> Verwijderen</button>
+                </form>
 
               </div>
             </div>
@@ -67,10 +66,10 @@ Bruinevlootbemanning
     @endif
 
 
-      @if(!$jobrequests->isEmpty())
-      <p class="h2">Uw <small>oproepen</small></p>
-      <hr>
-      @endif
+    @if(!$jobrequests->isEmpty())
+    <p class="h2">Uw <small>oproepen</small></p>
+    <hr>
+    @endif
 
     @foreach($jobrequests as $ad)
     <div class="panel panel-default">
@@ -78,23 +77,23 @@ Bruinevlootbemanning
         <div class="media">
           <div class="media-left">
             <a href="#">
-              <img class="media-object ads-image-s " src="{{url('/uploads/photo')}}/{{$ad->photo}}" alt="Photo">
+              <img class="media-object ads-image-l " src="{{url('/uploads/photo')}}/{{$ad->photo}}" alt="Photo">
             </a>
           </div>
           <div class="media-body">
-            <div class="col-lg-8">
-              <strong>{{$ad->name}}</strong><br>
+            <div class="col-lg-7">
+              <a href="{{url('user/ad',$ad->id)}}"><strong>{{$ad->name}}</strong></a><br>
               <p>{{str_limit($ad->description,100)}}</p>
             </div>
-            <div class="col-lg-4 v-center">
+            <div class="col-lg-5 v-center">
               <div class="pull-right">
 
-                  <form class="" action="{{url('user/ad',$ad->id)}}" method="post">
-                    {{ csrf_field() }}
-                    {{ method_field('DELETE') }}
-                    <a type="button" class="btn btn-m btn-warning" href="{{url('user/ad',$ad->id)}}" name="button"><span class="glyphicon glyphicon-pencil"></span></a>
-                    <button type="submit" class="btn btn-m btn-danger" name="delete"><span class="glyphicon glyphicon-trash"></span></button>
-                  </form>
+                <form class="" action="{{url('user/ad',$ad->id)}}" method="post">
+                  {{ csrf_field() }}
+                  {{ method_field('DELETE') }}
+                  <a type="button" class="btn btn-m btn-warning" href="{{url('user/ad',$ad->id)}}" name="button"><span class="glyphicon glyphicon-pencil"></span></a>
+                  <button type="submit" class="btn btn-m btn-danger" data-toggle="confirmation" name="delete"><span class="glyphicon glyphicon-trash"></span> Verwijderen</button>
+                </form>
 
               </div>
             </div>
