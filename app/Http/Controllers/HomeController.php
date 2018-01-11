@@ -7,6 +7,7 @@ use View;
 use App\Ad;
 use App\category_definition;
 use App\skill_definition;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -20,8 +21,8 @@ class HomeController extends Controller
       $category_definitions = Category_definition::all();
       $skills_definitions = skill_definition::all();
 
-      $jobs = Ad::where('type','1')->paginate(4);
-      $offers = Ad::where('type','2')->paginate(4);
+      $jobs = Ad::where('type','1')->where('created_at','>',Carbon::now()->subMonths(2))->paginate(4);
+      $offers = Ad::where('type','2')->where('created_at','>',Carbon::now()->subMonths(2))->paginate(4);
         return View::make('welcome')
         ->with('jobs', $jobs)
         ->with('offers', $offers)

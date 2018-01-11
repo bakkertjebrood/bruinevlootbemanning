@@ -39,7 +39,7 @@ Bruinevlootbemanning
 
     <div v-if="responses.length > 0" class="panel panel-default">
       <div class="panel-heading">
-        <a v-if="conversation_id" @click="deleteResponse()" class="pull-right btn" href="#"><span class="glyphicon glyphicon-trash"></span></a>
+        <a v-if="conversation_id" data-toggle="confirmation" @click="deleteResponse()" class="pull-right btn" href="#"><span class="glyphicon glyphicon-trash"></span></a>
         <h4>Gesprek</h4>
         <div id="chatscroll" v-chat-scroll class="panel-body chatscroll">
 

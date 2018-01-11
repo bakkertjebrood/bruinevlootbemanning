@@ -67,7 +67,8 @@ class RegisterController extends Controller
   * @param  array  $data
   * @return \App\User
   */
-  protected function create(array $data)
+  // protected function create(array $data)
+  protected function create(Array $data)
   {
 
     return User::create([
@@ -114,7 +115,7 @@ class RegisterController extends Controller
   {
     User::where('email_token',$token)->firstOrFail()->verified();
     flash('Uw account is geactiveerd. Log in met uw gegevens.')->success();
-    return redirect()->route('login');
+    return redirect('/user/profile');
   }
 
   public function verifysend(){
@@ -126,19 +127,19 @@ class RegisterController extends Controller
   protected function sendverification(Request $request){
     $user = User::where('email',$request->email)->get();
     $email = new EmailVerification(new User(['email_token' => $user[0]->email_token, 'name' =>  $user[0]->firstname]));
-      Mail::to($request->email)->send($email);
-      flash('Als uw account aanwezig is in ons bestand, is uw activatiecode verstuurd.')->success();
+    Mail::to($request->email)->send($email);
+    flash('Als uw account aanwezig is in ons bestand, is uw activatiecode verstuurd.')->success();
     return back();
-    }
-
-    public function emailcheck(Request $request){
-      $emailcheck = User::where('email',$request->email)->select('email')->first();
-
-      if($emailcheck){
-        return response()->json(true);
-      }else{
-        return response()->json(false);
-      }
-
-    }
   }
+
+  public function emailcheck(Request $request){
+    $emailcheck = User::where('email',$request->email)->select('email')->first();
+
+    if($emailcheck){
+      return response()->json(true);
+    }else{
+      return response()->json(false);
+    }
+
+  }
+}

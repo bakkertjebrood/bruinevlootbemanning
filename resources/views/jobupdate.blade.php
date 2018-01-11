@@ -121,7 +121,7 @@ Bruinevlootbemanning
     </div>
 
     <div class="col-lg-3">
-      <img id="newad_image" class="img img-thumbnail" src="{{url('uploads/photo',$ad->photo)}}" alt="">
+      <img id="newad_image" class="img img-thumbnail ad_photo" src="{{url('uploads/photo',$ad->photo)}}" alt="">
       <div class="form-group"><br>
         <label class="control-label" for="title">Afbeelding</label>
         <div class="validation-errors"></div>

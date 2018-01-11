@@ -32,32 +32,30 @@ Bruinevlootbemanning
       <div class="panel-body">
         <div class="media">
           <div class="media-left">
-            <a href="#">
-              <img class="media-object ads-image-l " src="{{url('/uploads/photo')}}/{{$ad->photo}}" alt="Photo">
+            <a href="{{url('user/ad',$ad->id)}}">
+              <img class="media-object ads-image-s hidden-xs" src="{{url('/uploads/photo')}}/{{$ad->photo}}" alt="Photo">
             </a>
           </div>
           <div class="media-body">
-            <div class="col-lg-8">
+            <div class="col-lg-12">
               <a href="{{url('user/ad',$ad->id)}}"><strong>{{$ad->name}}</strong></a><br>
-              <p>{{str_limit($ad->description,100)}}</p>
-            </div>
-            <div class="col-lg-4 v-center">
-              <div class="pull-right">
-
-                <form class="" action="{{url('user/ad',$ad->id)}}" method="post">
-                  {{ csrf_field() }}
-                  {{ method_field('DELETE') }}
-                  <a type="button" class="btn btn-m btn-warning" href="{{url('user/ad',$ad->id)}}" name="button"><span class="glyphicon glyphicon-pencil"></span></a>
-                  <button type="submit" class="btn btn-m btn-danger" data-toggle="confirmation" name="delete"><span class="glyphicon glyphicon-trash"></span> Verwijderen</button>
-                </form>
-
-              </div>
+              <p>{{str_limit($ad->description,300)}}</p>
             </div>
           </div>
         </div>
       </div>
-
+      <div class="panel-footer clearfix">
+        <div class="pull-right">
+          <form class="" action="{{url('user/ad',$ad->id)}}" method="post">
+            {{ csrf_field() }}
+            {{ method_field('DELETE') }}
+            <a type="button" class="btn btn-sm btn-default" href="{{url('user/ad',$ad->id)}}" name="button"><span class="glyphicon glyphicon-pencil"></span> Wijzigen</a>
+            <button type="submit" class="btn btn-sm btn-danger" data-toggle="confirmation" name="delete"><span class="glyphicon glyphicon-trash"></span> Verwijderen</button>
+          </form>
+        </div>
+      </div>
     </div>
+
     @endforeach
     @if(!$jobopenings->isEmpty())
     <div class="pagination">
@@ -76,31 +74,28 @@ Bruinevlootbemanning
       <div class="panel-body">
         <div class="media">
           <div class="media-left">
-            <a href="#">
-              <img class="media-object ads-image-l " src="{{url('/uploads/photo')}}/{{$ad->photo}}" alt="Photo">
+            <a href="{{url('user/ad',$ad->id)}}">
+              <img class="media-object ads-image-s hidden-xs" src="{{url('/uploads/photo')}}/{{$ad->photo}}" alt="Photo">
             </a>
           </div>
           <div class="media-body">
-            <div class="col-lg-7">
+            <div class="col-lg-12">
               <a href="{{url('user/ad',$ad->id)}}"><strong>{{$ad->name}}</strong></a><br>
-              <p>{{str_limit($ad->description,100)}}</p>
-            </div>
-            <div class="col-lg-5 v-center">
-              <div class="pull-right">
-
-                <form class="" action="{{url('user/ad',$ad->id)}}" method="post">
-                  {{ csrf_field() }}
-                  {{ method_field('DELETE') }}
-                  <a type="button" class="btn btn-m btn-warning" href="{{url('user/ad',$ad->id)}}" name="button"><span class="glyphicon glyphicon-pencil"></span></a>
-                  <button type="submit" class="btn btn-m btn-danger" data-toggle="confirmation" name="delete"><span class="glyphicon glyphicon-trash"></span> Verwijderen</button>
-                </form>
-
-              </div>
+              <p>{{str_limit($ad->description,300)}}</p>
             </div>
           </div>
         </div>
       </div>
-
+      <div class="panel-footer clearfix">
+        <div class="pull-right">
+          <form class="" action="{{url('user/ad',$ad->id)}}" method="post">
+            {{ csrf_field() }}
+            {{ method_field('DELETE') }}
+            <a type="button" class="btn btn-sm btn-default" href="{{url('user/ad',$ad->id)}}" name="button"><span class="glyphicon glyphicon-pencil"></span> Wijzigen</a>
+            <button type="submit" class="btn btn-sm btn-danger" data-toggle="confirmation" name="delete"><span class="glyphicon glyphicon-trash"></span> Verwijderen</button>
+          </form>
+        </div>
+      </div>
     </div>
     @endforeach
 

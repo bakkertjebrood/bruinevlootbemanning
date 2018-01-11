@@ -117,29 +117,6 @@ BruineVlootBemanning
 @endsection
 @section('scripts')
 <script type="text/javascript">
-function readURL(input) {
-
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
-
-    reader.onload = function(e) {
-      $('#newad_image').attr('src', e.target.result);
-      // $('#newad_image').style
-    }
-
-    reader.readAsDataURL(input.files[0]);
-  }
-}
-
-$("#newad_file").change(function() {
-  readURL(this);
-});
-
-$("#newad_image").css( 'cursor', 'pointer' );
-$("#newad_image").click(function() {
-  $("#newad_file").click();
-});
-
 new Vue({
   el:'#register',
   data:{
@@ -162,6 +139,30 @@ new Vue({
       });
     }
   }
-})
+});
+function readURL(input) {
+
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      $('#newad_image').attr('src', e.target.result);
+      $('#newad_image').addClass('ad-image-m');
+    }
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+$("#newad_file").change(function() {
+  readURL(this);
+});
+
+$("#newad_image").css( 'cursor', 'pointer' );
+$("#newad_image").click(function() {
+  $("#newad_file").click();
+});
+
+
 </script>
 @stop

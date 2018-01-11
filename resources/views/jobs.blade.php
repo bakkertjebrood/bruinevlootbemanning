@@ -105,7 +105,7 @@ Bruinevlootbemanning
       @include('flash::message')
 
       <div v-if="jobs.length == 0" class="well">
-        <i class="v-center">Geen gegevens gevonden</i>
+        <i class="">Geen gegevens gevonden</i>
       </div>
       <div>
           <transition-group name="list" tag="p">
@@ -117,7 +117,7 @@ Bruinevlootbemanning
             <div class="media">
               <div class="media-left">
                 <a :href="'/job/'+job.id">
-                  <img class="media-object ads-image-m" :src="'{{url('uploads/photo')}}/' + job.photo" alt="Photo">
+                  <img class="media-object ads-image-m hidden-xs" :src="'{{url('uploads/photo')}}/' + job.photo" alt="Photo">
                 </a>
               </div>
               <div class="media-body">
@@ -216,9 +216,7 @@ Bruinevlootbemanning
       truncate: function(string, value) {
         return string.substring(0, value) + '...';
       }
-
     },
-
     mounted(){
       // jobs
       axios.post('/jobs/data', {
@@ -226,9 +224,7 @@ Bruinevlootbemanning
 
       }).then(response => {
         this.jobs = response.data;
-
       });
-
       // skills
       axios.get('/skills/data').then(response =>{
         this.skills = response.data;

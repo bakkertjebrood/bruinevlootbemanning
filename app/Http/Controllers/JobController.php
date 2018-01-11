@@ -128,14 +128,12 @@ class JobController extends Controller
     public function jobs_data(Request $request){
       $ads = new Ad;
 
-      // if ($request->has('skills')) {
       if ($request->skills) {
         $ads = $ads->whereHas('skills', function($query) use ($request){
             $query->whereIn('skill_definition_id',$request->skills);
           });
       }
 
-      // if ($request->has('categories')) {
       if ($request->categories) {
         $ads = $ads->whereHas('categories', function($query) use ($request){
             $query->whereIn('category_definition_id',$request->categories);
@@ -153,6 +151,7 @@ class JobController extends Controller
 
       $ads = $ads
         ->where('type',$request->ad_type)
+        ->where('created_at','>',Carbon::now()->subMonths(2))
         ->orderBy('created_at','desc')
         ->get();
       return response()->json($ads);

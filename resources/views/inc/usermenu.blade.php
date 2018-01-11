@@ -1,3 +1,4 @@
+<div class="hidden-xs">
 @if(Request()->path() != 'user/profile')
 <div class="profile">
   <img class="img img-thumbnail" src="{{url('uploads/photo',Auth::user()->photo)}}" alt="">
@@ -42,11 +43,4 @@
     Plaats een vacature</a>
 </div>
 
-
-  <div class="list-group">
-    <a href="#" class="list-group-item clearfix">
-      <span class="glyphicon glyphicon-file"></span>
-      Lorem ips
-    </a>
-  </div>
 </div>

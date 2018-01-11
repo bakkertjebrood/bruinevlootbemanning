@@ -104,11 +104,7 @@ class ResponseController extends Controller
           'body' => $request->body
         ]
         );
-
-
       }
-
-
         $user = User::find(Ad::find($request->ad_id));
 
         Mail::to($user)->send(new responseCreated());
