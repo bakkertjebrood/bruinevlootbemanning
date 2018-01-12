@@ -136,7 +136,11 @@ Bruinevlootbemanning
           <div class="panel-footer clearfix">
             <span class="pull-right ">
               <a type="button" class="btn btn-m btn-default" :href="'/job/'+job.id" name="button">Meer informatie</a>
+              @if(Auth::user())
               <a type="button" class="btn btn-m btn-primary" data-toggle="modal" :data-target="'#ad_respond'+job.id" name="respond">Reageer</a>
+              @else
+              <a type="button" class="btn btn-sm btn-primary" href="#" data-toggle="modal" data-target="#login_modal" class="">Reageer</a>
+              @endif
             </span>
           </div>
           @if(Auth::user())
@@ -163,23 +167,6 @@ Bruinevlootbemanning
                   <button type="submit" class="btn btn-primary">Versturen</button>
                 </div>
               </form>
-              </div>
-            </div>
-          </div>
-          @else
-          <div class="modal fade" id="ad_respond" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                  <h4 class="modal-title" id="">U dient in te loggen om te kunnen reageren</h4>
-                </div>
-                <div class="modal-body">
-
-                  @include('inc.login')
-
-                </div>
-
               </div>
             </div>
           </div>

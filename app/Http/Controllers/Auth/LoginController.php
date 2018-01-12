@@ -54,13 +54,9 @@ class LoginController extends Controller
 
 public function logincheck(Request $request){
 
-
-    $email = $request->email;
-    $password = $request->password;
-
     $credentials = [
     'email' => $request->email,
-    'password' => $password = $request->password,
+    'password' => $request->password,
     'verified' => 1,
 ];
 $valid = Auth::validate($credentials);
@@ -69,8 +65,6 @@ if ( ! $valid)
     return response()->json($valid);
 }
 
-
-  //Validation as needed or form request
  return response()->json($valid);
 }
 }

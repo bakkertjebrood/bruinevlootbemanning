@@ -30,7 +30,7 @@ Bruinevlootbemanning
       </a>
     </div>
   </div>
-  <div class="col-lg-6">
+  <div class="col-lg-7">
     <!-- Chat -->
 
     <div v-if="responses.length == 0" class="well">
@@ -95,7 +95,7 @@ Bruinevlootbemanning
   </div>
   <!-- End chat -->
 </div>
-<div class="col-lg-3">
+<div class="col-lg-2">
   @include('inc.usermenu')
 </div>
 

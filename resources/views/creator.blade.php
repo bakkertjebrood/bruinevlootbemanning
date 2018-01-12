@@ -31,9 +31,9 @@ Bruinevlootbemanning
     </div>
     <div class="col-lg-5">
       <h4><strong>Over de maker</strong></h4>
-      <p>Hallo, ik ben Elmer Bakker en ik ben degene die <strong>Bruine</strong>Vloot<small>Bemanning.nl</small> heeft opgezet. Als de zoon van een charterschipper heb ik altijd al een voorliefde voor
+      <p>Hallo, ik ben Elmer Bakker en ik ben degene die BruineVlootBemanning.nl heeft opgezet. Als de zoon van een charterschipper heb ik altijd al een voorliefde voor
       de branche gehad en omdat ik graag zou willen dat de historische zeilende schepen blijven varen, wil ik met deze website mijn steentje bijdragen.</p>
-      <p>In mijn dagelijks leven ben ik web en applicatie ontwikkelaar en bouw ik (vind ik) de mooiste dingen. Daarnaast heeft het zeilen en varen nog altijd een belangrijke plek in mijn leven.
+      <p>In mijn dagelijks leven ben ik webapplicatie ontwikkelaar en bouw ik diverse websites en applicaties. Daarnaast heeft het zeilen en varen nog altijd een belangrijke plek in mijn leven.
         </p><br>
         <h4><strong>Het initiatief</strong></h4>
         <p>Deze website is opgezet om scheepseigenaren en personeel op een eenvoudige manier met elkaar in contact te brengen. Ik hoop dat iedereen die deze website gebruikt, dit met plezier doet en er uiteraard een voordeel uithaalt.</p>

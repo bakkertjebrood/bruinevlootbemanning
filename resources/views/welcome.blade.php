@@ -32,7 +32,7 @@ BruineVlootBemanning
           </a>
           <div class="caption clearfix">
             <div class="lineup">
-              <h5><strong>{{str_limit($ad->name,25)}}</strong></h5>
+              <h5><strong>{{str_limit($ad->name,35)}}</strong></h5>
 
             </div>
 
@@ -67,13 +67,17 @@ BruineVlootBemanning
           </a>
           <div class="caption clearfix">
             <div class="lineup">
-              <h5><strong>{{str_limit($ad->name,25)}}</strong></h5>
+              <h5><strong>{{str_limit($ad->name,35)}}</strong></h5>
 
             </div>
 
             <span class="ad_block_footer">
               <a type="button" class="btn btn-sm btn-default" href="{{url('/job',$ad->id)}}" name="button">Bekijken</a>
+              @if(Auth::user())
               <a type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#ad_respond{{$ad->id}}" name="respond">Reageer</a>
+              @else
+              <a type="button" class="btn btn-sm btn-primary" href="#" data-toggle="modal" data-target="#login_modal" class="">Reageer</a>
+              @endif
             </span>
 
           </div>

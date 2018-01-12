@@ -39,7 +39,7 @@ Bruinevlootbemanning
           <h4 class="panel-title">
             <strong>
             <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion" href="#collapseTen">
-              Hoelang is mijn advertentie geldig?</a>
+              Hoe lang is mijn advertentie geldig?</a>
             </strong>
             </h4>
           </div>
@@ -59,7 +59,7 @@ Bruinevlootbemanning
         </div>
         <div id="collapseEleven" class="panel-collapse collapse in">
           <div class="panel-body">
-            Om een oproep te kunnen plaatsen dient u in de eerste plaats te <a href="{{route('register')}}">registreren</a>. Vervolgens kiest u in het menu voor ‘Plaats een vacature’ en vult u alle velden zo volledig mogelijk in. Als u hiermee klaar bent klikt u op ‘Opslaan’. De vacature is nu geplaatst en direct zichtbaar.
+            Om een oproep te kunnen plaatsen, dient u in de eerste plaats te <a href="{{route('register')}}">registreren</a>. Vervolgens kiest u in het menu voor ‘Plaats een vacature’ en vult u alle velden zo volledig mogelijk in. Als u hiermee klaar bent, klikt u op ‘Opslaan’. De vacature is nu geplaatst en direct zichtbaar.
           </div>
         </div>
       </div>
@@ -73,7 +73,7 @@ Bruinevlootbemanning
         </div>
         <div id="collapsetwelve" class="panel-collapse collapse in">
           <div class="panel-body">
-            Om een oproep te kunnen plaatsen dient u in de eerste plaats te <a href="{{route('register')}}">registreren</a>. Vervolgens kiest u in het menu voor ‘Plaats een oproep en vult u alle velden zo volledig mogelijk in. Als u hiermee klaar bent klikt u op ‘Opslaan’. De oproep is nu geplaatst en direct zichtbaar.
+            Om een oproep te kunnen plaatsen, dient u in de eerste plaats te <a href="{{route('register')}}">registreren</a>. Vervolgens kiest u in het menu voor ‘Plaats een oproep en vult u alle velden zo volledig mogelijk in. Als u hiermee klaar bent, klikt u op ‘Opslaan’. De oproep is nu geplaatst en direct zichtbaar.
           </div>
         </div>
       </div>
@@ -87,7 +87,7 @@ Bruinevlootbemanning
         </div>
         <div id="collapsethirteen" class="panel-collapse collapse in">
           <div class="panel-body">
-            Om uw certificaat, vaardigheid of diploma toe te laten voegen aan <strong>Bruine</strong>Vloot<small>bemanning.nl</small>, kunt u dit formulier invullen. Het wordt zo snel mogelijk in behandeling genomen. U krijgt bericht zodra het is toegevoegd.
+            Om uw certificaat, vaardigheid of diploma toe te laten voegen aan BruineVlootBemanning.nl, kunt u <a href="{{url('contact')}}">dit</a> formulier invullen. Het wordt zo snel mogelijk in behandeling genomen. U krijgt bericht zodra het is toegevoegd.
           </div>
         </div>
       </div>
@@ -102,7 +102,7 @@ Bruinevlootbemanning
         </div>
         <div id="collapsefourteen" class="panel-collapse collapse in">
           <div class="panel-body">
-            <a href="{{route('contact')}}">Stel hier uw vraag aan <strong>Bruine</strong>Vloot<small>bemanning.nl</small></a>
+            <a href="{{route('contact')}}">Stel hier uw vraag aan BruineVlootBemanning.nl</a>
           </div>
         </div>
       </div>
