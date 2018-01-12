@@ -19,12 +19,12 @@ BruineVlootBemanning
         <div class="panel-heading">Inloggen</div>
 
         <div class="panel-body">
-          @include('flash::message')
           @if ($message = Session::get('success'))
           <div class="alert alert-success">
             <p>{{ $message }}</p>
           </div>
           @endif
+          @include('flash::message')
 
 
           @if ($message = Session::get('warning'))

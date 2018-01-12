@@ -115,7 +115,7 @@ class RegisterController extends Controller
   {
     User::where('email_token',$token)->firstOrFail()->verified();
     flash('Uw account is geactiveerd. Log in met uw gegevens.')->success();
-    return redirect('/user/profile');
+    return redirect()->route('login');
   }
 
   public function verifysend(){

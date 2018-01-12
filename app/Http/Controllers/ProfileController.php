@@ -95,11 +95,11 @@ class ProfileController extends Controller
     $user->city = $request->city;
     $user->role_id = 1;
     $user->birthday = new DateTime($request->birthday);
-
+    
     if($request->file('photo')){
     $photo = $request->file('photo');
     $filename = time() . '.' . $photo->getClientOriginalExtension();
-    Image::make($photo)->fit(400,400)->save( public_path('/uploads/photo/' . $filename));
+    Image::make($photo)->fit(400,400)->save( public_path("uploads\photo\\" . $filename));
     $user->photo = $filename;
   }
 
