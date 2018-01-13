@@ -132,9 +132,8 @@
       <div class="container">
         <h2 class="logo-footer"><a href="#"> <strong>Bruine</strong>Vloot<small> bemanning</small><small>.nl</small></a></h2>
         <div class="social-icons">
-          <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-          <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-          <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+          <a href="https://twitter.com/Bruine_Vloot" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
+          <a href="https://www.facebook.com/bruine.vlootbemanning.5" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
         </div>
       </div>
     </div>
