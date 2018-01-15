@@ -152,6 +152,11 @@ function readURL(input) {
   }
 }
 
+$("#newad_image").css( 'cursor', 'pointer' );
+$("#newad_image").click(function() {
+$("#newad_file").click();
+});
+
 $("#newad_file").change(function() {
   readURL(this);
 });

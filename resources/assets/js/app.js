@@ -6,9 +6,9 @@
 */
 
 require('./bootstrap');
+require('es6-promise').polyfill();
 
 window.Vue = require('vue');
-Vue.use(require('vue-chat-scroll'));
 
 /**
 * Next, we will create a fresh Vue application instance and attach it to
@@ -17,12 +17,10 @@ Vue.use(require('vue-chat-scroll'));
 */
 
 Vue.component('example', require('./components/Example.vue'));
-// Vue.component('jobs', require('./components/jobs.vue'));
 
-
-const moment = require('moment')
-require('moment/locale/nl')
+const moment = require('moment');
+require('moment/locale/nl');
 
 Vue.use(require('vue-moment'), {
     moment
-})
+});

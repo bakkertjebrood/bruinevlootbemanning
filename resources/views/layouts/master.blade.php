@@ -140,7 +140,6 @@
   </footer>
 
   <!-- Scripts -->
-
   <script src="{{ asset('js/app.js') }}"></script>
   <!-- <script type="text/javascript" src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script> -->
   <script src="{{ asset('js/bootstrap-confirmation.min.js') }}" charset="utf-8"></script>
@@ -150,6 +149,7 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
   <script src="{{ asset('js/places.js') }}" charset="utf-8"></script>
   <script type="text/javascript" src="{{ asset('js/custom.js') }}" charset="utf-8"></script>
+
 
   @yield('scripts')
 

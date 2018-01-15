@@ -15,13 +15,13 @@
 
       <!-- Branding Image -->
       <div class="logo hidden-xs">
-        <a class="" href="#">
+
 
           <div class="logo-icon">
-            <h2 class=""><a href="{{route('home')}}"> <strong>Bruine</strong>Vloot<small> bemanning</small><small>.nl</small></a></h2>
+            <a href="{{route('home')}}"><h2 class=""> <strong>Bruine</strong>Vloot<small> bemanning</small><small>.nl</small></h2></a>
           </div>
 
-        </a>
+
       </div>
       <div class="logo-small">
 
