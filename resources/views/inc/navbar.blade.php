@@ -39,9 +39,8 @@
       <!-- Right Side Of Navbar -->
       <ul class="nav navbar-nav navbar-right top-menu">
         <li><a href="{{route('home')}}">Home</a></li>
-        <li><a href="{{route('jobrequests')}}">Bemanning aanbod</a></li>
-        <li><a href="{{route('jobopenings')}}">Vacatures</a></li>
-        <li><a href="{{route('faq')}}">Hoe het werkt</a></li>
+        <li><a href="{{route('jobrequests')}}">Advertenties</a></li>
+        <li><a href="{{route('faq')}}">Veelgestelde vragen</a></li>
         <li>
           @if (Auth::guest())
           <a href="#" data-toggle="modal" data-target="#login_modal" class="">Inloggen</a>

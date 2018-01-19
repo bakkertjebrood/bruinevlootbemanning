@@ -11,6 +11,7 @@
   <title>@yield('title')</title>
 
   <!-- Styles -->
+  <script src='https://cdn.polyfill.io/v2/polyfill.min.js'></script>
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -18,7 +19,6 @@
   <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
   <link rel="stylesheet" href="/css/bootstrap-datepicker3.standalone.min.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
 
 </head>
 <body>
@@ -140,8 +140,8 @@
   </footer>
 
   <!-- Scripts -->
+
   <script src="{{ asset('js/app.js') }}"></script>
-  <!-- <script type="text/javascript" src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script> -->
   <script src="{{ asset('js/bootstrap-confirmation.min.js') }}" charset="utf-8"></script>
   <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
   <script src="{{ asset('js/bootstrap-datepicker.nl.min.js') }}"></script>
@@ -186,6 +186,15 @@
 
   })
 
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112379687-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-112379687-1');
 </script>
 </body>
 </html>

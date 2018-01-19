@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "axios": "^0.16.2",
+    "babel": "^6.23.0",
     "babel-polyfill": "^6.26.0",
     "bootstrap-sass": "^3.3.7",
     "cross-env": "^5.0.1",
@@ -28,6 +29,7 @@
     "vue-chat-scroll": "^1.2.1",
     "vue-moment": "^3.0.0",
     "vue-sticky-bottom-scroll": "^0.1.0",
-    "vue-truncate-filter": "^1.1.7"
+    "vue-truncate-filter": "^1.1.7",
+    "vuejs-datepicker": "^0.9.24"
   }
 }

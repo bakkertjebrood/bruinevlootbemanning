@@ -50,13 +50,14 @@ Route::get('categories/data','CategoryController@index');
 Route::resource('/user/ad','AdController');
 
 // users
+Route::post('job/respond','ResponseController@store')->name('respond');
 Route::get('register/verify/{token}', 'Auth\RegisterController@verify');
 Route::get('register/resendverification', 'Auth\RegisterController@verifysend')->name('verifysend');
 Route::post('register/sendverification', 'Auth\RegisterController@sendverification')->name('sendverification');
 Route::post('register/emailcheck/','Auth\RegisterController@emailcheck')->name('emailcheck');
 Route::post('login/check','Auth\LoginController@logincheck')->name('logincheck');
 Route::group(['middleware' => ['auth']], function () {
-  Route::post('job/respond','ResponseController@store')->name('respond');
+
   Route::get('user/responses','ResponseController@index')->name('responses');
   // Responses json
   Route::get('user/responses/conversations/data','ResponseController@get_conversations')->name('get_conversations');

@@ -16,7 +16,7 @@ BruineVlootBemanning
     </div>
     <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-default">
-        <div class="panel-heading">Inloggen</div>
+        <div class="panel-heading">Log in met uw accountgegevens om door te gaan</div>
 
         <div class="panel-body">
           @if ($message = Session::get('success'))

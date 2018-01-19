@@ -6,7 +6,6 @@
 */
 
 require('./bootstrap');
-require('es6-promise').polyfill();
 
 window.Vue = require('vue');
 
@@ -16,11 +15,17 @@ window.Vue = require('vue');
 * or customize the JavaScript scaffolding to fit your unique needs.
 */
 
-Vue.component('example', require('./components/Example.vue'));
-
 const moment = require('moment');
 require('moment/locale/nl');
 
 Vue.use(require('vue-moment'), {
     moment
+});
+
+
+
+Vue.component('jobs', require('./components/jobs.vue'));
+
+const app = new Vue({
+    el: '#app'
 });
