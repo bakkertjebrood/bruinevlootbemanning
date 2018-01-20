@@ -325,6 +325,11 @@ textarea{
   position: relative;
   top:5px;
 }
+.ads-image-xs{
+  width:35px;
+  height: 35px;
+  margin-right: 10px;
+}
 
 .ads-image-s{
   width:100px;

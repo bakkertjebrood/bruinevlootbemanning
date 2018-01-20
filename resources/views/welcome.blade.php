@@ -11,6 +11,41 @@ BruineVlootBemanning
 @stop
 @section('content')
 <div class="container">
+  <!-- col3  -->
+  <div class="col-lg-3">
+    <div class="list-group notice-inverse profile-menu">
+      <a href="{{route('jobrequest')}}" class="list-group-item">
+        <span class="glyphicon glyphicon-bullhorn"></span>
+        Plaats mijn oproep</a>
+      <a href="{{route('jobopening')}}" class="list-group-item">
+        <span class="glyphicon glyphicon-ok-circle"></span>
+        Plaats een vacature</a>
+    </div>
+
+
+    <div class="list-group profile-menu">
+      <!-- <label for="search">Ga naar</label> -->
+      <h4>Ga naar</h4>
+      <a href="{{route('jobrequests')}}" class="list-group-item">
+        <span class="glyphicon glyphicon-bullhorn"></span>
+        Alle oproepen</a>
+      <a href="{{route('jobopenings')}}" class="list-group-item">
+        <span class="glyphicon glyphicon-ok-circle"></span>
+        Alle vacatures</a>
+    </div>
+
+    @if(Auth::guest())
+    @include('inc.login_inline')
+    @endif
+
+<h4>Nieuwe leden</h4>
+    <ul class="list-group">
+      @foreach($new_users as $new_user)
+      <li class="list-group-item"><img src="{{url('uploads/photo',$new_user->photo)}}" class="img img-circle ads-image-xs" style="height:35px;width:35px" alt="">{{ucfirst($new_user->firstname)}} - <small class="text-muted">{{date_format($new_user->created_at,'d-M')}}</small></li>
+      @endforeach
+    </ul>
+
+  </div>
 
   <!-- Main ads grid -->
   <div class="col-lg-9">
@@ -23,7 +58,7 @@ BruineVlootBemanning
 
     <div class="row">
       @foreach($jobs as $ad)
-      <div class="col-sm-6 col-md-4 col-lg-3">
+      <div class="col-sm-6 col-md-4 col-lg-4">
 
         <div class="thumbnail">
           <a href="{{route('job',$ad->id)}}">
@@ -59,7 +94,7 @@ BruineVlootBemanning
 
     <div class="row">
       @foreach($offers as $ad)
-      <div class="col-sm-6 col-md-4 col-lg-3">
+      <div class="col-sm-6 col-md-4 col-lg-4">
 
         <div class="thumbnail">
           <a href="{{route('job',$ad->id)}}">
@@ -89,33 +124,7 @@ BruineVlootBemanning
 
 
   </div>
-  <!-- col3  -->
-  <div class="col-lg-3">
-    <div class="list-group notice-inverse profile-menu">
-      <a href="{{route('jobrequest')}}" class="list-group-item">
-        <span class="glyphicon glyphicon-bullhorn"></span>
-        Plaats mijn oproep</a>
-      <a href="{{route('jobopening')}}" class="list-group-item">
-        <span class="glyphicon glyphicon-ok-circle"></span>
-        Plaats een vacature</a>
-    </div>
 
-
-    <div class="list-group profile-menu">
-      <label for="search">Ga naar</label>
-      <a href="{{route('jobrequests')}}" class="list-group-item">
-        <span class="glyphicon glyphicon-bullhorn"></span>
-        Alle oproepen</a>
-      <a href="{{route('jobopenings')}}" class="list-group-item">
-        <span class="glyphicon glyphicon-ok-circle"></span>
-        Alle vacatures</a>
-    </div>
-
-    @if(Auth::guest())
-    @include('inc.login_inline')
-    @endif
-
-  </div>
 </div>
 </div>
 

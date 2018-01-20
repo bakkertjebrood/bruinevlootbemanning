@@ -39,7 +39,15 @@
       <!-- Right Side Of Navbar -->
       <ul class="nav navbar-nav navbar-right top-menu">
         <li><a href="{{route('home')}}">Home</a></li>
-        <li><a href="{{route('jobrequests')}}">Advertenties</a></li>
+        <li><a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Advertenties
+          <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu">
+            <li><a href="{{route('jobrequests')}}">Advertenties</i></a></li>
+            <li><a href="{{route('jobrequest')}}">Nieuwe oproep plaatsen</i></a></li>
+            <li><a href="{{route('jobopening')}}">Nieuwe vacature plaatsen</i></a></li>
+          </ul>
+        </li>
         <li><a href="{{route('faq')}}">Veelgestelde vragen</a></li>
         <li>
           @if (Auth::guest())

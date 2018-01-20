@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Contact;
+use App\User;
 
 class GeneralController extends Controller
 {
@@ -19,6 +20,7 @@ class GeneralController extends Controller
 
       Contact::create($request->all());
       flash('Uw bericht is verstuurd.')->success();
+      Mail::to(User::find(1))->queue(new contactCreated());
       return back();
     }
 

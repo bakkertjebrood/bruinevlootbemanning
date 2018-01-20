@@ -43,8 +43,8 @@ Bruinevlootbemanning
         <label for="name">Vacature titel</label>
         <input type="text" class="form-control" id="name" name="name" value="" placeholder="Matroos gezocht" required="true">
         @else
-        <label for="name">Vacature oproep</label>
-        <input type="text" class="form-control" id="name" name="name" value="" placeholder="Matroos gezocht" required="true">
+        <label for="name">Oproep omschrijving</label>
+        <input type="text" class="form-control" id="name" name="name" value="" placeholder="Matroos aangeboden" required="true">
         @endif
       </div>
 
