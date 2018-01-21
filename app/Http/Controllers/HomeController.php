@@ -23,14 +23,16 @@ class HomeController extends Controller
     $skills_definitions = skill_definition::all();
 
     Carbon::setLocale('nl');
-    
+
     $new_users = user::where('created_at','>',Carbon::now()->subMonths(1))->orderBy('created_at','desc')->paginate(4);
 
     $jobs = Ad::where('type','1')->where('created_at','>',Carbon::now()->subMonths(2))->orderBy('created_at','desc')->paginate(3);
     $offers = Ad::where('type','2')->where('created_at','>',Carbon::now()->subMonths(2))->orderBy('created_at','desc')->paginate(3);
+    $ads = Ad::where('type','3')->where('created_at','>',Carbon::now()->subMonths(2))->orderBy('created_at','desc')->paginate(3);
     return View::make('welcome')
     ->with('jobs', $jobs)
     ->with('offers', $offers)
+    ->with('ads', $ads)
     ->with('category_definitions',$category_definitions)
     ->with('skill_definitions',$skills_definitions)
     ->with('new_users',$new_users);

@@ -6,12 +6,9 @@
       <div class="search">
 
         <div class="list-group notice profile-menu">
-          <a href="/job/request" class="list-group-item">
-            <span class="glyphicon glyphicon-bullhorn"></span>
-            Plaats oproep</a>
-            <a href="/job/opening" class="list-group-item">
+            <a href="/newad" class="list-group-item">
               <span class="glyphicon glyphicon-ok-circle"></span>
-              Plaats vacature</a>
+              Plaats advertentie</a>
             </div>
 
 
@@ -23,10 +20,13 @@
                 <a href="#" @click="addType('1')" class="list-group-item" :class="{active:type1}">
                   <span class="glyphicon glyphicon-ok-circle"></span>
                   Vacatures</a>
+                  <a href="#" @click="addType('3')" class="list-group-item" :class="{active:type3}">
+                    <span class="glyphicon glyphicon-briefcase"></span>
+                    Goederen</a>
                 </div>
 
                 <!-- Start / end -->
-                <div class="daterange">
+                <div v-if="type3 != true" class="daterange">
                   <label for="daterange">Periode</label>
 
                   <div class="input-group input-daterange clearfix" id="daterange">
@@ -41,7 +41,8 @@
 
                 <!-- Search categories -->
                 <div class="categories">
-                  <label for="categories">Zoek op categorie</label>
+                  <label v-if="type !=3" for="categories">Zoek op categorie</label>
+                  <label v-else for="categories">Aangeboden / gevraagd</label>
                   <div class="list-group checked-list-box" id="categories">
                     <a v-for="category in categories" @click="addCategory(categories,category)" :class="['list-group-item',{active:category.isActive}]">
                       {{category.name}}
@@ -52,7 +53,8 @@
 
                 <!-- Search skills -->
                 <div class="">
-                  <label for="categories">Zoek op vaardigheden</label>
+                  <label v-if="type !=3" for="categories">Zoek op vaardigheden</label>
+                  <label v-else for="categories">Zoek op categorieën</label>
                   <div class="list-group checked-list-box">
                     <a v-for="skill in skills" @click="addSkill(skills,skill)" :class="['list-group-item',{active:skill.isActive}]" >{{skill.name}}</a>
                   </div>
@@ -86,7 +88,7 @@
                       <div class="panel-body">
                         <div class="media">
                           <div class="media-left">
-                            <a :href="'/job/'+job.id">
+                            <a :href="'/ad/'+job.id">
                               <img class="media-object ads-image-m hidden-xs" :src="'/uploads/photo/' + job.photo" alt="Photo">
                             </a>
                           </div>
@@ -96,7 +98,9 @@
                             </div>
 
                             <div class="col-sm-3 col-md-6 col-lg-12">
+                            <div v-if="type != 3">
                               <strong>Periode: </strong><span>{{job.startdate | moment("D-M-Y")}} tot {{job.enddate | moment("D-M-Y")}} </span><br>
+                            </div>
                               <strong>Geplaatst op: </strong><span>{{job.created_at | moment("D-M-Y")}} </span><br>
 
                             </div>
@@ -105,7 +109,7 @@
                       </div>
                       <div class="panel-footer clearfix">
                         <span class="pull-right ">
-                          <a type="button" class="btn btn-m btn-default" :href="'/job/'+job.id" name="button">Meer informatie</a>
+                          <a type="button" class="btn btn-m btn-default" :href="'/ad/'+job.id" name="button">Meer informatie</a>
                           <a type="button" class="btn btn-m btn-primary"  @click="responseReset()" data-toggle="modal" :data-target="'#ad_respond'+job.id" name="respond">Reageer</a>
                         </span>
                       </div>
@@ -160,6 +164,7 @@
                 type:'2',
                 type1: false,
                 type2: true,
+                type3: false,
                 jobs: [],
                 skills: '',
                 categories: '',
@@ -180,22 +185,27 @@
               mounted(){
                 // jobs
 
-                axios.post('/jobs/data', {
+                axios.post('/ads/data', {
                   ad_type:this.type
 
                 }).then(response => {
                   this.jobs = response.data;
                 });
                 // skills
-                axios.get('/skills/data').then(response =>{
+                axios.post('/skills/data',{
+                  type:this.type
+                }).then(response =>{
                   this.skills = response.data;
 
                 });
 
                 // categories
-                axios.get('/categories/data').then(response =>
-                  this.categories = response.data
-                );
+                axios.post('/categories/data',{
+                  type:this.type
+                }).then(response =>{
+                  this.categories = response.data;
+
+                });
 
               },
 
@@ -205,10 +215,32 @@
                   if(this.type == 1){
                     this.type1 = true
                     this.type2 = false;
-                  }else{
+                    this.type3 = false;
+                  }else if(this.type == 2){
                     this.type2 = true;
                     this.type1 = false;
+                    this.type3 = false;
+                  }else{
+                    this.type3 = true;
+                    this.type2 = false;
+                    this.type1 = false;
                   }
+
+                  // skills
+                  axios.post('/skills/data',{
+                    type:this.type
+                  }).then(response =>{
+                    this.skills = response.data;
+
+                  });
+
+                  // categories
+                  axios.post('/categories/data',{
+                    type:this.type
+                  }).then(response =>{
+                    this.categories = response.data;
+
+                  });
                   this.data();
                 },
                 addDates(){
@@ -237,7 +269,7 @@
                   this.data();
                 },
                 data(){
-                  axios.post('/jobs/data', {
+                  axios.post('/ads/data', {
                     startdate: this.startdate,
                     enddate: this.enddate,
                     categories: this.selected_categories,

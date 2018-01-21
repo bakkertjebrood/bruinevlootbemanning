@@ -13,9 +13,14 @@ class SkillController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $skills = Skill_definition::select('id','name')->get();
+      if($request->type != 3){
+        $skills = Skill_definition::where('type','job')->select('id','name')->get();
+      }else{
+        $skills = Skill_definition::where('type','product')->select('id','name')->get();
+      }
+
 
         return response()->json($skills);
     }

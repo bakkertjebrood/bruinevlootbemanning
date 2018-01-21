@@ -13,17 +13,7 @@ Bruinevlootbemanning
 <div class="container">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><small><a href="{{route('home')}}">Welkom</a></small></li>
-    <li class="breadcrumb-item"><small><a href="
-      @if($ad->type == 1)
-      {{route('jobopenings')}}
-      @else
-      {{route('jobrequests')}}
-      @endif">
-      @if($ad->type == 1)
-      Vacatures overzicht
-      @else
-      Oproepen overzicht
-      @endif
+    <li class="breadcrumb-item"><small><a href="{{route('ads')}}">Advertenties
     </a></small></li>
     <li class="breadcrumb-item active" aria-current="page">{{$ad->name}}</li>
   </ol>
@@ -49,6 +39,13 @@ Bruinevlootbemanning
         <h4>Leeftijd</h4> {{$age}}
       </div>
       @endif
+      @if($ad->type == 3)
+      <div class="list-group-item">
+        <h4>Prijs</h4>
+        <p></p>
+      </div>
+      @endif
+      @if($ad->type != 3)
       <div class="list-group-item">
         <h4>Thuishaven</h4>
         <p id="selectPlace"></p>
@@ -71,6 +68,7 @@ Bruinevlootbemanning
       <h4>Beschikbaar tussen</h4>
       <p>{{date_format(new DateTime($ad->startdate),'d-m-Y')}} tot {{date_format(new DateTime($ad->enddate),'d-m-Y')}}</p>
     </div>
+    @endif
   </div>
 
 

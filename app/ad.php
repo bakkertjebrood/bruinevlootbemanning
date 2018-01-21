@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ad extends Model
 {
 
-  protected $fillable = ['name','user_id','startdate','enddate','photo','description','homeport','startdate','enddate'];
+  protected $fillable = ['name','user_id','startdate','enddate','photo','description','homeport','startdate','enddate','price'];
 
   public function skills()
   {

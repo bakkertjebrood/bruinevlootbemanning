@@ -16,6 +16,7 @@ class CreateCategories_again_Table extends Migration
         Schema::create('category_definitions', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('type');
             $table->timestamps();
         });
     }

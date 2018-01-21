@@ -24,27 +24,38 @@ Route::get('/', 'HomeController@index')->name('home');
 
 // Jobs requests
 Route::group(['middleware' => ['auth']], function () {
-Route::get('/job/request','JobController@jobrequest')->name('jobrequest');
+Route::get('/job/request','AdController@jobrequest')->name('jobrequest');
 });
-Route::get('/job/requests','JobController@jobrequests')->name('jobrequests');
-Route::post('/jobs/requests/data','JobController@jobrequests_data');
+Route::get('/ads','AdController@ads')->name('jobrequests');
+Route::post('/jobs/requests/data','AdController@jobrequests_data');
 
 // Job openings
 Route::group(['middleware' => ['auth']], function () {
-Route::get('/job/opening','JobController@jobopening')->name('jobopening');
+Route::get('/job/opening','AdController@jobopening')->name('jobopening');
 });
-Route::get('/job/openings','JobController@jobopenings')->name('jobopenings');
-Route::post('/jobs/openings','JobController@jobopenings')->name('searchopenings');
-Route::get('/job/{id}','JobController@show')->name('job');
+Route::get('/ads','AdController@ads')->name('jobopenings');
+Route::post('/jobs/openings','AdController@jobopenings')->name('searchopenings');
+Route::get('/job/{id}','AdController@show')->name('job');
+
+// Goods for sale
+Route::group(['middleware' => ['auth']], function () {
+Route::get('/ad/new','AdController@newad')->name('newad');
+});
+Route::get('/ads','AdController@ads')->name('ads');
+Route::post('/searchads','AdController@ads')->name('searchads');
+Route::get('/ad/{id}','AdController@showad')->name('showad');
+
+// ads
+Route::post('/ads/data','AdController@ads_data');
 
 // Jobs
-Route::post('/jobs/data','JobController@jobs_data');
+// Route::post('/jobs/data','AdController@jobs_data');
 
 // Skills
-Route::get('skills/data','SkillController@index');
+Route::post('skills/data','SkillController@index');
 
 // Categories
-Route::get('categories/data','CategoryController@index');
+Route::post('categories/data','CategoryController@index');
 
 // AdController
 Route::resource('/user/ad','AdController');

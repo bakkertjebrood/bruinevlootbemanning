@@ -24,7 +24,7 @@ Vue.use(require('vue-moment'), {
 
 
 
-Vue.component('jobs', require('./components/jobs.vue'));
+Vue.component('ads', require('./components/ads.vue'));
 
 const app = new Vue({
     el: '#app'

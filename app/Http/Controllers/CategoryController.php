@@ -13,9 +13,13 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-     public function index()
+     public function index(Request $request)
      {
-         $categories = Category_definition::all();
+       if($request->type != 3){
+         $categories = Category_definition::where('type', 'job')->select('id','name')->get();
+       }else{
+         $categories = Category_definition::where('type', 'product')->select('id','name')->get();
+       }
 
          return response()->json($categories);
      }

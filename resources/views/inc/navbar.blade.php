@@ -43,7 +43,7 @@
           <span class="caret"></span>
         </a>
           <ul class="dropdown-menu">
-            <li><a href="{{route('jobrequests')}}">Advertenties</i></a></li>
+            <li><a href="{{route('ads')}}">Advertenties</i></a></li>
             <li><a href="{{route('jobrequest')}}">Nieuwe oproep plaatsen</i></a></li>
             <li><a href="{{route('jobopening')}}">Nieuwe vacature plaatsen</i></a></li>
           </ul>

@@ -9,11 +9,11 @@ use Calendar;
 use Auth;
 use DateTime;
 use Image;
+use Carbon\Carbon;
 use App\Skill;
 use App\Category;
 use App\skill_definition;
 use App\category_definition;
-use Carbon;
 
 class AdController extends Controller
 {
@@ -22,8 +22,6 @@ class AdController extends Controller
       $this->middleware('auth');
 
   }
-
-
      public function index()
      {
        $category_definitions = Category_definition::all();
@@ -33,8 +31,8 @@ class AdController extends Controller
        $jobrequests = Ad::where('type','2')->where('user_id',Auth::user()->id)->paginate(15);
 
          return View::make('joblist')
-         ->with('jobopenings', $jobopenings)
-         ->with('jobrequests', $jobrequests)
+         // ->with('jobopenings', $jobopenings)
+         // ->with('jobrequests', $jobrequests)
          ->with('category_definitions',$category_definitions)
          ->with('skill_definitions', $skill_definitions);
      }
@@ -208,5 +206,157 @@ class AdController extends Controller
         flash('Uw advertentie is verwijderd')->success();
 
         return redirect('/user/ad');
+    }
+
+    public function jobopenings(Request $request)
+    {
+
+      $category_definitions = Category_definition::all();
+      $skill_definitions = Skill_definition::all();
+      $skill_active = '';
+      $category_active = '';
+
+      $ads = new Ad;
+
+      if ($request->has('category')) {
+
+        $ads = $ads->whereHas('categories', function($query) use ($request){
+            $query->where('category_definition_id', $request->category);
+          });
+        $category_active = $request->category;
+      }
+
+      if ($request->has('skill')) {
+
+        $ads = $ads->whereHas('skills', function($query) use ($request){
+            $query->where('skill_definition_id', $request->skill);
+          });
+        $skill_active = $request->skill;
+      }
+
+      $ads = $ads->where('type','1')->orderBy('created_at','desc')->paginate(15);
+
+        return View::make('jobs')
+        ->with('ads', $ads)
+        ->with('category_definitions',$category_definitions)
+        ->with('skill_definitions', $skill_definitions)
+        ->with('ad_type','1')
+        ->with('category_active',$category_active)
+        ->with('skill_active',$skill_active);
+    }
+
+    public function jobrequests(Request $request)
+    {
+      $category_definitions = Category_definition::all();
+      $skill_definitions = Skill_definition::all();
+      $skill_active = '';
+      $category_active = '';
+
+      $ads = new Ad;
+
+      if ($request->has('category')) {
+        $ads = $ads->whereHas('categories', function($query) use ($request){
+            $query->where('category_definition_id', $request->category);
+          });
+        $category_active = $request->category;
+      }
+
+      if ($request->has('skill')) {
+        $ads = $ads->whereHas('skills', function($query) use ($request){
+            $query->where('skill_definition_id', $request->skill);
+          });
+        $skill_active = $request->skill;
+      }
+
+      $ads = $ads->where('type','2')->orderBy('created_at','desc')->paginate(15);
+
+        return View::make('jobs')
+        ->with('ads', $ads)
+        ->with('category_definitions',$category_definitions)
+        ->with('skill_definitions', $skill_definitions)
+        ->with('ad_type','2')
+        ->with('category_active',$category_active)
+        ->with('skill_active',$skill_active);
+    }
+
+    public function jobopening(){
+      if(Auth::user()->verified == 0){
+        flash('Uw account is nog niet geactiveerd. Check uw e-mail voor de activeringslink.')->error();
+        return redirect('user/profile');
+      }
+      return view('jobnew')
+        ->with('ad_type','1');
+    }
+
+    public function jobrequest(){
+      if(Auth::user()->verified == 0){
+        flash('Uw account is nog niet geactiveerd. Check uw e-mail voor de activeringslink.')->error();
+        return redirect('user/profile');
+      }
+
+      return view('jobnew')
+        ->with('ad_type','2');
+    }
+
+    public function ads_data(Request $request){
+      $ads = new Ad;
+
+      if ($request->skills) {
+        $ads = $ads->whereHas('skills', function($query) use ($request){
+            $query->whereIn('skill_definition_id',$request->skills);
+          });
+      }
+
+      if ($request->categories) {
+        $ads = $ads->whereHas('categories', function($query) use ($request){
+            $query->whereIn('category_definition_id',$request->categories);
+          });
+      }
+
+      if ($request->startdate) {
+        $ads = $ads->where('startdate','>=',Carbon::parse($request->startdate)->toDateTimeString());
+      }
+
+      if ($request->enddate) {
+        $ads = $ads->where('enddate','<=',Carbon::parse($request->enddate)->toDateTimeString());
+      }
+      $ads = $ads
+        ->where('type',$request->ad_type)
+        ->where('created_at','>',Carbon::now()->subMonths(2))
+        ->orderBy('created_at','desc')
+        ->get();
+      return response()->json($ads);
+    }
+
+    public function ads(Request $request)
+    {
+        return View::make('ads');
+    }
+
+
+    public function showjob($ad)
+    {
+      $ad = Ad::find($ad);
+      $skill_definitions = skill_definition::all();
+
+      $age = Carbon::parse($ad->user->birthday)->age;
+
+      return View::make('job')
+        ->with('ad',$ad)
+        ->with('skill_definitions',$skill_definitions)
+        ->with('age',$age);
+    }
+
+    public function showad($ad)
+    {
+      $ad = Ad::find($ad);
+      $skill_definitions = skill_definition::all();
+
+      $age = Carbon::parse($ad->user->birthday)->age;
+
+      return View::make('ad')
+        ->with('ad',$ad)
+        ->with('skill_definitions',$skill_definitions)
+        ->with('age',$age);
     }
 }
