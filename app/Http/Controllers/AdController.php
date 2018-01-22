@@ -29,10 +29,12 @@ class AdController extends Controller
 
        $jobopenings = Ad::where('type','1')->where('user_id',Auth::user()->id)->paginate(15);
        $jobrequests = Ad::where('type','2')->where('user_id',Auth::user()->id)->paginate(15);
+       $products = Ad::where('type','3')->where('user_id',Auth::user()->id)->paginate(15);
 
-         return View::make('joblist')
-         // ->with('jobopenings', $jobopenings)
-         // ->with('jobrequests', $jobrequests)
+         return View::make('adlist')
+         ->with('jobopenings', $jobopenings)
+         ->with('jobrequests', $jobrequests)
+         ->with('products', $products)
          ->with('category_definitions',$category_definitions)
          ->with('skill_definitions', $skill_definitions);
      }
@@ -88,10 +90,10 @@ class AdController extends Controller
 
       if($request->type == 1){
         flash('Uw vacature is geplaatst')->success();
-        return redirect('/job/openings');
+        return redirect('/ad/openings');
       }elseif($request->type == 2){
         flash('Uw oproep is geplaatst')->success();
-        return redirect('/job/requests');
+        return redirect('/ad/requests');
       }
 
 
