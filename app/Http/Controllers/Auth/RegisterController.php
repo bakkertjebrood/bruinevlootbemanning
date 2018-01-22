@@ -77,7 +77,7 @@ class RegisterController extends Controller
       'lastname' => $data['lastname'],
       'phone' => $data['phone'],
       'city' => $data['city'],
-      'birthday' => new DateTime($data['birthday']),
+      // 'birthday' => new DateTime($data['birthday']), 
       'role_id' => 1,
       'email' => $data['email'],
       'password' => bcrypt($data['password']),

@@ -38,12 +38,12 @@ BruineVlootBemanning
               </div>
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for="email" class="col-md-4 control-label">Geboortedatum</label>
               <div class="col-md-6">
                 <input type="text" class="form-control datepicker" id="birthday" name="birthday" value="" placeholder="25-02-1983" required="true">
               </div>
-            </div>
+            </div> -->
 
             <div class="form-group">
               <label for="email" class="col-md-4 control-label">Telefoon</label>
