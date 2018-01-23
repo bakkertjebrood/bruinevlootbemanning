@@ -23,7 +23,7 @@ Bruinevlootbemanning
   <div class="col-lg-3">
     <div class="list-group">
       <a v-for="conversation in conversations" @click="getResponses(conversation.ad_id,conversation.user_id,conversation.conversation_id),activeClass(conversations,conversation)" href="#" :class="['conversation-item list-group-item',{active:conversation.isActive}]">
-        <h5 class="list-group-item-heading">@{{conversation.ad_name}}</h5>
+        <span class="glyphicon glyphicon-envelope"></span> <h5 class="list-group-item-heading">@{{conversation.ad_name}}</h5>
         <small class="list-group-item-text">
           <strong>@{{conversation.firstname}}</strong>
         </small>

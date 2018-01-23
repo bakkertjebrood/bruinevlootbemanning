@@ -16,10 +16,10 @@ BruineVlootBemanning
     <div class="list-group notice-inverse profile-menu">
       <a href="{{route('jobrequest')}}" class="list-group-item">
         <span class="glyphicon glyphicon-bullhorn"></span>
-        Plaats mijn oproep</a>
+        @lang('labels.newrequest')</a>
       <a href="{{route('jobopening')}}" class="list-group-item">
         <span class="glyphicon glyphicon-ok-circle"></span>
-        Plaats een vacature</a>
+        @lang('labels.newopening')</a>
     </div>
 
 

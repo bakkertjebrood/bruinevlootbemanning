@@ -94,8 +94,8 @@ class ProfileController extends Controller
     $user->phone = $request->phone;
     $user->city = $request->city;
     $user->role_id = 1;
-    $user->birthday = new DateTime($request->birthday);
-    
+    // $user->birthday = new DateTime($request->birthday);
+
     if($request->file('photo')){
     $photo = $request->file('photo');
     $filename = time() . '.' . $photo->getClientOriginalExtension();

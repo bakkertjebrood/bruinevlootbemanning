@@ -26,7 +26,8 @@ Bruinevlootbemanning
     <div class="col-lg-5 col-lg-offset-1">
       <img class="img img-circle img-responsive" src="{{url('uploads/photo')}}/1513978585.jpg" alt="">
       <div class="centerme">
-        <h5  for="">Elmer Bakker</h5>
+        <h4>Elmer Bakker  </h4>
+        <span><a href="mailto:elmer@BruineVlootBemanning.nl">elmer@bruinevlootbemanning.nl</a></span>
       </div>
     </div>
     <div class="col-lg-5">

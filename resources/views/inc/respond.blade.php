@@ -2,7 +2,7 @@
 <div class="modal fade" id="ad_respond{{$ad->id}}" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form class="" action="{{route('respond')}}" method="post">
+      <form class="" action="{{route('respondfront')}}" method="post">
         {{csrf_field()}}
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>

@@ -28,6 +28,7 @@
     "jquery-ui": "^1.12.1",
     "vue-chat-scroll": "^1.2.1",
     "vue-moment": "^3.0.0",
+    "vue-router": "^3.0.1",
     "vue-sticky-bottom-scroll": "^0.1.0",
     "vue-truncate-filter": "^1.1.7",
     "vuejs-datepicker": "^0.9.24"

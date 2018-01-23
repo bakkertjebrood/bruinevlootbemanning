@@ -51,6 +51,7 @@ Route::resource('/user/ad','AdController');
 
 // users
 Route::post('job/respond','ResponseController@store')->name('respond');
+Route::post('job/respondfront','ResponseController@storefront')->name('respondfront');
 Route::get('register/verify/{token}', 'Auth\RegisterController@verify');
 Route::get('register/resendverification', 'Auth\RegisterController@verifysend')->name('verifysend');
 Route::post('register/sendverification', 'Auth\RegisterController@sendverification')->name('sendverification');

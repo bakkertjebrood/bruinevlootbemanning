@@ -179,7 +179,6 @@
               },
               mounted(){
                 // jobs
-
                 axios.post('/jobs/data', {
                   ad_type:this.type
 

@@ -49,10 +49,10 @@ Bruinevlootbemanning
       <input type="text" class="form-control" id="email" name="email" value="{{$user->email}}" placeholder="E-mail" required="true">
     </div>
 
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="description">Geboortedatum</label>
       <input type="text" class="form-control datepicker" id="birthday" name="birthday" value="{{date_format(new DateTime($user->birthday),'d-m-Y')}}" placeholder="01-03-1940" required="true">
-    </div>
+    </div> -->
 
     <div class="form-group">
       <label for="phone">Telefoon</label>
@@ -65,7 +65,7 @@ Bruinevlootbemanning
 
       </select>
     </div>
-    
+
     <div class="form-footer pull-right">
       <button type="submit" class="btn btn-primary btn-l" name="button">Opslaan</button>
     </div>

@@ -119,6 +119,57 @@ class ResponseController extends Controller
 }
 }
 
+public function storefront(Request $request)
+{
+  if(Auth::guest()){
+    flash('Log in om te kunnen reageren')->error();
+    return redirect()->back();
+  }elseif(Auth::user()){
+    $ad_user_id = Ad::find($request->ad_id);
+    $addOwner = User::find($ad_user_id->user_id);
+    $conversation_exists = Response::where('user_id',Auth::user()->id)->where('ad_id',$request->ad_id)->first();
+
+    if(Auth::user()->id != $ad_user_id->user_id){
+
+      if(!$conversation_exists){
+        $store = Response::create([
+          'ad_id' => $request->ad_id,
+          'user_id' => Auth::user()->id,
+          'conversation_id' => DB::table('responses')->max('conversation_id') + 1,
+          'body' => $request->body
+        ]
+      );
+      $conversation_loggedInUser = Conversation_user::create([
+        'conversation_id' => DB::table('responses')->max('conversation_id'),
+        'user_id' => Auth::user()->id
+      ]);
+
+      $conversation_AdUser = Conversation_user::create([
+        'conversation_id' => DB::table('responses')->max('conversation_id'),
+        'user_id' => $ad_user_id->user_id
+      ]);
+    }else{
+      $store = Response::create([
+        'ad_id' => $request->ad_id,
+        'user_id' => Auth::user()->id,
+        'conversation_id' => $conversation_exists->conversation_id,
+        'body' => $request->body
+      ]
+    );
+  }
+  // $user = User::find(Ad::find($request->ad_id));
+
+  Mail::to($addOwner)->send(new responseCreated());
+
+  flash('Uw reactie is verzonden')->success();
+  return redirect()->back();
+}else{
+  flash('Uw reactie is niet verzonden')->error();
+  return redirect()->back();
+}
+}
+}
+
 public function store_response(Request $request)
 {
   $store = Response::create([

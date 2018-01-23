@@ -1,5 +1,4 @@
 <?php
-
 return [
 
     /*
@@ -13,7 +12,6 @@ return [
     |
     */
 
-    'failed' => 'Inloggen niet gelukt. Klopt het wachtwoord?',
-    'throttle' => 'Te vaak ingelogd. Probeer opnieuw na :seconds seconden.',
+    'newrequest' => 'Account niet aanwezig of niet geactiveerd.',
 
 ];
