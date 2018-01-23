@@ -25,10 +25,12 @@ Bruinevlootbemanning
   <div class="row">
     <div class="col-lg-5 col-lg-offset-1">
       <img class="img img-circle img-responsive" src="{{url('uploads/photo')}}/1513978585.jpg" alt="">
-      <div class="centerme">
+      <div style="width:150px;margin:0 auto">
         <h4>Elmer Bakker  </h4>
-        <span><a href="mailto:elmer@BruineVlootBemanning.nl">elmer@bruinevlootbemanning.nl</a></span>
       </div>
+      <div style="width:230px;margin:0 auto">
+              <span><a href="mailto:elmer@BruineVlootBemanning.nl">elmer@bruinevlootbemanning.nl</a></span>
+            </div>
     </div>
     <div class="col-lg-5">
       <h4><strong>Over de maker</strong></h4>

@@ -161,6 +161,21 @@ textarea{
   font-weight: bold;
 }
 
+.notice-inverse button{
+  /*border: 1px solid #840;*/
+  background-color: #840;
+  color:white;
+  font-weight: bold;
+}
+
+.notice-inverse button:hover{
+  /*border: 1px solid #840;*/
+  background-color: #444;
+  color:white;
+  font-weight: bold;
+}
+
+
 .employer-btn{
   position: absolute;
   right:7px;

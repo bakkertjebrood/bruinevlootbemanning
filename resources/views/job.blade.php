@@ -85,11 +85,15 @@ Bruinevlootbemanning
     <div class="list-group-item">
     <strong>Geplaatst door:</strong>  <p class="panel-title">{{$ad->user->firstname.' '.$ad->user->lastname}}</p>
     </div>
-    @if($ad->type == 1)
-      @endif
   </div>
 
   <div class="list-group">
+    <div class="list-group-item">
+      <span class="glyphicon glyphicon-phone"> </span> {{$ad->user->phone}}
+    </div>
+    <div class="list-group-item">
+    <span class="glyphicon glyphicon-envelope"> </span> <a href="mailto:{{$ad->user->email}}">{{$ad->user->email}}</a>
+    </div>
     <div class="list-group-item">
       <strong>Aangemaakt:</strong> {{date_format($ad->created_at,'d-m-Y')}}
     </div>

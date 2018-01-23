@@ -10,7 +10,7 @@ Bruinevlootbemanning
 @stop
 
 @section('content')
-<form  enctype="multipart/form-data" action="{{url('user/ad')}}" method="post">
+<form  id="newjob" enctype="multipart/form-data" action="{{url('user/ad')}}" method="post">
   <div class="container">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><small><a href="{{url('/')}}">Welkom</a></small></li>
@@ -41,10 +41,10 @@ Bruinevlootbemanning
       <div class="form-group">
         @if($ad_type == 1)
         <label for="name">Vacature titel</label>
-        <input type="text" class="form-control" id="name" name="name" value="" placeholder="Matroos gezocht" required="true">
+        <input type="text" class="form-control" id="name" name="name" value="" placeholder="Matroos gezocht voor 2018" required="true">
         @else
         <label for="name">Oproep omschrijving</label>
-        <input type="text" class="form-control" id="name" name="name" value="" placeholder="Matroos aangeboden" required="true">
+        <input type="text" class="form-control" id="name" name="name" value="" placeholder="Matroos aangeboden voor 2018" required="true">
         @endif
       </div>
 
@@ -118,10 +118,6 @@ Bruinevlootbemanning
       </div>
       @endif
 
-      <div class="pull-right">
-        <button type="submit" class="btn btn-primary btn-l" name="button">Opslaan</button>
-      </div>
-
     </div>
 
     <div class="col-lg-3">
@@ -130,6 +126,12 @@ Bruinevlootbemanning
       @else
       <img id="newad_image" class="img img-thumbnail" src="{{url('/uploads/photo',Auth::user()->photo)}}" alt="">
       @endif
+      <br>
+
+      <div class="list-group notice-inverse">
+              <br>
+        <button type="submit" class="list-group-item list-group-item-primary" href="#" id="save">Opslaan</button>
+      </div>
     </div>
 
   </div>
@@ -154,12 +156,14 @@ function readURL(input) {
 
 $("#newad_image").css( 'cursor', 'pointer' );
 $("#newad_image").click(function() {
-$("#newad_file").click();
+  $("#newad_file").click();
 });
 
 $("#newad_file").change(function() {
   readURL(this);
 });
+
+
 
 </script>
 @stop
