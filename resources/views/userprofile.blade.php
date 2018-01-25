@@ -49,22 +49,39 @@ Bruinevlootbemanning
       <input type="text" class="form-control" id="email" name="email" value="{{$user->email}}" placeholder="E-mail" required="true">
     </div>
 
-    <!-- <div class="form-group">
-      <label for="description">Geboortedatum</label>
-      <input type="text" class="form-control datepicker" id="birthday" name="birthday" value="{{date_format(new DateTime($user->birthday),'d-m-Y')}}" placeholder="01-03-1940" required="true">
-    </div> -->
-
-    <div class="form-group">
-      <label for="phone">Telefoon</label>
-      <input type="text" class="form-control" id="phone" name="phone" value="{{$user->phone}}" placeholder="Telefoon">
-    </div>
-
     <div class="form-group">
       <label for="city">Woonplaats</label>
       <select class="select-places" id="selectPlace" name="city">
 
       </select>
     </div>
+
+    <div class="form-group">
+      <label for="phone">Telefoon</label>
+      <input type="text" class="form-control" id="phone" name="phone" value="{{$user->phone}}" placeholder="Telefoon">
+    </div>
+    <div class="form-group">
+      <div>
+        @if($user->phonevisible == 1)
+      <input class="form-check-input" type="checkbox" checked name="phonevisible" id="phonevisible" value="1">
+        @else
+        <input class="form-check-input" type="checkbox"  name="phonevisible" id="phonevisible" value="1">
+        @endif
+      <label for="phonevisible" class="control-label">Telefoonnummer tonen bij advertenties</label>
+    </div>
+    </div>
+
+    <div class="form-group">
+        <div>
+          @if($user->emailvisible == 1)
+      <input class="form-check-input" type="checkbox" checked name="emailvisible" id="emailvisible" value="1">
+        @else
+        <input class="form-check-input" type="checkbox" name="emailvisible" id="emailvisible" value="1">
+        @endif
+      <label for="emailvisible" class="control-label">E-mail adres tonen bij advertenties</label>
+    </div>
+    </div>
+
 
     <div class="form-footer pull-right">
       <button type="submit" class="btn btn-primary btn-l" name="button">Opslaan</button>

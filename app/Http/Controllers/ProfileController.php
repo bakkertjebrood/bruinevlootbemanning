@@ -25,14 +25,10 @@ class ProfileController extends Controller
     if(Auth::user()){
       $current_user_id = Auth::user()->id;
       $user = User::find($current_user_id);
-      $skill_definitions = Skill_definition::all();
-      $category_definitions = Category_definition::all();
     }
 
     return View('userprofile')
-    ->with('user',$user)
-    ->with('skill_definitions',$skill_definitions)
-    ->with('category_definitions',$category_definitions);
+    ->with('user',$user);
   }
 
   /**
@@ -94,7 +90,18 @@ class ProfileController extends Controller
     $user->phone = $request->phone;
     $user->city = $request->city;
     $user->role_id = 1;
-    // $user->birthday = new DateTime($request->birthday);
+
+    if($request->emailvisible){
+      $user->emailvisible = 1;
+    }else{
+      $user->emailvisible = '';
+    }
+
+    if($request->phonevisible){
+      $user->phonevisible = 1;
+    }else{
+      $user->phonevisible = '';
+    }
 
     if($request->file('photo')){
     $photo = $request->file('photo');

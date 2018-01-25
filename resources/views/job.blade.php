@@ -25,14 +25,14 @@ Bruinevlootbemanning
       Oproepen overzicht
       @endif
     </a></small></li>
-    <li class="breadcrumb-item active" aria-current="page">{{$ad->name}}</li>
+    <li class="breadcrumb-item active" aria-current="page">{{ucfirst($ad->name)}}</li>
   </ol>
 
   <div class="col-lg-8">
     @include('flash::message')
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h4>{{$ad->name}}</h4>
+        <h4>{{ucfirst($ad->name)}}</h4>
       </div>
       <div class="panel-body">
         <p class="retainlinebreaks">{{$ad->description}}</p>
@@ -44,9 +44,6 @@ Bruinevlootbemanning
       <div class="list-group-item">
         <h4>Ervaring</h4>
         <p class="retainlinebreaks">{{$ad->experience}}</p>
-      </div>
-      <div class="list-group-item">
-        <h4>Leeftijd</h4> {{$age}}
       </div>
       @endif
       <div class="list-group-item">
@@ -88,11 +85,20 @@ Bruinevlootbemanning
   </div>
 
   <div class="list-group">
+    @if($ad->user->phonevisible == 1)
     <div class="list-group-item">
       <span class="glyphicon glyphicon-phone"> </span> {{$ad->user->phone}}
     </div>
+    @endif
+    @if($ad->user->emailvisible == 1)
     <div class="list-group-item">
     <span class="glyphicon glyphicon-envelope"> </span> <a href="mailto:{{$ad->user->email}}">{{$ad->user->email}}</a>
+    </div>
+    @endif
+  </div>
+  <div class="list-group">
+    <div class="list-group-item">
+      <strong>Keren bekeken:</strong> {{$ad->views + 50}}
     </div>
     <div class="list-group-item">
       <strong>Aangemaakt:</strong> {{date_format($ad->created_at,'d-m-Y')}}

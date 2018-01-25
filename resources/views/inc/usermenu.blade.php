@@ -8,39 +8,39 @@
   @if(Request()->path() == 'user/profile')
   <a class="list-group-item active" href="{{url('user/profile')}}">
     <span class="glyphicon glyphicon-user"></span>
-    <small>Mijn profiel</small></a>
+    Mijn profiel</a>
   @else
   <a class="list-group-item" href="{{url('user/profile')}}">
     <span class="glyphicon glyphicon-user"></span>
-    <small>Mijn profiel</small> </a>
+    Mijn profiel </a>
   @endif
 
   @if(Request()->path() == 'user/responses')
   <a class="list-group-item active" href="{{route('responses')}}">
     <span class="glyphicon glyphicon-comment"></span>
-    <small>Mijn reacties</small> </a>
+    Mijn reacties </a>
   @else
   <a class="list-group-item" href="{{route('responses')}}">
     <span class="glyphicon glyphicon-comment"></span>
-    <small>Mijn reacties</small></a>
+    Mijn reacties</a>
   @endif
 
   @if(Request()->path() == 'user/ad')
   <a class="list-group-item active" href="{{url('user/ad')}}">
     <span class="glyphicon glyphicon-list-alt"></span>
-    <small>Mijn advertenties</small> </a>
+    Mijn advertenties </a>
   @else
   <a class="list-group-item" href="{{url('user/ad')}}">
     <span class="glyphicon glyphicon-list-alt"></span>
-    <small>Mijn advertenties</small></a>
+    Mijn advertenties</a>
   @endif
 <br>
   <a href="{{route('jobrequest')}}" class="list-group-item">
     <span class="glyphicon glyphicon-bullhorn"></span>
-    <small>Oproep plaatsen</small> </a>
+    Oproep plaatsen </a>
   <a href="{{route('jobopening')}}" class="list-group-item">
     <span class="glyphicon glyphicon-ok-circle"></span>
-    <small>Vacature plaatsen</small> </a>
+    Vacature plaatsen </a>
 </div>
 
 </div>

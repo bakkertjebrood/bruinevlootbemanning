@@ -95,15 +95,17 @@ class JobController extends Controller
 
     public function show($ad)
     {
-      $ad = Ad::find($ad);
+
+        Ad::where('id',$ad)->increment('views');
+
+
+      $ad_full = Ad::find($ad);
       $skill_definitions = skill_definition::all();
 
-      $age = Carbon::parse($ad->user->birthday)->age;
 
       return View::make('job')
-        ->with('ad',$ad)
-        ->with('skill_definitions',$skill_definitions)
-        ->with('age',$age);
+        ->with('ad',$ad_full)
+        ->with('skill_definitions',$skill_definitions);
     }
 
     public function jobopening(){

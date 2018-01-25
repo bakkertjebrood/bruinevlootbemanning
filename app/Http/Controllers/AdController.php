@@ -14,15 +14,14 @@ use App\Category;
 use App\skill_definition;
 use App\category_definition;
 use Carbon;
+use Toolkito\Larasap\SendTo;
 
 class AdController extends Controller
 {
   public function __construct()
   {
       $this->middleware('auth');
-
   }
-
 
      public function index()
      {
@@ -55,7 +54,7 @@ class AdController extends Controller
       if($request->file('photo')){
       $photo = $request->file('photo');
       $filename = time() . '.' . $photo->getClientOriginalExtension();
-      Image::make($photo)->fit(400,400)->save( public_path('/uploads/photo/' . $filename));
+      Image::make($photo)->resizeCanvas(400,400)->save( public_path('/uploads/photo/' . $filename));
       $ad->photo = $filename;
     }else{
       if($request->type == 2){
@@ -87,6 +86,11 @@ class AdController extends Controller
           $category = $ad->categories()->save($category);
         }
       }
+
+      $subject = ucfirst($request->name);
+
+      SendTo::Twitter($subject.': Bruinevlootbemanning.nl/job/'.Ad::select('id')->max('id'));
+
 
       if($request->type == 1){
         flash('Uw vacature is geplaatst')->success();
@@ -155,7 +159,7 @@ class AdController extends Controller
       if($request->file('photo')){
       $photo = $request->file('photo');
       $filename = time() . '.' . $photo->getClientOriginalExtension();
-      Image::make($photo)->fit(400,400)->save( public_path('/uploads/photo/' . $filename));
+      Image::make($photo)->fit(400)->save( public_path('/uploads/photo/' . $filename));
       $ad->photo = $filename;
     }else{
       // $ad->photo = 'default-photo.jpg';

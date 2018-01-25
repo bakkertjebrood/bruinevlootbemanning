@@ -27,6 +27,8 @@ class CreateUsersTable extends Migration
             $table->date('birthday')->nullable();
             $table->tinyInteger('verified')->default(0);
             $table->string('email_token')->nullable();
+            $table->boolean('emailvisible')->default(1);
+            $table->boolean('phonevisible')->default(1);
             $table->rememberToken();
             $table->timestamps();
         });

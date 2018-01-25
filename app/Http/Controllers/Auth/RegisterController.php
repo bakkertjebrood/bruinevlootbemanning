@@ -71,17 +71,33 @@ class RegisterController extends Controller
   // protected function create(array $data)
   protected function create(Array $data)
   {
+    $emailvisible = '';
+    $phonevisible = '';
+
+    if(isset($data['emailvisible'])){
+      $emailvisible = 1;
+    }
+    else{
+      $phonevisible = 0;
+    }
+    if(isset($data['phonevisible'])){
+    $phonevisible = 1;
+  }else{
+    $phonevisible = 0;
+  }
 
     return User::create([
       'firstname' => $data['firstname'],
       'lastname' => $data['lastname'],
       'phone' => $data['phone'],
       'city' => $data['city'],
-      // 'birthday' => new DateTime($data['birthday']), 
       'role_id' => 1,
       'email' => $data['email'],
       'password' => bcrypt($data['password']),
       'email_token' => str_random(10),
+      'emailvisible' => $emailvisible,
+      'phonevisible' => $phonevisible,
+      'role_id' => $data['role_id'],
     ]);
 
   }

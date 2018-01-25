@@ -23,20 +23,19 @@ BruineVlootBemanning
     </div>
 
 
-    <div class="list-group profile-menu">
+    <div class="list-group notice profile-menu">
       <!-- <label for="search">Ga naar</label> -->
       <h4>Ga naar</h4>
       <a href="{{route('jobrequests')}}" class="list-group-item">
         <span class="glyphicon glyphicon-bullhorn"></span>
-        Alle oproepen</a>
-      <a href="{{route('jobopenings')}}" class="list-group-item">
-        <span class="glyphicon glyphicon-ok-circle"></span>
-        Alle vacatures</a>
+        Alle vacatures en oproepen</a>
     </div>
 
     @if(Auth::guest())
     @include('inc.login_inline')
     @endif
+<div class="hidden-xs">
+
 
 <h4>Nieuwe leden</h4>
     <ul class="list-group">
@@ -44,6 +43,7 @@ BruineVlootBemanning
       <li class="list-group-item"><img src="{{url('uploads/photo',$new_user->photo)}}" class="img img-circle ads-image-xs" style="height:35px;width:35px" alt="">{{ucfirst($new_user->firstname)}} - <small class="text-muted">{{date_format($new_user->created_at,'d-M')}}</small></li>
       @endforeach
     </ul>
+    </div>
 
   </div>
 
@@ -66,7 +66,7 @@ BruineVlootBemanning
           </a>
           <div class="caption clearfix">
             <div class="lineup">
-              <h5><strong>{{str_limit($ad->name,35)}}</strong></h5>
+              <h5><strong>{{str_limit(ucfirst($ad->name),45)}}</strong></h5>
 
             </div>
 

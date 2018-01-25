@@ -24,7 +24,7 @@ class CreateAdsTable extends Migration
             $table->text('experience')->nullable();
             $table->string('homeport')->nullable();
             $table->integer('type');
-            $table->integer('views')->nullable();
+            $table->integer('views')->default(0);
             $table->timestamps();
         });
     }

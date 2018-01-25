@@ -39,17 +39,17 @@ BruineVlootBemanning
             </div>
 
             <div class="form-group">
-              <label for="email" class="col-md-4 control-label">Telefoon</label>
-              <div class="col-md-6">
-                <input type="phone" class="form-control" id="phone" name="phone" value="" placeholder="">
-              </div>
-            </div>
-
-            <div class="form-group">
               <label for="email" class="col-md-4 control-label">Woonplaats</label>
               <div class="col-md-6">
                 <select class="select-places" id="selectPlace" name="city" required>
                 </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="col-md-4 control-label">Telefoon <small class="text-muted"></small></label>
+              <div class="col-md-6">
+                <input type="phone" minlength="10" maxlength="10" class="form-control" id="phone" name="phone" value="" placeholder="0622065216">
               </div>
             </div>
 
@@ -95,9 +95,45 @@ BruineVlootBemanning
             </div>
 
             <div class="form-group">
+              <div class="col-md-8 col-md-offset-4">
+                <div class="checkbox checkbox-default">
+                  <input type="checkbox" checked name="phonevisible" id="phonevisible" value="1">
+                  <label for="phonevisible" class="">Telefoonnummer tonen bij advertenties</label>
+                </div>
+              <div class="checkbox checkbox-default">
+              <input  type="checkbox" checked name="emailvisible" id="emailvisible" value="1">
+              <label for="emailvisible" >E-mail adres tonen bij advertenties</label>
+            </div>
+            </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-md-8 col-md-offset-4">
+              <div class="radio radio-inline">
+                  <input type="radio" name="role_id" id="radio1" value="1" checked="">
+                  <label for="radio1">
+                      Ik zoek werk
+                  </label>
+                </div>
+                <div class="radio radio-inline">
+                  <input type="radio" name="role_id" id="radio2" value="2" checked="">
+                  <label for="radio2">
+                      Ik bied werk aan
+                  </label>
+              </div>
+              <div class="radio radio-inline">
+                <input type="radio" name="role_id" id="radio3" value="3" checked="">
+                <label for="radio3">
+                    Beide opties
+                </label>
+            </div>
+            </div>
+          </div><br>
+
+            <div class="form-group">
               <div class="col-md-6 col-md-offset-4">
-                <button type="submit" class="btn btn-primary">
-                  Inschrijven
+                <button :disabled="disabled == 1" type="submit" class="btn btn-primary btn-xl">
+                Inschrijven en account activeren
                 </button>
               </div>
             </div>
@@ -115,7 +151,8 @@ new Vue({
   data:{
     email:'',
     result:'',
-    emailExists:''
+    emailExists:'',
+    disabled: ''
   },
   computed:{
     checkEmail: function(){
@@ -126,8 +163,10 @@ new Vue({
         this.result = response.data;
         if(this.result == true){
           _this.emailExists = 'Dit adres bestaat al';
+          _this.disabled = 1;
         }else{
           _this.emailExists = '';
+          _this.disabled = 0;
         }
       });
     }
@@ -154,6 +193,14 @@ $("#newad_file").change(function() {
 $("#newad_image").css( 'cursor', 'pointer' );
 $("#newad_image").click(function() {
   $("#newad_file").click();
+});
+
+$(function(){
+  $('#phone').bind('input', function(){
+    $(this).val(function(_, v){
+      return v.replace(/\s+/g, '');
+    });
+  });
 });
 
 
