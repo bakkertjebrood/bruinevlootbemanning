@@ -38,40 +38,40 @@
 
       <!-- Right Side Of Navbar -->
       <ul class="nav navbar-nav navbar-right top-menu">
-        <li><a href="{{route('home')}}">Home</a></li>
-        <li><a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Advertenties
+        <li><a href="{{route('home')}}">@lang('labels.home')</a></li>
+        <li><a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">@lang('labels.ads')
           <span class="caret"></span>
         </a>
           <ul class="dropdown-menu">
-            <li><a href="{{route('jobrequests')}}">Advertenties</i></a></li>
-            <li><a href="{{route('jobrequest')}}">Nieuwe oproep plaatsen</i></a></li>
-            <li><a href="{{route('jobopening')}}">Nieuwe vacature plaatsen</i></a></li>
+            <li><a href="{{route('jobrequests')}}">@lang('labels.ads')</i></a></li>
+            <li><a href="{{route('jobrequest')}}">@lang('labels.newrequest')</i></a></li>
+            <li><a href="{{route('jobopening')}}">@lang('labels.newopening')</i></a></li>
           </ul>
         </li>
-        <li><a href="{{route('faq')}}">Veelgestelde vragen</a></li>
+        <li><a href="{{route('faq')}}">@lang('labels.faq')</a></li>
         <li>
           @if (Auth::guest())
-          <a href="#" data-toggle="modal" data-target="#login_modal" class="">Inloggen</a>
+          <a href="#" data-toggle="modal" data-target="#login_modal" class="">@lang('labels.login')</a>
           @else
           <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Welkom, {{Auth::user()->firstname}}
+            @lang('labels.welcome'), {{Auth::user()->firstname}}
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li><a href="{{url('user/profile')}}">Mijn profiel</i></a></li>
-            <li><a href="{{route('responses')}}">Mijn reacties</i></a></li>
-            <li><a href="{{url('user/ad')}}">Mijn advertenties</i></a></li>
+            <li><a href="{{url('user/profile')}}">@lang('labels.myprofile')</i></a></li>
+            <li><a href="{{route('responses')}}">@lang('labels.responses')</i></a></li>
+            <li><a href="{{url('user/ad')}}">@lang('labels.myads')</i></a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="{{route('logout')}}">Uitloggen</a></li>
+            <li><a href="{{route('logout')}}">@lang('labels.logout')</a></li>
           </ul>
           @endif
         </li>
         <li>
           @if (Auth::guest())
-          <a href="{{route('register')}}" class="">Inschrijven</a>
+          <a href="{{route('register')}}" class="">@lang('labels.register')</a>
           @endif
         </li>
-        <li><a href="{{route('contact')}}">Contact</a></li>
+        <li><a href="{{route('contact')}}">@lang('labels.contact')</a></li>
       </ul>
     </div>
   </div>
