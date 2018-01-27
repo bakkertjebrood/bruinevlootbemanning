@@ -28,4 +28,8 @@ class GeneralController extends Controller
 
       return view('creator');
     }
+
+    public function privacy(){
+      return view('privacy');
+    }
 }

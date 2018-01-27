@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="/css/bootstrap-datepicker3.standalone.min.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 
+
 </head>
 <body>
 
@@ -37,6 +38,18 @@
           <div class="modal-body">
 
             {{ csrf_field() }}
+
+            <div class="col-md-6 col-md-offset-3">
+              <br>
+              <a href="{{ url('/auth/facebook') }}"> <img src="{{url('/images','facebook_login.png')}}" alt=""> </a>
+            </div>
+
+            <div class="col-md-12">
+              <hr>
+            </div>
+
+
+
 
             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
               <label for="email" class="col-md-4 control-label">E-mail adres</label>
@@ -150,51 +163,72 @@
   <script src="{{ asset('js/places.js') }}" charset="utf-8"></script>
   <script type="text/javascript" src="{{ asset('js/custom.js') }}" charset="utf-8"></script>
 
+  <!-- <script>
+  window.fbAsyncInit = function() {
+  FB.init({
+  appId      : '{your-app-id}',
+  cookie     : true,
+  xfbml      : true,
+  version    : '{latest-api-version}'
+});
 
-  @yield('scripts')
+FB.AppEvents.logPageView();
 
-  <script type="text/javascript">
+};
 
-  new Vue({
-    el: '#login_modal',
-    data:{
-      email:'',
-      password:'',
-      loginDisabled:false,
-      notverified:''
-    },
-    methods:{
-      loginCheck(event){
-        event.preventDefault();
-        _this = this;
-        var _this = this;
-        axios.post('{{route("logincheck")}}',{
-          email: this.email,
-          password: this.password
-        }).then(response => {
-          if(response.data == false){
-            _this.notverified = 'Uw account is niet geactiveerd. <a href="{{route("verifysend")}}">Klik hier om uw activatie e-mail nogmaals te versturen.</a>';
-          }else{
-            _this.$refs.form.submit()
-          }
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-      }
+(function(d, s, id){
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) {return;}
+js = d.createElement(s); js.id = id;
+js.src = "https://connect.facebook.net/en_US/sdk.js";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script> -->
+
+@yield('scripts')
+
+<script type="text/javascript">
+
+new Vue({
+  el: '#login_modal',
+  data:{
+    email:'',
+    password:'',
+    loginDisabled:false,
+    notverified:''
+  },
+  methods:{
+    loginCheck(event){
+      event.preventDefault();
+      _this = this;
+      var _this = this;
+      axios.post('{{route("logincheck")}}',{
+        email: this.email,
+        password: this.password
+      }).then(response => {
+        if(response.data == false){
+          _this.notverified = 'Uw account is niet geactiveerd. <a href="{{route("verifysend")}}">Klik hier om uw activatie e-mail nogmaals te versturen.</a>';
+        }else{
+          _this.$refs.form.submit()
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     }
+  }
 
-  })
+})
 
 </script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112379687-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112379687-1"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
 
-  gtag('config', 'UA-112379687-1');
-</script> -->
+gtag('config', 'UA-112379687-1');
+</script>
 </body>
 </html>

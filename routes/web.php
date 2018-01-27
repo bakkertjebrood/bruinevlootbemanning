@@ -14,6 +14,13 @@
 // Middleware
 Auth::routes();
 
+// Facebook login
+// Route::get('/redirect', 'SocialAuthFacebookController@redirect');
+// Route::get('/callback', 'SocialAuthFacebookController@callback');
+
+Route::get('auth/{provider}', 'Auth\AuthController@redirectToProvider');
+Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallback');
+
 // test
 Route::get('test',function(){
   return view('sandbox.test');
@@ -82,3 +89,4 @@ Route::post('/contact', 'GeneralController@postcontact')->name('postcontact');
 Route::get('/about', 'GeneralController@creator')->name('about');
 Route::get('/creator', 'GeneralController@creator')->name('creator');
 Route::get('/suggestions', 'GeneralController@contact')->name('suggestions');
+Route::get('/privacy', 'GeneralController@privacy')->name('privacy');

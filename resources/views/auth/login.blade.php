@@ -35,6 +35,15 @@ BruineVlootBemanning
           <form class="form-horizontal" method="POST" action="{{ route('login') }}">
             {{ csrf_field() }}
 
+            <div class="col-md-6 col-md-offset-3">
+              <br>
+              <a href="{{ url('/auth/facebook') }}"> <img src="{{url('/images','facebook_login.png')}}" alt=""> </a>
+            </div>
+
+            <div class="col-md-12">
+              <hr>
+            </div>
+
             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
               <label for="email" class="col-md-4 control-label">E-mail adres</label>
 

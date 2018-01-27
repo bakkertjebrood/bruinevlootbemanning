@@ -32,6 +32,8 @@ class User extends Authenticatable
     'emailvisible',
     'phonevisible',
     'role_id',
+    'provider',
+    'provider_id'
   ];
 
   /**

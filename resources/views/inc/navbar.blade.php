@@ -59,7 +59,7 @@
           </a>
           <ul class="dropdown-menu">
             <li><a href="{{url('user/profile')}}">@lang('labels.myprofile')</i></a></li>
-            <li><a href="{{route('responses')}}">@lang('labels.responses')</i></a></li>
+            <li><a href="{{route('responses')}}">@lang('labels.myresponses')</i></a></li>
             <li><a href="{{url('user/ad')}}">@lang('labels.myads')</i></a></li>
             <li role="separator" class="divider"></li>
             <li><a href="{{route('logout')}}">@lang('labels.logout')</a></li>
@@ -75,9 +75,5 @@
       </ul>
     </div>
   </div>
-
-  <!-- <div class="employer-btn">
-    <a type="button" class="btn btn-m btn-default btn-employer hidden-xs" name="button">Werkgever</a>
-  </div> -->
 
 </nav>

@@ -24,6 +24,15 @@ BruineVlootBemanning
           <form class="form-horizontal" method="POST" action="{{ route('register') }}">
             {{ csrf_field() }}
 
+            <div class="col-md-6 col-md-offset-4">
+              <br>
+              <a href="{{ url('/auth/facebook') }}"> <img src="{{url('/images','facebook_login.png')}}" alt=""> </a>
+            </div>
+
+            <div class="col-md-12">
+              <hr>
+            </div>
+
             <div class="form-group">
               <label for="email" class="col-md-4 control-label">Voornaam</label>
               <div class="col-md-6">
@@ -135,6 +144,9 @@ BruineVlootBemanning
                 <button :disabled="disabled == 1" type="submit" class="btn btn-primary btn-xl">
                 Inschrijven en account activeren
                 </button>
+
+              </div>
+
               </div>
             </div>
           </form>
