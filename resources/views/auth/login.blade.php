@@ -19,6 +19,11 @@ BruineVlootBemanning
         <div class="panel-heading">Log in met uw accountgegevens om door te gaan</div>
 
         <div class="panel-body">
+          <br>
+          <div class="social-wrap">
+            @include('inc.social')
+          </div>
+
           @if ($message = Session::get('success'))
           <div class="alert alert-success">
             <p>{{ $message }}</p>
@@ -34,15 +39,6 @@ BruineVlootBemanning
           @endif
           <form class="form-horizontal" method="POST" action="{{ route('login') }}">
             {{ csrf_field() }}
-
-            <div class="col-md-6 col-md-offset-3">
-              <br>
-              <a href="{{ url('/auth/facebook') }}"> <img src="{{url('/images','facebook_login.png')}}" alt=""> </a>
-            </div>
-
-            <div class="col-md-12">
-              <hr>
-            </div>
 
             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
               <label for="email" class="col-md-4 control-label">E-mail adres</label>

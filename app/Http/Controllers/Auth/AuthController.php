@@ -18,18 +18,18 @@ class AuthController extends Controller
   public function handleProviderCallback($provider)
   {
 
-    $user = Socialite::driver($provider)->fields(['id','first_name', 'last_name', 'email'])->user();
+    if($provider == 'facebook'){
+      $user = Socialite::driver($provider)->fields(['id','first_name', 'last_name', 'email'])->user();
+    }elseif($provider == 'linkedin'){
+      $user = Socialite::driver($provider)->fields(['id','first_name', 'last_name', 'emailAddress'])->user();
+    }
 
     $authUser = $this->findOrCreateUser($user, $provider);
 
-    if($authUser){
-      Auth::login($authUser, true);
-      flash()->overlay('U bent ingelogd. Maak uw <a href="/job/opening"><strong>vacature</strong></a> of <a href="/job/request"><strong>oproep</strong></a> aan', 'U bent ingelogd');
-      return redirect('/');
-    }else{
-      Auth::login($authUser, true);
-      return redirect('/');
-    }
+    Auth::login($authUser, true);
+    flash()->overlay('U bent ingelogd. Maak uw <a href="/job/opening"><strong>vacature</strong></a> of <a href="/job/request"><strong>oproep</strong></a> aan', 'U bent ingelogd');
+
+    return redirect('/');
 
   }
 
@@ -41,14 +41,41 @@ class AuthController extends Controller
       return $authUser;
     }
 
-    return User::create([
-      'firstname' => $user->user['first_name'],
-      'lastname' => $user->user['last_name'],
-      'email'    => $user->email,
-      'provider' => $provider,
-      'provider_id' => $user->id,
-      'verified' => 1,
-      'email_token' => '',
-    ]);
+    if($provider == 'facebook'){
+
+      $userExists = User::where('email',$user->email)->first();
+      if($userExists){
+        return $userExists;
+      }
+
+      return User::create([
+        'firstname' => $user->user['first_name'],
+        'lastname' => $user->user['last_name'],
+        'email'    => $user->email,
+        'provider' => $provider,
+        'provider_id' => $user->id,
+        'verified' => 1,
+        'email_token' => '',
+      ]);
+
+
+    }elseif($provider == 'linkedin'){
+
+      $userExists = User::where('email',$user->email)->first();
+      if($userExists){
+        return $userExists;
+      }
+
+      return User::create([
+        'firstname' => $user->user['firstName'],
+        'lastname' => $user->user['lastName'],
+        'email'    => $user->user['emailAddress'],
+        'provider' => $provider,
+        'provider_id' => $user->id,
+        'verified' => 1,
+        'email_token' => '',
+      ]);
+    }
   }
+
 }

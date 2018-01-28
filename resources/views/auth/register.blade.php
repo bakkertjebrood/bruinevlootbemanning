@@ -23,15 +23,11 @@ BruineVlootBemanning
           @include('flash::message')
           <form class="form-horizontal" method="POST" action="{{ route('register') }}">
             {{ csrf_field() }}
-
-            <div class="col-md-6 col-md-offset-4">
-              <br>
-              <a href="{{ url('/auth/facebook') }}"> <img src="{{url('/images','facebook_login.png')}}" alt=""> </a>
+            <br>
+            <div class="social-wrap">
+              @include('inc.social')
             </div>
 
-            <div class="col-md-12">
-              <hr>
-            </div>
 
             <div class="form-group">
               <label for="email" class="col-md-4 control-label">Voornaam</label>
@@ -109,51 +105,51 @@ BruineVlootBemanning
                   <input type="checkbox" checked name="phonevisible" id="phonevisible" value="1">
                   <label for="phonevisible" class="">Telefoonnummer tonen bij advertenties</label>
                 </div>
-              <div class="checkbox checkbox-default">
-              <input  type="checkbox" checked name="emailvisible" id="emailvisible" value="1">
-              <label for="emailvisible" >E-mail adres tonen bij advertenties</label>
-            </div>
-            </div>
+                <div class="checkbox checkbox-default">
+                  <input  type="checkbox" checked name="emailvisible" id="emailvisible" value="1">
+                  <label for="emailvisible" >E-mail adres tonen bij advertenties</label>
+                </div>
+              </div>
             </div>
 
             <div class="form-group">
               <div class="col-md-8 col-md-offset-4">
-              <div class="radio radio-inline">
+                <div class="radio radio-inline">
                   <input type="radio" name="role_id" id="radio1" value="1" checked="">
                   <label for="radio1">
-                      Ik zoek werk
+                    Ik zoek werk
                   </label>
                 </div>
                 <div class="radio radio-inline">
                   <input type="radio" name="role_id" id="radio2" value="2" checked="">
                   <label for="radio2">
-                      Ik bied werk aan
+                    Ik bied werk aan
                   </label>
-              </div>
-              <div class="radio radio-inline">
-                <input type="radio" name="role_id" id="radio3" value="3" checked="">
-                <label for="radio3">
+                </div>
+                <div class="radio radio-inline">
+                  <input type="radio" name="role_id" id="radio3" value="3" checked="">
+                  <label for="radio3">
                     Beide opties
-                </label>
-            </div>
-            </div>
-          </div><br>
+                  </label>
+                </div>
+              </div>
+            </div><br>
 
             <div class="form-group">
               <div class="col-md-6 col-md-offset-4">
                 <button :disabled="disabled == 1" type="submit" class="btn btn-primary btn-xl">
-                Inschrijven en account activeren
+                  Inschrijven en account activeren
                 </button>
 
               </div>
 
-              </div>
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>
+</div>
 </div>
 
 

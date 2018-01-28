@@ -6,6 +6,84 @@
   opacity: 0.8;
 }
 
+.social-wrap{
+  margin:0 auto;
+  width: 350px;
+}
+
+.social-center{
+  width:180px;
+  margin:0 auto;
+}
+
+.social a:hover{
+  background-color: #358;
+}
+
+.social a:click{
+  background-color: #358;
+}
+
+.facebook-button span{
+  color: white;
+  margin-right: 5px;
+}
+
+.facebook-button strong{
+  color: white;
+}
+
+.facebook-button{
+  background-color: #46b;
+}
+
+.linkedin-button span{
+  color: white;
+  margin-right: 5px;
+}
+
+.linkedin-button strong{
+  color: white;
+}
+
+.linkedin-button{
+  background-color: #07b;
+}
+
+.strike {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: 20px;
+    margin-top:20px;
+}
+
+.strike > span {
+    position: relative;
+    display: inline-block;
+}
+
+.strike > span:before,
+.strike > span:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 9999px;
+    height: 1px;
+    background: #ddd;
+}
+
+.strike > span:before {
+    right: 100%;
+    margin-right: 15px;
+}
+
+.strike > span:after {
+    left: 100%;
+    margin-left: 15px;
+}
+
 textarea{
   white-space: pre-line;
 }

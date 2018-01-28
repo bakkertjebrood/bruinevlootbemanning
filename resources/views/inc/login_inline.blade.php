@@ -5,6 +5,8 @@
   <form class="form-horizontal" method="POST" action="{{ route('login') }}">
       {{ csrf_field() }}
   <div class="panel-body">
+
+    @include('inc.social')
     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
         <div class="col-md-12">
             <input id="" placeholder="E-mail" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
@@ -41,7 +43,7 @@
   </div>
   <div class="panel-footer clearfix">
     <button type="submit" class="btn btn-primary pull-right">
-        @lang('labels.rememberme')
+        @lang('labels.login')
     </button>
   </div>
   </form>

@@ -38,15 +38,10 @@
           <div class="modal-body">
 
             {{ csrf_field() }}
+<div class="social-wrap">
+@include('inc.social')
+</div>
 
-            <div class="col-md-6 col-md-offset-3">
-              <br>
-              <a href="{{ url('/auth/facebook') }}"> <img src="{{url('/images','facebook_login.png')}}" alt=""> </a>
-            </div>
-
-            <div class="col-md-12">
-              <hr>
-            </div>
 
 
 
@@ -155,6 +150,7 @@
   <!-- Scripts -->
 
   <script src="{{ asset('js/app.js') }}"></script>
+  <script src="https://use.fontawesome.com/87b5bc91b1.js"></script>
   <script src="{{ asset('js/bootstrap-confirmation.min.js') }}" charset="utf-8"></script>
   <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
   <script src="{{ asset('js/bootstrap-datepicker.nl.min.js') }}"></script>
@@ -162,6 +158,7 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
   <script src="{{ asset('js/places.js') }}" charset="utf-8"></script>
   <script type="text/javascript" src="{{ asset('js/custom.js') }}" charset="utf-8"></script>
+
 
   <!-- <script>
   window.fbAsyncInit = function() {

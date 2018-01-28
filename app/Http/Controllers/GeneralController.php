@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Contact;
 use App\User;
+use App\Faq;
 
 class GeneralController extends Controller
 {
     public function faq(){
-      return view('faq');
+      $faqs = Faq::orderBy('name')->get();
+      return view('faq')
+        ->with('faqs',$faqs);
     }
 
     public function contact(){
