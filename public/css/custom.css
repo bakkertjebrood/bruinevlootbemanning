@@ -566,7 +566,7 @@ textarea{
 }
 
 .panel, .btn, .list-group-item, .list-group{
-  border-radius: 0px;
+  /* border-radius: 0px; */
 }
 
 .call-to-action {

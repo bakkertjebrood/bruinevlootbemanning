@@ -26,8 +26,8 @@ class HomeController extends Controller
 
     $new_users = user::where('created_at','>',Carbon::now()->subMonths(1))->orderBy('created_at','desc')->paginate(4);
 
-    $jobs = Ad::where('type','1')->where('created_at','>',Carbon::now()->subMonths(2))->orderBy('created_at','desc')->paginate(6);
-    $offers = Ad::where('type','2')->where('created_at','>',Carbon::now()->subMonths(2))->orderBy('created_at','desc')->paginate(6);
+    $jobs = Ad::where('type','1')->where('created_at','>',Carbon::now()->subMonths(2))->orderBy('created_at','desc')->paginate(3);
+    $offers = Ad::where('type','2')->where('created_at','>',Carbon::now()->subMonths(2))->orderBy('created_at','desc')->paginate(3);
     return View::make('welcome')
     ->with('jobs', $jobs)
     ->with('offers', $offers)
