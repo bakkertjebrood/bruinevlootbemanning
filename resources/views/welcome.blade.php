@@ -34,7 +34,7 @@ BruineVlootBemanning
     @if(Auth::guest())
     @include('inc.login_inline')
     @endif
-<div class="hidden-xs hidden-lg hidden-md">
+<div class="hidden-xs">
 
 
 <h4>Nieuwe leden</h4>

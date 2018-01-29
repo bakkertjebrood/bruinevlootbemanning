@@ -6,6 +6,10 @@
   background-color: white;
 }
 
+.thumbnail h5{
+  /* color: #840; */
+}
+
 .btn-primary:click{
   opacity: 0.8;
 }

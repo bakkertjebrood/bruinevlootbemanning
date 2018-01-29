@@ -159,29 +159,6 @@
   <script src="{{ asset('js/places.js') }}" charset="utf-8"></script>
   <script type="text/javascript" src="{{ asset('js/custom.js') }}" charset="utf-8"></script>
 
-
-  <!-- <script>
-  window.fbAsyncInit = function() {
-  FB.init({
-  appId      : '{your-app-id}',
-  cookie     : true,
-  xfbml      : true,
-  version    : '{latest-api-version}'
-});
-
-FB.AppEvents.logPageView();
-
-};
-
-(function(d, s, id){
-var js, fjs = d.getElementsByTagName(s)[0];
-if (d.getElementById(id)) {return;}
-js = d.createElement(s); js.id = id;
-js.src = "https://connect.facebook.net/en_US/sdk.js";
-fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-</script> -->
-
 @yield('scripts')
 
 <script type="text/javascript">
@@ -219,13 +196,13 @@ new Vue({
 
 </script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112379687-1"></script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112379687-1"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 
 gtag('config', 'UA-112379687-1');
-</script>
+</script> -->
 </body>
 </html>

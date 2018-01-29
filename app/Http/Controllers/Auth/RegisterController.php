@@ -130,9 +130,10 @@ class RegisterController extends Controller
 
   public function verify($token)
   {
+    $getUser = User::where('email_token',$token)->firstOrFail();
     $user = User::where('email_token',$token)->firstOrFail()->verified();
 
-    Auth::login($user, true);
+    Auth::login($getUser, true);
     flash()->overlay('Uw account is geactiveerd. Maak uw <a href="/job/opening"><strong>vacature</strong></a> of <a href="/job/request"><strong>oproep</strong></a> aan', 'Uw account is geactiveerd');
     return redirect()->route('home');
   }

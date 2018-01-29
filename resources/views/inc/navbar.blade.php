@@ -14,7 +14,7 @@
       </button>
 
       <!-- Branding Image -->
-      <div class="logo hidden-xs">
+      <div class="logo hidden-xs hidden-sm">
 
 
           <div class="logo-icon">
