@@ -58,6 +58,20 @@
   background-color: #07b;
 }
 
+/*  */
+.google-button span{
+  color: white;
+  margin-right: 5px;
+}
+
+.google-button strong{
+  color: white;
+}
+
+.google-button{
+  background-color: #e55;
+}
+
 .strike {
     display: block;
     text-align: center;

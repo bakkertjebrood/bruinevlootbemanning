@@ -36,7 +36,6 @@ BruineVlootBemanning
     @endif
 <div class="hidden-xs">
 
-
 <h4>Nieuwe leden</h4>
     <ul class="list-group">
       @foreach($new_users as $new_user)
