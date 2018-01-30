@@ -14,7 +14,7 @@ Bruinevlootbemanning
     <div class="row top-buffer">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Wachtwoord herstellen</div>
+                <div class="panel-heading">@lang('labels.passwordreset')</div>
 
                 <div class="panel-body">
                     @if (session('status'))
@@ -27,7 +27,7 @@ Bruinevlootbemanning
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-mail adres</label>
+                            <label for="email" class="col-md-4 control-label">@lang('labels.email')</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
@@ -43,7 +43,7 @@ Bruinevlootbemanning
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Wachtwoord herstellen
+                                    @lang('labels.passwordreset')
                                 </button>
                             </div>
                         </div>

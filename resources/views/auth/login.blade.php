@@ -16,7 +16,7 @@ BruineVlootBemanning
     </div>
     <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-default">
-        <div class="panel-heading">Log in met uw accountgegevens om door te gaan</div>
+        <div class="panel-heading">@lang('labels.logintoproceed')</div>
 
         <div class="panel-body">
           <br>
@@ -41,7 +41,7 @@ BruineVlootBemanning
             {{ csrf_field() }}
 
             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-              <label for="email" class="col-md-4 control-label">E-mail adres</label>
+              <label for="email" class="col-md-4 control-label">@lang('labels.email')</label>
 
               <div class="col-md-6">
                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
@@ -55,7 +55,7 @@ BruineVlootBemanning
             </div>
 
             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-              <label for="password" class="col-md-4 control-label">Wachtwoord</label>
+              <label for="password" class="col-md-4 control-label">@lang('labels.password')</label>
 
               <div class="col-md-6">
                 <input id="password" type="password" class="form-control" name="password" required>
@@ -72,7 +72,7 @@ BruineVlootBemanning
               <div class="col-md-6 col-md-offset-4">
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Mij onthouden
+                    <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> @lang('labels.rememberme')
                   </label>
                 </div>
               </div>
@@ -81,14 +81,14 @@ BruineVlootBemanning
             <div class="form-group">
               <div class="col-md-8 col-md-offset-4">
                 <button type="submit" class="btn btn-primary">
-                  Inloggen
+                  @lang('labels.login')
                 </button>
 
                 <a class="btn btn-link" href="{{ route('password.request') }}">
-                  Wachtwoord vergeten
+                  @lang('labels.forgotpassword')
                 </a> |
                 <a class="btn btn-link" href="{{ route('register') }}">
-                  Inschrijven
+                  @lang('labels.register')
                 </a>
               </div>
             </div>

@@ -24,11 +24,11 @@ BruineVlootBemanning
 
 
     <div class="list-group notice profile-menu">
-      <!-- <label for="search">Ga naar</label> -->
-      <h4>Ga naar</h4>
+      <!-- <label for="search">Ga naar</label>-->
+      <h4>@lang('labels.goto')</h4>
       <a href="{{route('jobrequests')}}" class="list-group-item">
         <span class="glyphicon glyphicon-bullhorn"></span>
-        Alle vacatures en oproepen</a>
+        @lang('labels.allads')</a>
     </div>
 
     @if(Auth::guest())
@@ -36,7 +36,7 @@ BruineVlootBemanning
     @endif
 <div class="hidden-xs">
 
-<h4>Nieuwe leden</h4>
+<h4>@lang('labels.newmembers')</h4>
     <ul class="list-group">
       @foreach($new_users as $new_user)
       <li class="list-group-item"><img src="{{url('uploads/photo',$new_user->photo)}}" class="img img-circle ads-image-xs" style="height:35px;width:35px" alt="">{{ucfirst($new_user->firstname)}} - <small class="text-muted">{{date_format($new_user->created_at,'d-M')}}</small></li>
@@ -50,9 +50,10 @@ BruineVlootBemanning
   <div class="col-lg-9">
 
     @include('flash::message')
+
     <div class="header">
-      <a class="pull-right hidden-xs" href="{{route('jobopenings')}}"><small>Bekijk alle vacatures</small></a>
-      <h2>Vacatures <small>een greep</small></h2>
+      <a class="pull-right hidden-xs" href="{{route('jobopenings')}}"><small>@lang('labels.showallads')</small></a>
+      <h2>@lang('labels.openings') <small>@lang('labels.aselection')</small></h2>
     </div>
 
     <div class="row">
@@ -70,11 +71,11 @@ BruineVlootBemanning
             </div>
 
             <span class="ad_block_footer">
-              <a type="button" class="btn btn-sm btn-default" href="{{url('/job',$ad->id)}}" name="button">Bekijken</a>
+              <a type="button" class="btn btn-sm btn-default" href="{{url('/job',$ad->id)}}" name="button">@lang('labels.show')</a>
               @if(Auth::user())
-              <a type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#ad_respond{{$ad->id}}" name="respond">Reageer</a>
+              <a type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#ad_respond{{$ad->id}}" name="respond">@lang('labels.respond')</a>
               @else
-              <a type="button" class="btn btn-sm btn-primary" href="#" data-toggle="modal" data-target="#login_modal" class="">Reageer</a>
+              <a type="button" class="btn btn-sm btn-primary" href="#" data-toggle="modal" data-target="#login_modal" class="">@lang('labels.respond')</a>
               @endif
             </span>
 
@@ -87,8 +88,8 @@ BruineVlootBemanning
     </div>
 
     <div class="header">
-      <a class="pull-right hidden-xs" href="{{route('jobrequests')}}"><small>Bekijk alle oproepen</small></a>
-      <h2>Oproepen <small>een greep</small></h2>
+      <a class="pull-right hidden-xs" href="{{route('jobrequests')}}"><small>@lang('labels.showallads')</small></a>
+      <h2>@lang('labels.requests') <small>@lang('labels.aselection')</small></h2>
     </div>
 
     <div class="row">
@@ -106,11 +107,11 @@ BruineVlootBemanning
             </div>
 
             <span class="ad_block_footer">
-              <a type="button" class="btn btn-sm btn-default" href="{{url('/job',$ad->id)}}" name="button">Bekijken</a>
+              <a type="button" class="btn btn-sm btn-default" href="{{url('/job',$ad->id)}}" name="button">@lang('labels.show')</a>
               @if(Auth::user())
-              <a type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#ad_respond{{$ad->id}}" name="respond">Reageer</a>
+              <a type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#ad_respond{{$ad->id}}" name="respond">@lang('labels.respond')</a>
               @else
-              <a type="button" class="btn btn-sm btn-primary" href="#" data-toggle="modal" data-target="#login_modal" class="">Reageer</a>
+              <a type="button" class="btn btn-sm btn-primary" href="#" data-toggle="modal" data-target="#login_modal" class="">@lang('labels.respond')</a>
               @endif
             </span>
           </div>

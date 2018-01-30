@@ -33,7 +33,7 @@
         <form class="form-horizontal" ref="form" v-on:submit="loginCheck" method="POST" action="{{ route('login') }}">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="">Inloggen</h4>
+            <h4 class="modal-title" id="">@lang('labels.login')</h4>
           </div>
           <div class="modal-body">
 
@@ -47,7 +47,7 @@
 
 
             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-              <label for="email" class="col-md-4 control-label">E-mail adres</label>
+              <label for="email" class="col-md-4 control-label">@lang('labels.email')</label>
 
               <div class="col-md-6">
                 <input id="email" v-model="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
@@ -63,7 +63,7 @@
             </div>
 
             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-              <label for="password" class="col-md-4 control-label">Wachtwoord</label>
+              <label for="password" class="col-md-4 control-label">@lang('labels.password')</label>
 
               <div class="col-md-6">
                 <input id="password" v-model="password" type="password" class="form-control" name="password" required>
@@ -80,7 +80,7 @@
               <div class="col-md-6 col-md-offset-4">
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Mij onthouden
+                    <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> @lang('labels.rememberme')
                   </label>
                 </div>
               </div>
@@ -90,13 +90,13 @@
           <div class="modal-footer">
 
             <a class="btn btn-link" href="{{ route('password.request') }}">
-              Wachtwoord vergeten
+              @lang('labels.forgotpassword')
             </a> |
             <a class="btn btn-link" href="{{ route('register') }}">
-              Inschrijven
+              @lang('labels.register')
             </a>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
-            <button type="submit" :class="['btn btn-primary',{disabled:this.loginDisabled}]">Inloggen</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">@lang('labels.close')</button>
+            <button type="submit" :class="['btn btn-primary',{disabled:this.loginDisabled}]">@lang('labels.login')</button>
           </div>
         </form>
       </div>
@@ -107,32 +107,32 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-3">
-          <h5>Van start</h5>
+          <h5>@lang('labels.tobeginwith')</h5>
           <ul>
             <li><a href="{{route('home')}}">Home</a></li>
-            <li><a href="{{route('register')}}">Inschrijven</a></li>
-            <li><a href="{{route('login')}}">Inloggen</a></li>
+            <li><a href="{{route('register')}}">@lang('labels.register')</a></li>
+            <li><a href="{{route('login')}}">@lang('labels.login')</a></li>
           </ul>
         </div>
         <div class="col-sm-3">
           <h5>Over ons</h5>
           <ul>
-            <li><a href="{{route('about')}}">Het initiatief</a></li>
-            <li><a href="{{route('contact')}}">Neem contact op</a></li>
-            <li><a href="{{route('creator')}}">Wie is de maker</a></li>
+            <li><a href="{{route('about')}}">@lang('labels.theinitiative')</a></li>
+            <li><a href="{{route('contact')}}">@lang('labels.contactme')</a></li>
+            <li><a href="{{route('creator')}}">@lang('labels.creator')</a></li>
           </ul>
         </div>
         <div class="col-sm-3">
           <h5>Ondersteuning</h5>
           <ul>
-            <li><a href="{{route('faq')}}">Veelgestelde vragen</a></li>
-            <li><a href="{{route('contact')}}">Probleem melden</a></li>
-            <li><a href="{{route('suggestions')}}">Uw suggestie indienen</a></li>
+            <li><a href="{{route('faq')}}">@lang('labels.faq')</a></li>
+            <li><a href="{{route('contact')}}">@lang('labels.reportaproblem')</a></li>
+            <li><a href="{{route('suggestions')}}">@lang('labels.dosuggestion')</a></li>
           </ul>
         </div>
         <div class="col-sm-3 info">
-          <h5>Informatie</h5>
-          <p> Deze website is een gratis initiatief en brengt scheepseigenaren, bemanning, horeca personeel, klussers en andere enthousiaste mensen met elkaar in contact. </p>
+          <h5>@lang('labels.information')</h5>
+          <p>@lang('labels.informationtext')</p>
         </div>
       </div>
     </div>

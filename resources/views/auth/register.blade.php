@@ -10,14 +10,14 @@ BruineVlootBemanning
 @section('content')
 <div class="container" id="register">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><small><a href="{{url('/')}}">Welkom</a></small></li>
-    <li class="breadcrumb-item active" aria-current="page">Inschrijven</li>
+    <li class="breadcrumb-item"><small><a href="{{url('/')}}">@lang('labels.welcome')</a></small></li>
+    <li class="breadcrumb-item active" aria-current="page">@lang('labels.register')</li>
   </ol>
   <div class="row">
 
     <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-default">
-        <div class="panel-heading">Inschrijven</div>
+        <div class="panel-heading">@lang('labels.register')</div>
 
         <div class="panel-body">
           @include('flash::message')
@@ -30,21 +30,21 @@ BruineVlootBemanning
 
 
             <div class="form-group">
-              <label for="email" class="col-md-4 control-label">Voornaam</label>
+              <label for="email" class="col-md-4 control-label">@lang('labels.firstname')</label>
               <div class="col-md-6">
                 <input type="text" class="form-control" id="firstname" name="firstname" value="" placeholder="" required="true">
               </div>
             </div>
 
             <div class="form-group">
-              <label for="email" class="col-md-4 control-label">Achternaam</label>
+              <label for="email" class="col-md-4 control-label">@lang('labels.lastname')</label>
               <div class="col-md-6">
                 <input type="text" class="form-control" id="lastname" name="lastname" value="" placeholder="" required="true">
               </div>
             </div>
 
             <div class="form-group">
-              <label for="email" class="col-md-4 control-label">Woonplaats</label>
+              <label for="email" class="col-md-4 control-label">@lang('labels.city')</label>
               <div class="col-md-6">
                 <select class="select-places" id="selectPlace" name="city" required>
                 </select>
@@ -52,14 +52,14 @@ BruineVlootBemanning
             </div>
 
             <div class="form-group">
-              <label for="email" class="col-md-4 control-label">Telefoon <small class="text-muted"></small></label>
+              <label for="email" class="col-md-4 control-label">@lang('labels.phone') <small class="text-muted"></small></label>
               <div class="col-md-6">
-                <input type="phone" minlength="10" maxlength="10" class="form-control" id="phone" name="phone" value="" placeholder="0622065216">
+                <input type="phone" minlength="10" maxlength="15" class="form-control" id="phone" name="phone" value="" placeholder="0622065216">
               </div>
             </div>
 
             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-              <label for="email" class="col-md-4 control-label">E-mail adres</label>
+              <label for="email" class="col-md-4 control-label">@lang('labels.email')</label>
 
               <div class="col-md-6">
 
@@ -78,7 +78,7 @@ BruineVlootBemanning
             </div>
 
             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-              <label for="password" class="col-md-4 control-label">Wachtwoord</label>
+              <label for="password" class="col-md-4 control-label">@lang('labels.password')</label>
 
               <div class="col-md-6">
                 <input  type="password" class="form-control" name="password" required>
@@ -92,7 +92,7 @@ BruineVlootBemanning
             </div>
 
             <div class="form-group">
-              <label for="password-confirm" class="col-md-4 control-label">Wachtwoord bevestigen</label>
+              <label for="password-confirm" class="col-md-4 control-label">@lang('labels.confirmpassword')</label>
 
               <div class="col-md-6">
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
@@ -103,11 +103,11 @@ BruineVlootBemanning
               <div class="col-md-8 col-md-offset-4">
                 <div class="checkbox checkbox-default">
                   <input type="checkbox" checked name="phonevisible" id="phonevisible" value="1">
-                  <label for="phonevisible" class="">Telefoonnummer tonen bij advertenties</label>
+                  <label for="phonevisible" class="">@lang('labels.showphone')</label>
                 </div>
                 <div class="checkbox checkbox-default">
                   <input  type="checkbox" checked name="emailvisible" id="emailvisible" value="1">
-                  <label for="emailvisible" >E-mail adres tonen bij advertenties</label>
+                  <label for="emailvisible" >@lang('labels.showemail')</label>
                 </div>
               </div>
             </div>
@@ -117,19 +117,19 @@ BruineVlootBemanning
                 <div class="radio radio-inline">
                   <input type="radio" name="role_id" id="radio1" value="1" checked="">
                   <label for="radio1">
-                    Ik zoek werk
+                    @lang('labels.searchwork')
                   </label>
                 </div>
                 <div class="radio radio-inline">
                   <input type="radio" name="role_id" id="radio2" value="2" checked="">
                   <label for="radio2">
-                    Ik bied werk aan
+                    @lang('labels.offerwork')
                   </label>
                 </div>
                 <div class="radio radio-inline">
                   <input type="radio" name="role_id" id="radio3" value="3" checked="">
                   <label for="radio3">
-                    Beide opties
+                    @lang('labels.bothoptions')
                   </label>
                 </div>
               </div>
@@ -138,7 +138,7 @@ BruineVlootBemanning
             <div class="form-group">
               <div class="col-md-6 col-md-offset-4">
                 <button :disabled="disabled == 1" type="submit" class="btn btn-primary btn-xl">
-                  Inschrijven en account activeren
+                  @lang('labels.registerandactivate')
                 </button>
 
               </div>

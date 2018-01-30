@@ -10,13 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['middleware' => 'language'], function () {
 
 // Middleware
 Auth::routes();
 
-// Facebook login
-// Route::get('/redirect', 'SocialAuthFacebookController@redirect');
-// Route::get('/callback', 'SocialAuthFacebookController@callback');
+// languages
+
 
 Route::get('auth/{provider}', 'Auth\AuthController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallback');
@@ -31,14 +31,14 @@ Route::get('/', 'HomeController@index')->name('home');
 
 // Jobs requests
 Route::group(['middleware' => ['auth']], function () {
-Route::get('/job/request','JobController@jobrequest')->name('jobrequest');
+  Route::get('/job/request','JobController@jobrequest')->name('jobrequest');
 });
 Route::get('/job/requests','JobController@jobrequests')->name('jobrequests');
 Route::post('/jobs/requests/data','JobController@jobrequests_data');
 
 // Job openings
 Route::group(['middleware' => ['auth']], function () {
-Route::get('/job/opening','JobController@jobopening')->name('jobopening');
+  Route::get('/job/opening','JobController@jobopening')->name('jobopening');
 });
 Route::get('/job/openings','JobController@jobopenings')->name('jobopenings');
 Route::post('/jobs/openings','JobController@jobopenings')->name('searchopenings');
@@ -90,3 +90,5 @@ Route::get('/about', 'GeneralController@creator')->name('about');
 Route::get('/creator', 'GeneralController@creator')->name('creator');
 Route::get('/suggestions', 'GeneralController@contact')->name('suggestions');
 Route::get('/privacy', 'GeneralController@privacy')->name('privacy');
+
+});

@@ -15,21 +15,21 @@ Bruinevlootbemanning
 
 
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><small><a href="{{url('/')}}">Welkom</a></small></li>
-      <li class="breadcrumb-item"><small><a href="{{url('user/ad')}}">Uw advertenties</a></small></li>
+      <li class="breadcrumb-item"><small><a href="{{url('/')}}">@lang('labels.welcome')</a></small></li>
+      <li class="breadcrumb-item"><small><a href="{{url('user/ad')}}">@lang('labels.myads')</a></small></li>
       @if($ad->type == 2)
-      <li class="breadcrumb-item active" aria-current="page">Uw oproep wijzigen</li>
+      <li class="breadcrumb-item active" aria-current="page">@lang('labels.updatemyrequest')</li>
       @else
-      <li class="breadcrumb-item active" aria-current="page">Uw vacature wijzigen</li>
+      <li class="breadcrumb-item active" aria-current="page">@lang('labels.updatemyopening')</li>
       @endif
 
     </ol>
 
     <div class="page-header">
       @if($ad->type == 2)
-      <h1>Uw <small>oproep wijzigen</small></h1>
+      <h1>@lang('labels.my') <small>@lang('labels.updaterequest')</small></h1>
       @else
-      <h1>Uw <small>vacature wijzigen</small></h1>
+      <h1>@lang('labels.my') <small>@lang('labels.updateopening')</small></h1>
       @endif
 
     </div>
@@ -41,17 +41,13 @@ Bruinevlootbemanning
       @include('flash::message')
 
       <div class="form-group">
-        <label for="name">Titel</label>
-        <input type="text" class="form-control" id="name" autofocus name="name" value="{{$ad->name}}" placeholder="Bijvoorbeeld: Matroos gezocht" required="true">
+        <label for="name">@lang('labels.title')</label>
+        <input type="text" class="form-control" id="name" autofocus name="name" value="{{$ad->name}}" placeholder="@lang('labels.exampletitle')" required="true">
       </div>
 
       <div class="form-group">
         <label for="name">
-          @if($ad->type == 2)
-          Voorkeur plaats of haven
-          @else
-          Thuishaven
-          @endif
+          @lang('labels.homeport')
         </label>
         <select class="select-places" id="selectPlace" name="homeport" required="true">
         </select>
@@ -59,9 +55,9 @@ Bruinevlootbemanning
 
       <div class="form-group">
         @if($ad->type == 2)
-        <label for="title">Vaardigheden & certificaten</label>
+        <label for="title">@lang('labels.skills')</label>
         @else
-        <label for="title">Benodigde vaardigheden & certificaten</label>
+        <label for="title">@lang('labels.neededskills')</label>
         @endif
 
         <select multiple="true" class="select-skills" name="skills[]">
@@ -78,7 +74,7 @@ Bruinevlootbemanning
       </div>
 
       <div class="form-group">
-        <label for="title">Categorieën</label>
+        <label for="title">@lang('labels.categories')</label>
         <select multiple="true" class="select-categories" name="categories[]">
           @foreach($ad->categories as $category)
           <option selected="selected" value="{{$category->category_definition_id}}">
@@ -94,27 +90,27 @@ Bruinevlootbemanning
 
       <div class="form-group">
         @if($ad->type == 2)
-        <label for="daterange">Van wanneer tot wanneer bent u beschikbaar?</label>
+        <label for="daterange">@lang('labels.whenavailable')</label>
         @else
-        <label for="daterange">Van wanneer tot wanneer zoekt u iemand?</label>
+        <label for="daterange">@lang('labels.whenneeded')</label>
         @endif
 
         <div class="input-group input-daterange" id="daterange">
           <input type="text" class="form-control datepicker" name="startdate" value="{{date_format(new DateTime($ad->startdate),'d-m-Y')}}" placeholder="01-01-2018" required="true">
-          <div class="input-group-addon">tot</div>
+          <div class="input-group-addon">@lang('labels.until')</div>
           <input type="text" class="form-control datepicker" name="enddate" value="{{date_format(new DateTime($ad->enddate),'d-m-Y')}}" placeholder="01-01-2019" required="true">
         </div>
       </div>
 
       <div class="form-group">
-        <label for="name">Beschrijving</label>
-        <textarea type="text" rows="7" class="form-control" name="description" placeholder="Omschrijf wat u zoekt" required="true">{{ $ad->description }}</textarea>
+        <label for="name">@lang('labels.description')</label>
+        <textarea type="text" rows="7" class="form-control" name="description" placeholder="@lang('labels.describeneeds')" required="true">{{ $ad->description }}</textarea>
       </div>
 
       @if($ad->type == 2)
       <div class="form-group">
-        <label for="name">Ervaring</label>
-        <textarea type="text" rows="7" class="form-control" name="experience" placeholder="Omschrijf uw relevante werkervaring" required="true">{{$ad->experience}}</textarea>
+        <label for="name">@lang('labels.experience')</label>
+        <textarea type="text" rows="7" class="form-control" name="experience" placeholder="@lang('labels.describeexperience')" required="true">{{$ad->experience}}</textarea>
       </div>
       @endif
 
@@ -123,17 +119,17 @@ Bruinevlootbemanning
     <div class="col-lg-3">
       <img id="newad_image" class="img img-thumbnail ad_photo" src="{{url('uploads/photo',$ad->photo)}}" alt="">
       <div class="form-group"><br>
-        <label class="control-label" for="title">Afbeelding</label>
+        <label class="control-label" for="title">@lang('labels.photo')</label>
         <div class="validation-errors"></div>
         <input id="newad_file" type="file" name="photo" class="form-control" />
       </div>
 <div class="list-group">
-  <a class="list-group-item list-group-item-default" href="{{route('job',$ad->id)}}">Advertentie bekijken</a>
+  <a class="list-group-item list-group-item-default" href="{{route('job',$ad->id)}}">@lang('labels.showad')</a>
 </div>
 
       <div class="list-group notice-inverse">
 
-        <a class="list-group-item list-group-item-primary" id="save" href="#">Opslaan</a>
+        <a class="list-group-item list-group-item-primary" id="save" href="#">@lang('labels.save')</a>
 
       </div>
 

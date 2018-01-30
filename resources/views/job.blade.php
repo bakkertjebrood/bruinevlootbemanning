@@ -12,18 +12,9 @@ Bruinevlootbemanning
 @section('content')
 <div class="container">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><small><a href="{{route('home')}}">Welkom</a></small></li>
-    <li class="breadcrumb-item"><small><a href="
-      @if($ad->type == 1)
-      {{route('jobopenings')}}
-      @else
-      {{route('jobrequests')}}
-      @endif">
-      @if($ad->type == 1)
-      Vacatures overzicht
-      @else
-      Oproepen overzicht
-      @endif
+    <li class="breadcrumb-item"><small><a href="{{route('home')}}">@lang('labels.welcome')</a></small></li>
+    <li class="breadcrumb-item"><small><a href="{{route('jobs')}}">
+      @lang('labels.ads')
     </a></small></li>
     <li class="breadcrumb-item active" aria-current="page">{{ucfirst($ad->name)}}</li>
   </ol>
@@ -42,30 +33,30 @@ Bruinevlootbemanning
     <div class="list-group">
       @if($ad->type == 2)
       <div class="list-group-item">
-        <h4>Ervaring</h4>
+        <h4>@lang('labels.experience')</h4>
         <p class="retainlinebreaks">{{$ad->experience}}</p>
       </div>
       @endif
       <div class="list-group-item">
-        <h4>Thuishaven</h4>
+        <h4>@lang('labels.harbor')</h4>
         <p id="selectPlace"></p>
       </div>
 
       <div class="list-group-item">
-        <h4>Bezit de volgende vaardigheden en/of certificaten</h4>
+        <h4>@lang('labels.followingskills')</h4>
         <div>
           <span>
             @foreach($ad->skills as $skill)
             <span class="label label-default">{{strtolower($skill->skill_definition->name)}}</span>
             @endforeach
             @if($ad->skills->isEmpty())
-            <i>Geen gegevens</i>
+            <i>@lang('labels.nodata')</i>
             @endif
           </span>
       </div>
     </div>
     <div class="list-group-item">
-      <h4>Beschikbaar tussen</h4>
+      <h4>@lang('labels.availablebetween')</h4>
       <p>{{date_format(new DateTime($ad->startdate),'d-m-Y')}} tot {{date_format(new DateTime($ad->enddate),'d-m-Y')}}</p>
     </div>
   </div>
@@ -80,7 +71,7 @@ Bruinevlootbemanning
 
   <div class="list-group">
     <div class="list-group-item">
-    <strong>Geplaatst door:</strong>  <p class="panel-title">{{$ad->user->firstname.' '.$ad->user->lastname}}</p>
+    <strong>@lang('labels.placedby')</strong>  <p class="panel-title">{{$ad->user->firstname.' '.$ad->user->lastname}}</p>
     </div>
   </div>
 
@@ -98,27 +89,27 @@ Bruinevlootbemanning
   </div>
   <div class="list-group">
     <div class="list-group-item">
-      <strong>Keren bekeken:</strong> {{$ad->views + 50}}
+      <strong>@lang('labels.watched'):</strong> {{$ad->views + 50}}
     </div>
     <div class="list-group-item">
-      <strong>Aangemaakt:</strong> {{date_format($ad->created_at,'d-m-Y')}}
+      <strong>@lang('labels.created'):</strong> {{date_format($ad->created_at,'d-m-Y')}}
     </div>
     <div class="list-group-item">
-      <strong>Laatst gewijzigd:</strong> {{date_format($ad->updated_at,'d-m-Y')}}
+      <strong>@lang('labels.lastchanged'):</strong> {{date_format($ad->updated_at,'d-m-Y')}}
     </div>
   </div>
 
   <div class="list-group notice-inverse">
     @if(Auth::user())
     @if($ad->user->id != Auth::user()->id && Auth::user())
-    <a class="list-group-item list-group-item-primary" data-toggle="modal" data-target="#ad_respond{{$ad->id}}" href="#">Reageren</a>
+    <a class="list-group-item list-group-item-primary" data-toggle="modal" data-target="#ad_respond{{$ad->id}}" href="#">@lang('labels.respond')</a>
     @else
-    <a class="list-group-item list-group-item-primary" href="{{url('user/ad',$ad->id)}}">Wijzigen</a>
+    <a class="list-group-item list-group-item-primary" href="{{url('user/ad',$ad->id)}}">@lang('labels.update')</a>
     @endif
     @endif
 
     @if(Auth::guest())
-    <a class="list-group-item list-group-item-primary" href="#" data-toggle="modal" data-target="#login_modal" class="">Reageren</a>
+    <a class="list-group-item list-group-item-primary" href="#" data-toggle="modal" data-target="#login_modal" class="">@lang('labels.respond')</a>
     @endif
 
   </div>

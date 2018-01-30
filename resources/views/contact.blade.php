@@ -13,12 +13,12 @@ Bruinevlootbemanning
 <div class="container">
 
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><small><a href="{{url('/')}}">Welkom</a></small></li>
-    <li class="breadcrumb-item active" aria-current="page">Contact</li>
+    <li class="breadcrumb-item"><small><a href="{{url('/')}}">@lang('labels.welcome')</a></small></li>
+    <li class="breadcrumb-item active" aria-current="page">@lang('labels.contact')</li>
   </ol>
 
   <div>
-    <h1>Contact</h1>
+    <h1>@lang('labels.contact')</h1>
     <hr>
   </div>
 
@@ -34,29 +34,29 @@ Bruinevlootbemanning
       <form class="" action="{{route('postcontact')}}" method="post">
         {{csrf_field()}}
         <div class="form-group">
-          <label for="name">Naam</label>
+          <label for="name">@lang('labels.name')</label>
           <input type="text" class="form-control" name="name" placeholder="" required>
         </div>
         <div class="form-group">
-          <label for="email">E-mail</label>
+          <label for="email">@lang('labels.email')</label>
           <input type="email" class="form-control" type="email" name="email" placeholder="" required>
         </div>
 
         <div class="form-group">
-          <label for="subject">Onderwerp</label>
+          <label for="subject">@lang('labels.subject')</label>
           <select type="text" class="form-control" name="subject" placeholder="" required>
-            <option value="question">Vraag</option>
-            <option value="problem">Probleem</option>
-            <option value="suggestion">Suggestie</option>
+            <option value="question">@lang('labels.question')</option>
+            <option value="problem">@lang('labels.problem')</option>
+            <option value="suggestion">@lang('labels.suggestion')</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label for="description">Omschrijving</label>
+          <label for="description">@lang('labels.description')</label>
           <textarea rows="5" class="form-control" name="description" placeholder="" required></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary pull-right" data-loading-text="Momentje" name="button">Versturen</button>
+        <button type="submit" class="btn btn-primary pull-right" name="button">@lang('labels.send')</button>
       </form>
     </div>
   </div>

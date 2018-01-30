@@ -9,7 +9,7 @@
     @include('inc.social')
     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
         <div class="col-md-12">
-            <input id="" placeholder="E-mail" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+            <input id="" placeholder="@lang('labels.email')" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
 
             @if ($errors->has('email'))
                 <span class="help-block">
@@ -21,7 +21,7 @@
 
     <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
         <div class="col-md-12">
-            <input id="" placeholder="Wachtwoord" type="password" class="form-control" name="password" required>
+            <input id="" placeholder="@lang('labels.password')" type="password" class="form-control" name="password" required>
 
             @if ($errors->has('password'))
                 <span class="help-block">

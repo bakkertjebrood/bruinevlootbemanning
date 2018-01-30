@@ -157,9 +157,9 @@
             },
             data: function(){
               return {
-                type:'2',
-                type1: false,
-                type2: true,
+                type:'1',
+                type1: true,
+                type2: false,
                 jobs: [],
                 skills: '',
                 categories: '',

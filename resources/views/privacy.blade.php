@@ -13,8 +13,8 @@ Bruinevlootbemanning
 <div class="container">
 
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><small><a href="{{url('/')}}">Welkom</a></small></li>
-    <li class="breadcrumb-item active" aria-current="page">De maker</li>
+    <li class="breadcrumb-item"><small><a href="{{url('/')}}">@lang('labels.welcome')</a></small></li>
+    <li class="breadcrumb-item active" aria-current="page">@lang('labels.thecreator')</li>
   </ol>
 
   <div>

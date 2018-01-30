@@ -8,39 +8,39 @@
   @if(Request()->path() == 'user/profile')
   <a class="list-group-item active" href="{{url('user/profile')}}">
     <span class="glyphicon glyphicon-user"></span>
-    Mijn profiel</a>
+    @lang('labels.myprofile')</a>
   @else
   <a class="list-group-item" href="{{url('user/profile')}}">
     <span class="glyphicon glyphicon-user"></span>
-    Mijn profiel </a>
+    @lang('labels.myprofile') </a>
   @endif
 
   @if(Request()->path() == 'user/responses')
   <a class="list-group-item active" href="{{route('responses')}}">
     <span class="glyphicon glyphicon-comment"></span>
-    Mijn reacties </a>
+    @lang('labels.myresponses')</a>
   @else
   <a class="list-group-item" href="{{route('responses')}}">
     <span class="glyphicon glyphicon-comment"></span>
-    Mijn reacties</a>
+    @lang('labels.myresponses')</a>
   @endif
 
   @if(Request()->path() == 'user/ad')
   <a class="list-group-item active" href="{{url('user/ad')}}">
     <span class="glyphicon glyphicon-list-alt"></span>
-    Mijn advertenties </a>
+    @lang('labels.myads')</a>
   @else
   <a class="list-group-item" href="{{url('user/ad')}}">
     <span class="glyphicon glyphicon-list-alt"></span>
-    Mijn advertenties</a>
+    @lang('labels.myads')</a>
   @endif
 <br>
   <a href="{{route('jobrequest')}}" class="list-group-item">
     <span class="glyphicon glyphicon-bullhorn"></span>
-    Oproep plaatsen </a>
+    @lang('labels.placecall')</a>
   <a href="{{route('jobopening')}}" class="list-group-item">
     <span class="glyphicon glyphicon-ok-circle"></span>
-    Vacature plaatsen </a>
+    @lang('labels.placevacancy')</a>
 </div>
 
 </div>

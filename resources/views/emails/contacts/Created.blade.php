@@ -1,12 +1,12 @@
 @component('mail::message')
-# Hallo,
+# @lang('labels.hi'),
 
-U heeft een nieuw bericht ontvangen op BruineVlootBemanning.nl
+@lang('labels.newmessage')
 
 @component('mail::button', ['url' => url('user/responses')])
-Ga naar BruineVlootBemanning.nl
+@lang('labels.gotosite')
 @endcomponent
 
-Tot ziens,<br>
+@lang('labels.goodbye'),<br>
 {{ config('app.name') }}
 @endcomponent

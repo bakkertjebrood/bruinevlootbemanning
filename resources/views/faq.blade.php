@@ -13,13 +13,13 @@ Bruinevlootbemanning
 <div class="container">
 
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><small><a href="{{url('/')}}">Welkom</a></small></li>
-    <li class="breadcrumb-item active" aria-current="page">Veelgestelde vragen</li>
+    <li class="breadcrumb-item"><small><a href="{{url('/')}}">@lang('labels.welcome')</a></small></li>
+    <li class="breadcrumb-item active" aria-current="page">@lang('labels.faq')</li>
   </ol>
 
   <div class="panel-group" id="accordion">
 
-    <div class="faqHeader">Veelgestelde vragen</div>
+    <div class="faqHeader">@lang('labels.faq')</div>
     @foreach($faqs as $faq)
     <div class="panel panel-default">
       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#{{$faq->id}}">

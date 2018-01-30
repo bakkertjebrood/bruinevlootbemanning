@@ -13,8 +13,8 @@ Bruinevlootbemanning
 <div id="responses" class="container">
 
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><small><a href="{{url('/')}}">Welkom</a></small></li>
-    <li class="breadcrumb-item active" aria-current="page">Berichten</li>
+    <li class="breadcrumb-item"><small><a href="{{url('/')}}">@lang('labels.welcome')</a></small></li>
+    <li class="breadcrumb-item active" aria-current="page">@lang('labels.myresponses')</li>
   </ol>
 
   @include('flash::message')
@@ -34,13 +34,13 @@ Bruinevlootbemanning
     <!-- Chat -->
 
     <div v-if="responses.length == 0" class="well">
-      <i>Geen berichten</i>
+      <i>@lang('labels.nodata')</i>
     </div>
 
     <div v-if="responses.length > 0" class="panel panel-default">
       <div class="panel-heading">
         <a v-if="conversation_id" data-toggle="confirmation" @click="deleteResponse()" class="pull-right btn" href="#"><span class="glyphicon glyphicon-trash"></span></a>
-        <h4>Gesprek</h4>
+        <h4>@lang('labels.conversation')</h4>
         <div id="chatscroll" v-chat-scroll class="panel-body chatscroll">
 
           <ul class="chat">
@@ -87,7 +87,7 @@ Bruinevlootbemanning
             <textarea rows="7" id="btn-input" type="text"  v-model="body" class="form-control input-sm" placeholder="Schrijf uw bericht hier..." />
           </textarea>
         </div>
-        <button  class="btn btn-primary btn-sm  pull-right" @click="addResponse()" id="btn-chat">Versturen</button>
+        <button  class="btn btn-primary btn-sm  pull-right" @click="addResponse()" id="btn-chat">@lang('labels.send')</button>
 
       </div>
     </div>

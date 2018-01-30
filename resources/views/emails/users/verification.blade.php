@@ -1,12 +1,12 @@
 @component('mail::message')
-# Hallo,
+# @lang('labels.hi'),
 
-Klik op de onderstaande knop om uw account op BruineVlootBemanning.nl te activeren.
+@lang('labels.clicktoactivate')
 
 @component('mail::button', ['url' => url('register/verify/').'/'.$user->email_token])
-Activeer account
+@lang('labels.activateaccount')
 @endcomponent
 
-Tot ziens,<br>
+@lang('labels.goodbye'),<br>
 {{ config('app.name') }}
 @endcomponent
