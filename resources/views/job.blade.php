@@ -13,7 +13,7 @@ Bruinevlootbemanning
 <div class="container">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><small><a href="{{route('home')}}">@lang('labels.welcome')</a></small></li>
-    <li class="breadcrumb-item"><small><a href="{{route('jobs')}}">
+    <li class="breadcrumb-item"><small><a href="{{route('jobs/requests')}}">
       @lang('labels.ads')
     </a></small></li>
     <li class="breadcrumb-item active" aria-current="page">{{ucfirst($ad->name)}}</li>

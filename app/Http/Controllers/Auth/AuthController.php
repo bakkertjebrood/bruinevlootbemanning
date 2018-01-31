@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use Socialite;
 use App\User;
+use Lang;
 
 class AuthController extends Controller
 {
@@ -27,7 +28,7 @@ class AuthController extends Controller
     $authUser = $this->findOrCreateUser($user, $provider);
 
     Auth::login($authUser, true);
-    flash()->overlay('U bent ingelogd. Maak uw <a href="/job/opening"><strong>vacature</strong></a> of <a href="/job/request"><strong>oproep</strong></a> aan', 'U bent ingelogd');
+    flash()->overlay(lang::get('labels.ucannow').' <a href="/job/opening"><strong>'.Lang::get('labels.vacancy').'</strong></a> '.Lang::get('labels.or').' <a href="/job/request"><strong>'.Lang::get('labels.opening').'</strong></a> '.Lang::get('labels.post').'', );
 
     return redirect('/');
 

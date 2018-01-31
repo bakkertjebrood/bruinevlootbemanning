@@ -53,7 +53,7 @@ BruineVlootBemanning
 
     <div class="header">
       <a class="pull-right hidden-xs" href="{{route('jobopenings')}}"><small>@lang('labels.showallads')</small></a>
-      <h2>@lang('labels.openings') <small>@lang('labels.aselection')</small></h2>
+      <h2>@lang('labels.openingsc') <small>@lang('labels.aselection')</small></h2>
     </div>
 
     <div class="row">
@@ -89,7 +89,7 @@ BruineVlootBemanning
 
     <div class="header">
       <a class="pull-right hidden-xs" href="{{route('jobrequests')}}"><small>@lang('labels.showallads')</small></a>
-      <h2>@lang('labels.requests') <small>@lang('labels.aselection')</small></h2>
+      <h2>@lang('labels.requestsc') <small>@lang('labels.aselection')</small></h2>
     </div>
 
     <div class="row">

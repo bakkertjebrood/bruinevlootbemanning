@@ -125,6 +125,15 @@ return [
     'showallads' => 'Alle advertenties tonen',
     'aselection' => 'een greep',
     'show' => 'Bekijken',
+    'openingsc' => 'Vacatures',
+    'requestsc' => 'Oproepen',
+    'ucannow' => 'U kunt nu',
+    'vacancy' => 'vacature',
+    'opening' => 'oproep',
+    'or' => 'of',
+    'post' => 'plaatsen',
+
+
 
 
 

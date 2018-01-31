@@ -2,6 +2,34 @@
   height:40px;
 }
 
+.flags{
+  margin-top:12px;
+  margin-left:5px;
+  border: solid #fff 1px;
+  opacity: 0.5;
+}
+
+.flags:hover{
+  opacity: 1.0;
+}
+
+.list-group-horizontal .list-group-item {
+    display: inline-block;
+}
+.list-group-horizontal .list-group-item {
+	margin-bottom: 0;
+	margin-left:-4px;
+	margin-right: 0;
+}
+.list-group-horizontal .list-group-item:first-child {
+	border-top-right-radius:0;
+	border-bottom-left-radius:4px;
+}
+.list-group-horizontal .list-group-item:last-child {
+	border-top-right-radius:4px;
+	border-bottom-left-radius:0;
+}
+
 .thumbnail{
   background-color: white;
 }

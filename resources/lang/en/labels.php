@@ -115,4 +115,11 @@ return [
     'showallads' => 'Show all ads',
     'aselection' => 'a selection',
     'show' => 'View',
+    'openingsc' => 'Vacancies',
+    'requestsc' => 'Ads',
+    'ucannow' => 'You can now post your',
+    'vacancy' => 'vacancy',
+    'opening' => 'ad',
+    'or' => 'or',
+    'post' => '',
 ];
