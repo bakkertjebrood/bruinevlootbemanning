@@ -9,6 +9,12 @@ use App\Faq;
 
 class GeneralController extends Controller
 {
+  public function language(){
+    $language = language()->getCode($code = 'default');
+
+    return response()->json($language);
+  }
+
     public function faq(){
       $faqs = Faq::orderBy('name')->get();
       return view('faq')

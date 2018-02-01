@@ -35,7 +35,7 @@ class RegisterController extends Controller
   * @var string
   */
 
-  protected $redirectTo = '/user/profile';
+  protected $redirectTo = '/';
 
   /**
   * Create a new controller instance.
@@ -90,7 +90,6 @@ class RegisterController extends Controller
       'firstname' => $data['firstname'],
       'lastname' => $data['lastname'],
       'phone' => $data['phone'],
-      'city' => $data['city'],
       'role_id' => 1,
       'email' => $data['email'],
       'password' => bcrypt($data['password']),

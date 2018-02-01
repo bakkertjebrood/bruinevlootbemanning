@@ -122,4 +122,13 @@ return [
     'opening' => 'ad',
     'or' => 'or',
     'post' => '',
+    'period' => 'Period',
+    'showallads' => 'Ad type',
+    'openingsall' => 'All vacancies',
+    'requestsall' => 'All ads',
+    'fulllist' => 'the full list',
+    'placedod' => 'Posted on',
+    'searchcategory' => 'Search by category',
+    'searchskills' => 'Search by skills',
+    'loggedin' => 'U bent ingelogd',
 ];

@@ -43,13 +43,13 @@ BruineVlootBemanning
               </div>
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for="email" class="col-md-4 control-label">@lang('labels.city')</label>
               <div class="col-md-6">
                 <select class="select-places" id="selectPlace" name="city" required>
                 </select>
               </div>
-            </div>
+            </div> -->
 
             <div class="form-group">
               <label for="email" class="col-md-4 control-label">@lang('labels.phone') <small class="text-muted"></small></label>

@@ -49,12 +49,12 @@ Bruinevlootbemanning
       <input type="text" class="form-control" id="email" name="email" value="{{$user->email}}" placeholder="@lang('labels.email')" required="true">
     </div>
 
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="city">@lang('labels.city')</label>
       <select class="select-places" id="selectPlace" name="city">
 
       </select>
-    </div>
+    </div> -->
 
     <div class="form-group">
       <label for="phone">@lang('labels.phone')</label>

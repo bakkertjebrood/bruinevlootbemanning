@@ -1,5 +1,19 @@
 .lineup{
-  height:40px;
+  padding-top: 5px;
+  height:25px;
+
+}
+
+.clean:hover{
+  text-decoration: none;
+}
+
+.shadowhover:hover{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.daterange input[type="text"]{
+  background-color:white;
 }
 
 .flags{
@@ -7,10 +21,37 @@
   margin-left:5px;
   border: solid #fff 1px;
   opacity: 0.5;
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
 }
 
 .flags:hover{
   opacity: 1.0;
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+}
+
+.openad-button strong{
+    color: white;
+}
+
+.openad-center{
+  width:75px;
+  margin:0 auto;
+}
+
+
+.openad-button{
+  background-color: #888;
+  /* font-weight: bold; */
+    font-size:11px;
+}
+
+.openad-button-wrap a:hover{
+  background-color: #840;
+  color: white;
+  /* font-weight: bold; */
+  font-size:11px;
 }
 
 .list-group-horizontal .list-group-item {
@@ -271,6 +312,24 @@ textarea{
 .notice a:hover{
   /*border: 1px solid #840;*/
   background-color: #840;
+  color:white;
+  font-weight: bold;
+}
+
+.shadow{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.notice-green a:hover{
+  /*border: 1px solid #840;*/
+  background-color: #444;
+  color:white;
+  font-weight: bold;
+}
+
+.notice-green a{
+  /*border: 1px solid #840;*/
+  background-color: #270;
   color:white;
   font-weight: bold;
 }

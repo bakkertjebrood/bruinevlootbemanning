@@ -39,14 +39,9 @@
       <!-- Right Side Of Navbar -->
       <ul class="nav navbar-nav navbar-right top-menu">
         <li><a href="{{route('home')}}">@lang('labels.home')</a></li>
-        <li><a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">@lang('labels.ads')
-          <span class="caret"></span>
-        </a>
-          <ul class="dropdown-menu">
-            <li><a href="{{route('jobrequests')}}">@lang('labels.ads')</i></a></li>
-            <li><a href="{{route('jobrequest')}}">@lang('labels.newrequest')</i></a></li>
-            <li><a href="{{route('jobopening')}}">@lang('labels.newopening')</i></a></li>
-          </ul>
+        <li><a href="{{route('jobrequests')}}">@lang('labels.requestsc')</a>
+        </li>
+        <li><a href="{{route('jobopenings')}}">@lang('labels.openingsc')</a>
         </li>
         <li><a href="{{route('faq')}}">@lang('labels.faq')</a></li>
         <li>

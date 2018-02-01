@@ -28,7 +28,7 @@ class AuthController extends Controller
     $authUser = $this->findOrCreateUser($user, $provider);
 
     Auth::login($authUser, true);
-    flash()->overlay(lang::get('labels.ucannow').' <a href="/job/opening"><strong>'.Lang::get('labels.vacancy').'</strong></a> '.Lang::get('labels.or').' <a href="/job/request"><strong>'.Lang::get('labels.opening').'</strong></a> '.Lang::get('labels.post').'', );
+    flash()->overlay(lang::get('labels.ucannow').' <a href="/job/opening"><strong>'.Lang::get('labels.vacancy').'</strong></a> '.Lang::get('labels.or').' <a href="/job/request"><strong>'.Lang::get('labels.opening').'</strong></a> '.Lang::get('labels.post'),Lang::get('labels.loggedin'));
 
     return redirect('/');
 

@@ -16,7 +16,7 @@ Route::group(['middleware' => 'language'], function () {
 Auth::routes();
 
 // languages
-
+Route::get('language','GeneralController@language')->name('language');
 
 Route::get('auth/{provider}', 'Auth\AuthController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallback');

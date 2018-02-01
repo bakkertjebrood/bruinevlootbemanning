@@ -11,15 +11,38 @@ Bruinevlootbemanning
 
 @section('content')
 <div class="container">
+  <span>
+  <a href="
+     @if($ad->type == 1)
+     {{route('jobopenings')}}
+     @else
+     {{route('jobrequests')}}
+     @endif" class="h4 clean"><span class="fa fa-arrow-circle-left"></span>
+     @if($ad->type == 1)
+     @lang('labels.openingsall')
+     @else
+     @lang('labels.requestsall')
+     @endif
+   </a>
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><small><a href="{{route('home')}}">@lang('labels.welcome')</a></small></li>
-    <li class="breadcrumb-item"><small><a href="{{route('jobs/requests')}}">
-      @lang('labels.ads')
-    </a></small></li>
-    <li class="breadcrumb-item active" aria-current="page">{{ucfirst($ad->name)}}</li>
-  </ol>
-
+    <li class="breadcrumb-item"><small><a href="
+       @if($ad->type == 1)
+       {{route('jobopenings')}}
+       @else
+       {{route('jobrequests')}}
+       @endif">
+       @if($ad->type == 1)
+       @lang('labels.openingsall')
+       @else
+       @lang('labels.requestsall')
+       @endif
+     </a></small></li>
+     <li class="breadcrumb-item active" aria-current="page">{{str_limit($ad->name,45)}}</li>
+   </ol>
+</span>
   <div class="col-lg-8">
+
     @include('flash::message')
     <div class="panel panel-default">
       <div class="panel-heading">

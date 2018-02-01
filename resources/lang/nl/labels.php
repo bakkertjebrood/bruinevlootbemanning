@@ -36,7 +36,7 @@ return [
     'email' => 'E-mail adres',
     'password' => 'Wachtwoord',
     'introtitle' => 'Schippers, matrozen, horeca personeel en klussers gevraagd',
-    'introtext' => 'Van student tot pensionado, van starter tot ervaren bemanningslid, iedereen is welkom! Er is werk te doen aan boord van prachtige historische schepen binnen of buiten het vaar seizoen. Schrijf je dus in of ben je scheepseigenaar, plaats jouw vacature en kom in contact met mede enthousiastelingen',
+    'introtext' => 'Van student tot pensionado, van starter tot ervaren bemanningslid, iedereen is welkom! Er is werk te doen aan boord van prachtige historische schepen binnen of buiten het vaar seizoen. Schrijf je dus in of ben je scheepseigenaar, plaats jouw vacature en kom in contact met mede enthousiastelingen.',
     'respondto' => 'Reageer op',
     'yourmessage' => 'Uw bericht',
     'writeyourmessage' => 'Schrijf uw bericht',
@@ -132,6 +132,15 @@ return [
     'opening' => 'oproep',
     'or' => 'of',
     'post' => 'plaatsen',
+    'period' => 'Periode',
+    'showallads' => 'Aanbod',
+    'openingsall' => 'Vacatures overzicht',
+    'requestsall' => 'Oproepen overzicht',
+    'fulllist' => 'het volledige aanbod',
+    'placedon' => 'Geplaatst op',
+    'searchcategory' => 'Zoek op categorie',
+    'searchskills' => 'Zoek op vaardigheden',
+    'loggedin' => 'U bent ingelogd',
 
 
 

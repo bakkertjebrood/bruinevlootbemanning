@@ -1,5 +1,9 @@
 $(function(){
 
+  $('.btn-primary').click(function(){
+    $(this).disabled
+  });
+
 $('[data-toggle="confirmation"]').confirmation();
 
   $.ajaxSetup({

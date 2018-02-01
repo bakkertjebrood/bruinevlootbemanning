@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
-  <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/custom001.css') }}">
   <link rel="stylesheet" href="/css/bootstrap-datepicker3.standalone.min.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 
@@ -157,7 +157,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
   <script src="{{ asset('js/places.js') }}" charset="utf-8"></script>
-  <script type="text/javascript" src="{{ asset('js/custom.js') }}" charset="utf-8"></script>
+  <script type="text/javascript" src="{{ asset('js/custom001.js') }}" charset="utf-8"></script>
 
 @yield('scripts')
 
