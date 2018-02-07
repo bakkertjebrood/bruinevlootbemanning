@@ -7,21 +7,22 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class responseCreated extends Mailable
+class contactCreated extends Mailable
 {
 
   // public $this->messageBody = $messageBody;
 
     use Queueable, SerializesModels;
 
+    public $formdata;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($formdata)
     {
-        //
+        $this->formdata = $formdata;
     }
 
     /**
@@ -32,7 +33,8 @@ class responseCreated extends Mailable
     public function build()
     {
         return $this
-          ->subject('Nieuw bericht op BruineVlootBemanning.nl')
+          ->subject('Nieuw bericht via formulier BruineVlootBemanning.nl')
           ->markdown('emails.contacts.Created');
+
     }
 }

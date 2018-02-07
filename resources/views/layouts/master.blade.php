@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel=”image_src” href="/images/bvb.lgo.png" />
 
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -16,7 +17,7 @@
   <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
-  <link rel="stylesheet" href="{{ asset('css/custom001.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/custom002.css') }}">
   <link rel="stylesheet" href="/css/bootstrap-datepicker3.standalone.min.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 
@@ -119,7 +120,7 @@
           <ul>
             <li><a href="{{route('about')}}">@lang('labels.theinitiative')</a></li>
             <li><a href="{{route('contact')}}">@lang('labels.contactme')</a></li>
-            <li><a href="{{route('creator')}}">@lang('labels.creator')</a></li>
+            <li><a href="{{route('creator')}}">@lang('labels.thecreator')</a></li>
           </ul>
         </div>
         <div class="col-sm-3">

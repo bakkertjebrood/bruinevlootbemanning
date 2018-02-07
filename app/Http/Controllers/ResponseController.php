@@ -110,7 +110,8 @@ class ResponseController extends Controller
     }
     // $user = User::find(Ad::find($request->ad_id));
 
-    Mail::to($addOwner)->send(new responseCreated());
+    Mail::to($addOwner)->queue(new responseCreated());
+    Mail::to('elmer@bruinevlootbemanning.nl')->queue(new responseCreated());
 
     return response()->json(true);
   }else{
@@ -159,7 +160,8 @@ public function storefront(Request $request)
   }
   // $user = User::find(Ad::find($request->ad_id));
 
-  Mail::to($addOwner)->send(new responseCreated());
+  Mail::to($addOwner)->queue(new responseCreated());
+  Mail::to('elmer@bruinevlootbemanning.nl')->queue(new responseCreated());
 
   flash('Uw reactie is verzonden')->success();
   return redirect()->back();

@@ -9,6 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class EmailVerification extends Mailable
 {
     use Queueable, SerializesModels;
+    
     public $user;
     /**
      * Create a new message instance.

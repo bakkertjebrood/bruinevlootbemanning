@@ -14,7 +14,7 @@
       </button>
 
       <!-- Branding Image -->
-      <div class="logo hidden-xs hidden-sm">
+      <div class="logo hidden-xs hidden-sm hidden-md">
 
 
           <div class="logo-icon">
@@ -38,12 +38,13 @@
 
       <!-- Right Side Of Navbar -->
       <ul class="nav navbar-nav navbar-right top-menu">
-        <li><a href="{{route('home')}}">@lang('labels.home')</a></li>
-        <li><a href="{{route('jobrequests')}}">@lang('labels.requestsc')</a>
+
+        <li class="{{ Request::is( '/') ? 'active' : '' }}" ><a href="{{route('home')}}">@lang('labels.home')</a></li>
+        <li class="{{ Request::is( 'job/requests') ? 'active' : '' }}"><a href="{{route('jobrequests')}}">@lang('labels.requestsc')</a>
         </li>
-        <li><a href="{{route('jobopenings')}}">@lang('labels.openingsc')</a>
+        <li class="{{ Request::is( 'job/openings') ? 'active' : '' }}"><a href="{{route('jobopenings')}}">@lang('labels.openingsc')</a>
         </li>
-        <li><a href="{{route('faq')}}">@lang('labels.faq')</a></li>
+        <li class="{{ Request::is( 'faq') ? 'active' : '' }}"><a href="{{route('faq')}}">@lang('labels.faq')</a></li>
         <li>
           @if (Auth::guest())
           <a href="#" data-toggle="modal" data-target="#login_modal" class="">@lang('labels.login')</a>
@@ -61,12 +62,12 @@
           </ul>
           @endif
         </li>
-        <li>
+        <li class="{{ Request::is( 'register') ? 'active' : '' }}">
           @if (Auth::guest())
           <a href="{{route('register')}}" class="">@lang('labels.register')</a>
           @endif
         </li>
-        <li><a href="{{route('contact')}}">@lang('labels.contact')</a></li>
+        <li class="{{ Request::is( 'contact') ? 'active' : '' }}"><a href="{{route('contact')}}">@lang('labels.contact')</a></li>
       </ul>
     </div>
   </div>

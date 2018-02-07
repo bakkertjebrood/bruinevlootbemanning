@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Contact;
 use App\User;
 use App\Faq;
+use Mail;
+use App\Mail\contactCreated;
 
 class GeneralController extends Controller
 {
@@ -29,7 +31,9 @@ class GeneralController extends Controller
 
       Contact::create($request->all());
       flash('Uw bericht is verstuurd.')->success();
-      Mail::to(User::find(1))->queue(new contactCreated());
+
+      $formdata = $request->all();
+      Mail::to('elmer@bruinevlootbemanning.nl')->queue(new contactCreated($formdata));
       return back();
     }
 

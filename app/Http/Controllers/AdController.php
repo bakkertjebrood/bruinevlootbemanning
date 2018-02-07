@@ -28,8 +28,8 @@ class AdController extends Controller
        $category_definitions = Category_definition::all();
        $skill_definitions = Skill_definition::all();
 
-       $jobopenings = Ad::where('type','1')->where('user_id',Auth::user()->id)->paginate(15);
-       $jobrequests = Ad::where('type','2')->where('user_id',Auth::user()->id)->paginate(15);
+       $jobopenings = Ad::where('type','1')->where('user_id',Auth::user()->id)->paginate(25);
+       $jobrequests = Ad::where('type','2')->where('user_id',Auth::user()->id)->paginate(25);
 
          return View::make('joblist')
          ->with('jobopenings', $jobopenings)

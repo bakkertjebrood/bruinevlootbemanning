@@ -1,5 +1,11 @@
 $(function(){
 
+  $(function(){
+    $('.has-spinner').click(function() {
+        $(this).toggleClass('active');
+    });
+});
+
   $('.btn-primary').click(function(){
     $(this).disabled
   });

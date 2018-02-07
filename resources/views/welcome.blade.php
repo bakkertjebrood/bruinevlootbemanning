@@ -27,6 +27,8 @@ BruineVlootBemanning
     @if(Auth::guest())
     @include('inc.login_inline')
     @endif
+
+    @if(Auth::check())
 <div class="hidden-xs">
 
 <h4>@lang('labels.newmembers')</h4>
@@ -36,6 +38,7 @@ BruineVlootBemanning
       @endforeach
     </ul>
     </div>
+    @endif
 
   </div>
 
@@ -45,13 +48,13 @@ BruineVlootBemanning
     @include('flash::message')
 
     <div class="header">
-      <a class="pull-right hidden-xs" href="{{route('jobopenings')}}"><small>@lang('labels.showallads')</small></a>
+      <a class="pull-right hidden-xs" href="{{route('jobopenings')}}"><small>@lang('labels.openingsall')</small></a>
       <h2>@lang('labels.openingsc') <small>@lang('labels.aselection')</small></h2>
     </div>
 
     <div class="row">
       @foreach($jobs as $ad)
-      <div class="col-sm-2 col-md-4 col-lg-3">
+      <div class="col-sm-3 col-md-3 col-lg-3">
         <a href="{{route('job',$ad->id)}}" class="clean ">
           <div class="thumbnail shadowhover">
             <img class="img img-responsive" src="{{url('/uploads/photo')}}/{{$ad->photo}}" alt="Photo">
@@ -68,13 +71,13 @@ BruineVlootBemanning
     </div>
 
     <div class="header">
-      <a class="pull-right hidden-xs" href="{{route('jobrequests')}}"><small>@lang('labels.showallads')</small></a>
+      <a class="pull-right hidden-xs" href="{{route('jobrequests')}}"><small>@lang('labels.requestsall')</small></a>
       <h2>@lang('labels.requestsc') <small>@lang('labels.aselection')</small></h2>
     </div>
 
     <div class="row">
       @foreach($offers as $ad)
-      <div class="col-sm-6 col-md-4 col-lg-3">
+      <div class="col-sm-3 col-md-3 col-lg-3">
 
         <a href="{{route('job',$ad->id)}}" class="clean ">
           <div class="thumbnail shadowhover">

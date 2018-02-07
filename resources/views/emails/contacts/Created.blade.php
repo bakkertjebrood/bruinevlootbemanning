@@ -1,11 +1,13 @@
 @component('mail::message')
 # @lang('labels.hi'),
 
-@lang('labels.newmessage')
+@lang('labels.newmessage')<br>
 
-@component('mail::button', ['url' => url('user/responses')])
-@lang('labels.gotosite')
-@endcomponent
+Naam:       {{$formdata['name']}}<br>
+E-mail:     {{$formdata['email']}}<br>
+Onderwerp:  {{$formdata['subject']}}<br><br>
+Bericht:<br>
+{{$formdata['description']}}<br>
 
 @lang('labels.goodbye'),<br>
 {{ config('app.name') }}

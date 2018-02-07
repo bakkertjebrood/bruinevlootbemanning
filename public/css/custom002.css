@@ -1,0 +1,968 @@
+.lineup{
+  padding-top: 5px;
+  height:25px;
+
+}
+
+.searchtitle{
+  width:120px;
+  margin: 0px auto;
+}
+
+
+.arrowdown{
+  position: relative;
+  margin-top: 50px;
+  width: 10px;
+  margin: 0 auto;
+}
+
+.fullwidth{
+  width: 100%;
+}
+
+.searchfooter{
+  width: 75%;
+  position: fixed;
+  left: 50%;
+  margin-left: -37.5%;
+  bottom: 4px;
+  z-index: 99999;
+}
+
+
+.searchfooter a{
+  width: 100%;
+}
+
+
+
+.spinner {
+  display: inline-block;
+  opacity: 0;
+  max-width: 0;
+
+  -webkit-transition: opacity 0.25s, max-width 0.45s;
+  -moz-transition: opacity 0.25s, max-width 0.45s;
+  -o-transition: opacity 0.25s, max-width 0.45s;
+  transition: opacity 0.25s, max-width 0.45s; /* Duration fixed since we animate additional hidden width */
+}
+
+.has-spinner.active {
+  cursor:progress;
+}
+
+.has-spinner.active .spinner {
+  opacity: 1;
+  max-width: 50px; /* More than it will ever come, notice that this affects on animation duration */
+}
+
+
+.clean:hover{
+  text-decoration: none;
+}
+
+.shadowhover:hover{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.daterange input[type="text"]{
+  background-color:white;
+}
+
+.flags{
+  margin-top:12px;
+  margin-left:5px;
+  border: solid #fff 1px;
+  opacity: 0.5;
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+}
+
+.flags:hover{
+  opacity: 1.0;
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+}
+
+.openad-button strong{
+  color: white;
+}
+
+.openad-center{
+  width:75px;
+  margin:0 auto;
+}
+
+
+.openad-button{
+  background-color: #888;
+  /* font-weight: bold; */
+  font-size:11px;
+}
+
+.openad-button-wrap a:hover{
+  background-color: #840;
+  color: white;
+  /* font-weight: bold; */
+  font-size:11px;
+}
+
+.list-group-horizontal .list-group-item {
+  display: inline-block;
+}
+.list-group-horizontal .list-group-item {
+  margin-bottom: 0;
+  margin-left:-4px;
+  margin-right: 0;
+}
+.list-group-horizontal .list-group-item:first-child {
+  border-top-right-radius:0;
+  border-bottom-left-radius:4px;
+}
+.list-group-horizontal .list-group-item:last-child {
+  border-top-right-radius:4px;
+  border-bottom-left-radius:0;
+}
+
+.thumbnail{
+  background-color: white;
+}
+
+.thumbnail h5{
+  /* color: #840; */
+}
+
+.btn-primary:click{
+  opacity: 0.8;
+}
+
+.social-wrap{
+  margin:0 auto;
+  width: 350px;
+}
+
+.social-center{
+  width:180px;
+  margin:0 auto;
+}
+
+.social a:hover{
+  background-color: #358;
+}
+
+.social a:click{
+  background-color: #358;
+}
+
+.facebook-button span{
+  color: white;
+  margin-right: 5px;
+}
+
+.facebook-button strong{
+  color: white;
+}
+
+.facebook-button{
+  background-color: #46b;
+}
+
+.linkedin-button span{
+  color: white;
+  margin-right: 5px;
+}
+
+.linkedin-button strong{
+  color: white;
+}
+
+.linkedin-button{
+  background-color: #07b;
+}
+
+/*  */
+.google-button span{
+  color: white;
+  margin-right: 5px;
+}
+
+.google-button strong{
+  color: white;
+}
+
+.google-button{
+  background-color: #e55;
+}
+
+.strike {
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-bottom: 20px;
+  margin-top:20px;
+}
+
+.strike > span {
+  position: relative;
+  display: inline-block;
+}
+
+.strike > span:before,
+.strike > span:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 9999px;
+  height: 1px;
+  background: #ddd;
+}
+
+.strike > span:before {
+  right: 100%;
+  margin-right: 15px;
+}
+
+.strike > span:after {
+  left: 100%;
+  margin-left: 15px;
+}
+
+textarea{
+  white-space: pre-line;
+}
+
+.to-bottom{
+  bottom: 0px;
+  position: relative;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: all 0.5s;
+}
+.fade-enter, .fade-leave-to /* .list-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  /* transform: translateY(30px); */
+}
+
+.list-group-item-primary {
+  color: rgb(255, 255, 255);
+  background-color: rgb(66, 139, 202);
+}
+
+.centerme{
+  margin: 0 auto;
+  width: 150px;
+}
+
+.ad_block_footer{
+  width:100%;
+}
+
+.ad_block_footer a{
+  display: inline-block;
+  width: 48%;
+}
+
+.top-buffer { margin-top:55px; }
+
+.img-sm{
+  width:25px;
+  height:25px;
+  position: relative;
+  top:-3px;
+  float:right;
+}
+
+.img-md{
+  width:50px;
+  height:50px;
+  position: relative;
+  top:-3px;
+  float:right;
+}
+
+.img-lg{
+  width:150px;
+  height:150px;
+  margin-top:35px;
+  margin-bottom:45px;
+}
+
+.list-group-item:hover{
+  /* cursor:pointer; */
+}
+
+.list-group-item-icon{
+  margin-right:5px;
+}
+
+.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+  transition: opacity 1s
+}
+
+.list-item {
+  display: inline-block;
+  transition: all 0.5s;
+}
+.list-enter-active, .list-leave-active {
+  transition: all 0.5s;
+}
+.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.photo img{
+  width:150px;
+  height:150px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.pre-icon{
+  margin-right:5px;
+}
+
+.retainlinebreaks{
+  white-space: pre-line;
+}
+
+.navtop{
+  position: fixed;
+  top: 0px;
+  width:100%;
+  z-index: 999;
+}
+
+.navmargin{
+  position: relative;
+  height:51px;
+}
+
+.v-center {
+  position: relative;
+  top: 120px;
+  right:10px;
+}
+
+.login{
+  margin-top:80px;
+}
+
+.a-centered{
+  width:250px;
+  margin:auto;
+}
+
+.notice a{
+  /*border: 1px solid #840;*/
+  background-color: #444;
+  color:white;
+  font-weight: bold;
+}
+
+.notice a:hover{
+  /*border: 1px solid #840;*/
+  background-color: #840;
+  color:white;
+  font-weight: bold;
+}
+
+.shadow{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.notice-green a:hover{
+  /*border: 1px solid #840;*/
+  background-color: #444;
+  color:white;
+  font-weight: bold;
+}
+
+.notice-green a{
+  /*border: 1px solid #840;*/
+  background-color: #270;
+  color:white;
+  font-weight: bold;
+}
+
+.notice-inverse a{
+  /*border: 1px solid #840;*/
+  background-color: #840;
+  color:white;
+  font-weight: bold;
+}
+
+.notice-inverse a:hover{
+  /*border: 1px solid #840;*/
+  background-color: #444;
+  color:white;
+  font-weight: bold;
+}
+
+.notice-inverse button{
+  /*border: 1px solid #840;*/
+  background-color: #840;
+  color:white;
+  font-weight: bold;
+}
+
+.notice-inverse button:hover{
+  /*border: 1px solid #840;*/
+  background-color: #444;
+  color:white;
+  font-weight: bold;
+}
+
+.checkbox {
+  padding-left: 20px; }
+  .checkbox label {
+    display: inline-block;
+    position: relative;
+    padding-left: 5px; }
+    .checkbox label::before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      width: 17px;
+      height: 17px;
+      left: 0;
+      margin-left: -20px;
+      border: 1px solid #cccccc;
+      border-radius: 3px;
+      background-color: #fff;
+      -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+      -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+      transition: border 0.15s ease-in-out, color 0.15s ease-in-out; }
+      .checkbox label::after {
+        display: inline-block;
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        left: 0;
+        top: 0;
+        margin-left: -20px;
+        padding-left: 3px;
+        padding-top: 1px;
+        font-size: 11px;
+        color: #555555; }
+        .checkbox input[type="checkbox"] {
+          opacity: 0; }
+          .checkbox input[type="checkbox"]:focus + label::before {
+            outline: thin dotted;
+            outline: 5px auto -webkit-focus-ring-color;
+            outline-offset: -2px; }
+            .checkbox input[type="checkbox"]:checked + label::after {
+              font-family: 'FontAwesome';
+              content: "\f00c"; }
+              .checkbox input[type="checkbox"]:disabled + label {
+                opacity: 0.65; }
+                .checkbox input[type="checkbox"]:disabled + label::before {
+                  background-color: #eeeeee;
+                  cursor: not-allowed; }
+                  .checkbox.checkbox-circle label::before {
+                    border-radius: 50%; }
+                    .checkbox.checkbox-inline {
+                      margin-top: 0; }
+
+                      .checkbox-primary input[type="checkbox"]:checked + label::before {
+                        background-color: #840;
+                        border-color: #444; }
+                        .checkbox-primary input[type="checkbox"]:checked + label::after {
+                          color: #fff; }
+
+                          .checkbox-danger input[type="checkbox"]:checked + label::before {
+                            background-color: #d9534f;
+                            border-color: #d9534f; }
+                            .checkbox-danger input[type="checkbox"]:checked + label::after {
+                              color: #fff; }
+
+                              .checkbox-info input[type="checkbox"]:checked + label::before {
+                                background-color: #5bc0de;
+                                border-color: #5bc0de; }
+                                .checkbox-info input[type="checkbox"]:checked + label::after {
+                                  color: #fff; }
+
+                                  .checkbox-warning input[type="checkbox"]:checked + label::before {
+                                    background-color: #f0ad4e;
+                                    border-color: #f0ad4e; }
+                                    .checkbox-warning input[type="checkbox"]:checked + label::after {
+                                      color: #fff; }
+
+                                      .checkbox-success input[type="checkbox"]:checked + label::before {
+                                        background-color: #5cb85c;
+                                        border-color: #5cb85c; }
+                                        .checkbox-success input[type="checkbox"]:checked + label::after {
+                                          color: #fff; }
+
+                                          .radio {
+                                            padding-left: 20px; }
+                                            .radio label {
+                                              display: inline-block;
+                                              position: relative;
+                                              padding-left: 5px; }
+                                              .radio label::before {
+                                                content: "";
+                                                display: inline-block;
+                                                position: absolute;
+                                                width: 17px;
+                                                height: 17px;
+                                                left: 0;
+                                                margin-left: -20px;
+                                                border: 1px solid #cccccc;
+                                                border-radius: 50%;
+                                                background-color: #fff;
+                                                -webkit-transition: border 0.15s ease-in-out;
+                                                -o-transition: border 0.15s ease-in-out;
+                                                transition: border 0.15s ease-in-out; }
+                                                .radio label::after {
+                                                  display: inline-block;
+                                                  position: absolute;
+                                                  content: " ";
+                                                  width: 11px;
+                                                  height: 11px;
+                                                  left: 3px;
+                                                  top: 3px;
+                                                  margin-left: -20px;
+                                                  border-radius: 50%;
+                                                  background-color: #555555;
+                                                  -webkit-transform: scale(0, 0);
+                                                  -ms-transform: scale(0, 0);
+                                                  -o-transform: scale(0, 0);
+                                                  transform: scale(0, 0);
+                                                  -webkit-transition: -webkit-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+                                                  -moz-transition: -moz-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+                                                  -o-transition: -o-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+                                                  transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33); }
+                                                  .radio input[type="radio"] {
+                                                    opacity: 0; }
+                                                    .radio input[type="radio"]:focus + label::before {
+                                                      outline: thin dotted;
+                                                      outline: 5px auto -webkit-focus-ring-color;
+                                                      outline-offset: -2px; }
+                                                      .radio input[type="radio"]:checked + label::after {
+                                                        -webkit-transform: scale(1, 1);
+                                                        -ms-transform: scale(1, 1);
+                                                        -o-transform: scale(1, 1);
+                                                        transform: scale(1, 1); }
+                                                        .radio input[type="radio"]:disabled + label {
+                                                          opacity: 0.65; }
+                                                          .radio input[type="radio"]:disabled + label::before {
+                                                            cursor: not-allowed; }
+                                                            .radio.radio-inline {
+                                                              margin-top: 0; }
+
+                                                              .radio-primary input[type="radio"] + label::after {
+                                                                background-color: #428bca; }
+                                                                .radio-primary input[type="radio"]:checked + label::before {
+                                                                  border-color: #428bca; }
+                                                                  .radio-primary input[type="radio"]:checked + label::after {
+                                                                    background-color: #428bca; }
+
+                                                                    .radio-danger input[type="radio"] + label::after {
+                                                                      background-color: #d9534f; }
+                                                                      .radio-danger input[type="radio"]:checked + label::before {
+                                                                        border-color: #d9534f; }
+                                                                        .radio-danger input[type="radio"]:checked + label::after {
+                                                                          background-color: #d9534f; }
+
+                                                                          .radio-info input[type="radio"] + label::after {
+                                                                            background-color: #5bc0de; }
+                                                                            .radio-info input[type="radio"]:checked + label::before {
+                                                                              border-color: #5bc0de; }
+                                                                              .radio-info input[type="radio"]:checked + label::after {
+                                                                                background-color: #5bc0de; }
+
+                                                                                .radio-warning input[type="radio"] + label::after {
+                                                                                  background-color: #f0ad4e; }
+                                                                                  .radio-warning input[type="radio"]:checked + label::before {
+                                                                                    border-color: #f0ad4e; }
+                                                                                    .radio-warning input[type="radio"]:checked + label::after {
+                                                                                      background-color: #f0ad4e; }
+
+                                                                                      .radio-success input[type="radio"] + label::after {
+                                                                                        background-color: #5cb85c; }
+                                                                                        .radio-success input[type="radio"]:checked + label::before {
+                                                                                          border-color: #5cb85c; }
+                                                                                          .radio-success input[type="radio"]:checked + label::after {
+                                                                                            background-color: #5cb85c; }
+
+                                                                                            .red-outline {
+                                                                                              border-color: #cfdc00;
+                                                                                              box-shadow: 0 0 5px rgba(207, 220, 0, 0.4);
+                                                                                            }
+
+                                                                                            .employer-btn{
+                                                                                              position: absolute;
+                                                                                              right:7px;
+                                                                                              top:7px;
+                                                                                              z-index: 999;
+                                                                                            }
+
+                                                                                            .top-menu li a {
+                                                                                              font-size: 14px;
+                                                                                              font-weight: bold;
+                                                                                            }
+
+                                                                                            .top-menu li:hover {
+                                                                                              font-size: 14px;
+                                                                                              font-weight: bold;
+                                                                                            }
+
+                                                                                            .logo{
+                                                                                              height:100px;
+                                                                                              width:275px;
+                                                                                              position:absolute;
+                                                                                              background-color: #840;
+                                                                                              top:-10px;
+                                                                                              -moz-border-radius: 5px;
+                                                                                              -webkit-border-radius: 5px;
+                                                                                              -khtml-border-radius: 5px;
+                                                                                              border-radius: 5px;
+                                                                                              border:1px dashed #ccc;
+                                                                                              padding:0px 10px;
+                                                                                              margin-left:5px;
+                                                                                              z-index: 999;
+                                                                                            }
+
+
+                                                                                            .logo-icon{
+                                                                                              background-image: url('/images/icon.png');
+                                                                                              height:48px;
+                                                                                              width: 48px;
+                                                                                              margin-top: 30px;
+                                                                                              margin-left:15px;
+                                                                                              position: relative;
+                                                                                              float:left;
+                                                                                            }
+
+                                                                                            .logo h2{
+                                                                                              margin-top: 0px;
+                                                                                              margin-left: 60px;
+                                                                                              line-height: 80%;
+                                                                                            }
+
+                                                                                            .logo *, .logo-small{
+                                                                                              color:white;
+                                                                                            }
+
+
+                                                                                            .logo-small{
+                                                                                              width: 250px;
+                                                                                              margin-left:5px;
+                                                                                              height:100%;
+                                                                                              position: relative;
+                                                                                              margin-top:12px;
+                                                                                              margin-left: 5px;
+                                                                                            }
+
+                                                                                            .logo *:hover, .logo-small *:hover{
+                                                                                              color:white;
+                                                                                              text-decoration: none;
+                                                                                            }
+
+                                                                                            .main_image {
+                                                                                              margin-top:0px;
+                                                                                              background-image: url('/images/slides/s1.jpg');
+                                                                                              background-size:cover;
+                                                                                              /*height: 310px;*/
+                                                                                              /*height: 378px;*/
+                                                                                              height: 300px;
+                                                                                              width:100%;
+                                                                                            }
+
+                                                                                            .phrase {
+                                                                                              display: none;
+                                                                                              left: 0px;
+                                                                                              top: 35px;
+                                                                                              height: 230px;
+                                                                                              position: relative;
+                                                                                              width: 600px;
+                                                                                              background-color: #555;
+                                                                                              padding: 1px 15px 10px;
+                                                                                              opacity: 0.9;
+                                                                                              filter: alpha(opacity=90);
+                                                                                            }
+
+                                                                                            .phrase h1 {
+                                                                                              display:none;
+                                                                                              font-weight: bold;
+                                                                                              color:white;
+                                                                                            }
+
+                                                                                            .phrase p {
+                                                                                              display:none;
+                                                                                              color:white;
+                                                                                            }
+
+                                                                                            .todo {
+                                                                                              left: 0px;
+                                                                                              top: 150px;
+                                                                                              position: relative;
+                                                                                              width: 600px;
+                                                                                              background-color: white;
+                                                                                              opacity: 0.9;
+                                                                                              filter: alpha(opacity=90);
+                                                                                              display: none;
+                                                                                            }
+
+                                                                                            .todo a{
+                                                                                              border-radius:0px;
+                                                                                              float:right;
+                                                                                              /*border:1px dashed #ccc;*/
+                                                                                              padding:20px;
+                                                                                              width:50%;
+                                                                                            }
+
+                                                                                            .header{
+                                                                                              margin:25px 0;
+                                                                                            }
+
+                                                                                            .center{
+                                                                                              margin:0 auto;
+                                                                                            }
+
+                                                                                            .fullwidth .list-group-item{
+                                                                                              width: 100%;
+                                                                                            }
+
+                                                                                            .panel, .btn, .list-group-item, .list-group{
+                                                                                              /* border-radius: 0px; */
+                                                                                            }
+
+                                                                                            .call-to-action {
+                                                                                              position: relative;
+                                                                                              height: 45px;
+                                                                                              width: 100%;
+                                                                                              background-color: #840;
+                                                                                              vertical-align: middle;
+                                                                                              margin-bottom: 25px;
+                                                                                            }
+
+                                                                                            .call-to-action .user-link {
+                                                                                              color:white;
+                                                                                              font-weight:normal;
+                                                                                              position: relative;
+                                                                                              top:12px;
+                                                                                              width:150px;
+                                                                                            }
+
+                                                                                            .call-to-action .dropdown-menu {
+                                                                                              margin-top: 15px;
+                                                                                            }
+
+                                                                                            .call-to-action .btn-login {
+                                                                                              color:black;
+                                                                                              position: relative;
+                                                                                              top:5px;
+                                                                                            }
+                                                                                            .ads-image-xs{
+                                                                                              width:35px;
+                                                                                              height: 35px;
+                                                                                              margin-right: 10px;
+                                                                                            }
+
+                                                                                            .ads-image-s{
+                                                                                              width:100px;
+                                                                                              height: 100px;
+                                                                                            }
+
+                                                                                            .ads-image-m{
+                                                                                              width:185px;
+                                                                                              height: 185px;
+                                                                                            }
+
+                                                                                            .ads-image-l{
+                                                                                              width:200px;
+                                                                                              height: 200px;
+                                                                                            }
+
+                                                                                            .ad_photo img{
+                                                                                              width:100%;
+                                                                                            }
+
+                                                                                            .col-centered{
+                                                                                              float: none;
+                                                                                              margin: 0 auto;
+                                                                                            }
+
+                                                                                            .login{
+                                                                                              margin-top:60px;
+                                                                                            }
+
+                                                                                            .profile-small img{
+                                                                                              position: relative;
+                                                                                              float: right;
+                                                                                              height: 80px;
+                                                                                              width: 80px;
+                                                                                              margin-left:15px;
+                                                                                            }
+
+                                                                                            .modal {
+                                                                                              text-align: center;
+                                                                                            }
+
+                                                                                            .profile img{
+                                                                                              width:100%;
+                                                                                              width:100%;
+                                                                                              height:auto;
+                                                                                            }
+
+                                                                                            .select-skills, .select-places, .select-categories{
+                                                                                              width: 100%;
+                                                                                            }
+
+                                                                                            @media screen and (min-width: 768px) {
+                                                                                              .modal:before {
+                                                                                                display: inline-block;
+                                                                                                vertical-align: middle;
+                                                                                                content: " ";
+                                                                                                height: 100%;
+                                                                                              }
+                                                                                            }
+
+                                                                                            .modal-dialog {
+                                                                                              display: inline-block;
+                                                                                              text-align: left;
+                                                                                              vertical-align: middle;
+                                                                                            }
+
+                                                                                            .footer .divider{
+                                                                                              height:50px;
+                                                                                              background-color: #222;
+                                                                                              margin-bottom: 80px;
+                                                                                            }
+
+                                                                                            .footer-wrapper{
+                                                                                              background-color: #3c3d41;
+                                                                                              height:400px;
+                                                                                              margin-top:60px;
+                                                                                            }
+
+                                                                                            .faqHeader {
+                                                                                              font-size: 27px;
+                                                                                              margin: 20px;
+                                                                                            }
+
+                                                                                            .panel-heading [data-toggle="collapse"]:after {
+                                                                                              /*font-family: 'Glyphicons Halflings';*/
+                                                                                              /*content: "e072"; /* "play" icon */*/
+                                                                                              float: right;
+                                                                                              color: #F58723;
+                                                                                              font-size: 18px;
+                                                                                              line-height: 22px;
+                                                                                              /* rotate "play" icon from > (right arrow) to down arrow */
+                                                                                              -webkit-transform: rotate(-90deg);
+                                                                                              -moz-transform: rotate(-90deg);
+                                                                                              -ms-transform: rotate(-90deg);
+                                                                                              -o-transform: rotate(-90deg);
+                                                                                              transform: rotate(-90deg);
+                                                                                            }
+
+                                                                                            .panel-heading [data-toggle="collapse"].collapsed:after {
+                                                                                              /* rotate "play" icon from > (right arrow) to ^ (up arrow) */
+                                                                                              -webkit-transform: rotate(90deg);
+                                                                                              -moz-transform: rotate(90deg);
+                                                                                              -ms-transform: rotate(90deg);
+                                                                                              -o-transform: rotate(90deg);
+                                                                                              transform: rotate(90deg);
+                                                                                              color: #454444;
+                                                                                            }
+
+                                                                                            .chat
+                                                                                            {
+                                                                                              list-style: none;
+                                                                                              margin: 0;
+                                                                                              padding: 0;
+                                                                                            }
+
+                                                                                            .chat-body .body{
+                                                                                              margin-top: 25px;
+                                                                                            }
+
+                                                                                            .left{
+                                                                                              margin-right: 40px;
+                                                                                            }
+
+                                                                                            .right{
+                                                                                              margin-left: 40px;
+                                                                                            }
+
+
+                                                                                            .chat li .chat-body p
+                                                                                            {
+                                                                                              margin: 0;
+                                                                                              /* color: #777777; */
+                                                                                            }
+
+                                                                                            .chatscroll{
+                                                                                              /* overflow: auto; */
+                                                                                              /* max-height: 450px; */
+                                                                                            }
+
+                                                                                            .left .well{
+                                                                                              background: #f0f0f0;
+                                                                                            }
+
+                                                                                            .right .well{
+                                                                                              background: #ccc;
+                                                                                            }
+
+
+                                                                                            .profile-menu span{
+                                                                                              margin-right:10px;
+                                                                                            }
+
+                                                                                            .footer-bs {
+                                                                                              background-color: #3c3d41;
+                                                                                              padding: 60px 40px;
+                                                                                              color: rgba(255,255,255,1.00);
+                                                                                              margin-bottom: 20px;
+                                                                                              border-bottom-right-radius: 6px;
+                                                                                              border-top-left-radius: 0px;
+                                                                                              border-bottom-left-radius: 6px;
+                                                                                            }
+                                                                                            .footer-bs .footer-brand, .footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { padding:10px 25px; }
+                                                                                            .footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { border-color: transparent; }
+                                                                                            .footer-bs .footer-brand h2 { margin:0px 0px 10px; }
+                                                                                            .footer-bs .footer-brand p { font-size:12px; color:rgba(255,255,255,0.70); }
+
+                                                                                            .footer-bs .footer-nav ul.pages { list-style:none; padding:0px; }
+                                                                                            .footer-bs .footer-nav ul.pages li { padding:5px 0px;}
+                                                                                            .footer-bs .footer-nav ul.pages a { color:rgba(255,255,255,1.00); font-weight:bold; text-transform:uppercase; }
+                                                                                            .footer-bs .footer-nav ul.pages a:hover { color:rgba(255,255,255,0.80); text-decoration:none; }
+                                                                                            .footer-bs .footer-nav h4 {
+                                                                                              font-size: 11px;
+                                                                                              text-transform: uppercase;
+                                                                                              letter-spacing: 3px;
+                                                                                              margin-bottom:10px;
+                                                                                            }
+
+                                                                                            .footer-bs .footer-nav ul.list { list-style:none; padding:0px; }
+                                                                                            .footer-bs .footer-nav ul.list li { padding:5px 0px;}
+                                                                                            .footer-bs .footer-nav ul.list a { color:rgba(255,255,255,0.80); }
+                                                                                            .footer-bs .footer-nav ul.list a:hover { color:rgba(255,255,255,0.60); text-decoration:none; }
+
+                                                                                            .footer-bs .footer-social ul { list-style:none; padding:0px; }
+                                                                                            .footer-bs .footer-social h4 {
+                                                                                              font-size: 11px;
+                                                                                              text-transform: uppercase;
+                                                                                              letter-spacing: 3px;
+                                                                                            }
+                                                                                            .footer-bs .footer-social li { padding:5px 4px;}
+                                                                                            .footer-bs .footer-social a { color:rgba(255,255,255,1.00);}
+                                                                                            .footer-bs .footer-social a:hover { color:rgba(255,255,255,0.80); text-decoration:none; }
+
+                                                                                            .footer-bs .footer-ns h4 {
+                                                                                              font-size: 11px;
+                                                                                              text-transform: uppercase;
+                                                                                              letter-spacing: 3px;
+                                                                                              margin-bottom:10px;
+                                                                                            }
+                                                                                            .footer-bs .footer-ns p { font-size:12px; color:rgba(255,255,255,0.70); }
+
+                                                                                            @media (min-width: 768px) {
+                                                                                              .footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { border-left:solid 1px rgba(255,255,255,0.10); }
+                                                                                            }
