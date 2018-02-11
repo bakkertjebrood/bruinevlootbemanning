@@ -117,9 +117,6 @@ Bruinevlootbemanning
     <div class="list-group-item">
       <strong>@lang('labels.created'):</strong> {{date_format($ad->created_at,'d-m-Y')}}
     </div>
-    <div class="list-group-item">
-      <strong>@lang('labels.lastchanged'):</strong> {{date_format($ad->updated_at,'d-m-Y')}}
-    </div>
   </div>
 
   <div class="list-group notice-inverse">
