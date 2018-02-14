@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class responseCreated extends Mailable
+class ResponseCreated extends Mailable
 {
 
   // public $this->messageBody = $messageBody;

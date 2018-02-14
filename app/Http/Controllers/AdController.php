@@ -54,7 +54,10 @@ class AdController extends Controller
       if($request->file('photo')){
       $photo = $request->file('photo');
       $filename = time() . '.' . $photo->getClientOriginalExtension();
-      Image::make($photo)->resizeCanvas(400,400)->save( public_path('/uploads/photo/' . $filename));
+      
+      Image::make($photo)->fit(400,400,null,'bottom')->save( public_path('/uploads/photo/' . $filename));
+
+
       $ad->photo = $filename;
     }else{
       if($request->type == 2){
@@ -159,7 +162,9 @@ class AdController extends Controller
       if($request->file('photo')){
       $photo = $request->file('photo');
       $filename = time() . '.' . $photo->getClientOriginalExtension();
-      Image::make($photo)->fit(400)->save( public_path('/uploads/photo/' . $filename));
+
+      Image::make($photo)->fit(400,400,null,'bottom')->save( public_path('/uploads/photo/' . $filename));
+
       $ad->photo = $filename;
     }else{
       // $ad->photo = 'default-photo.jpg';

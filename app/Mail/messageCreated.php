@@ -1,25 +1,30 @@
 <?php
 
 namespace App\Mail;
-use App\User;
+
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
-class EmailVerification extends Mailable
+
+class messageCreated extends Mailable
 {
+
+  // public $this->messageBody = $messageBody;
+
     use Queueable, SerializesModels;
 
-    public $user;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(User $user)
+    public function __construct()
     {
-        $this->user = $user;
+
     }
+
     /**
      * Build the message.
      *
@@ -28,7 +33,8 @@ class EmailVerification extends Mailable
     public function build()
     {
         return $this
-          ->subject('Activeer account op BruineVlootBemanning.nl')
-          ->markdown('emails.users.verification');
+          ->subject('Nieuw bericht op BruineVlootBemanning.nl')
+          ->markdown('emails.responses.Created');
+
     }
 }

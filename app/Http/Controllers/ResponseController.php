@@ -10,7 +10,8 @@ use Illuminate\Http\Request;
 use Auth;
 use App\user;
 use Mail;
-use App\Mail\responseCreated;
+use App\Mail\contactCreated;
+use App\Mail\messageCreated;
 
 class ResponseController extends Controller
 {
@@ -160,8 +161,8 @@ public function storefront(Request $request)
   }
   // $user = User::find(Ad::find($request->ad_id));
 
-  Mail::to($addOwner)->queue(new responseCreated());
-  Mail::to('elmer@bruinevlootbemanning.nl')->queue(new responseCreated());
+  Mail::to($addOwner)->queue(new messageCreated());
+  Mail::to('elmer@bruinevlootbemanning.nl')->queue(new messageCreated());
 
   flash('Uw reactie is verzonden')->success();
   return redirect()->back();

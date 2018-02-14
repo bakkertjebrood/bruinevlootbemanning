@@ -112,7 +112,7 @@ Bruinevlootbemanning
   </div>
   <div class="list-group">
     <div class="list-group-item">
-      <strong>@lang('labels.watched'):</strong> {{$ad->views + 50}}
+      <strong>@lang('labels.watched'):</strong> {{$ad->views}}
     </div>
     <div class="list-group-item">
       <strong>@lang('labels.created'):</strong> {{date_format($ad->created_at,'d-m-Y')}}
